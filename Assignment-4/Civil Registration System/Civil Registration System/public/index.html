@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Civil Registration System</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    body {
+      background-color: #f0f0f0;
+      padding: 2rem;
+    }
+    #genderChartWrapper {
+      width: 300px;
+      height: 300px;
+      margin: auto;
+      padding: 1rem;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    canvas#genderChart {
+      width: 100% !important;
+      height: 100% !important;
+      max-height: 280px;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <h1 class="text-center mb-4">Civil Registration System</h1>
+
+  <div class="alert alert-info" id="stats"></div>
+
+  <div id="genderChartWrapper">
+    <canvas id="genderChart"></canvas>
+  </div>
+
+  <div class="mb-3 d-flex gap-2">
+    <input type="text" id="searchInput" class="form-control w-50" placeholder="Search by name or ID" oninput="filterTable()" />
+    <button class="btn btn-success" onclick="getCivils()">Refresh Table</button>
+    <button class="btn btn-primary" onclick="openModal()">Add Civil</button>
+    <button class="btn btn-danger" onclick="alert('All CVs removed!')">Delete All CVs</button>
+  </div>
+
+  <table class="table table-striped table-bordered" id="civilsTable">
+    <thead class="table-dark">
+    <tr>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>ID</th>
+      <th>Age</th>
+      <th>Mobile</th>
+      <th>Gender</th>
+      <th>DOB</th>
+      <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody id="tableBody"></tbody>
+  </table>
+
+  <nav>
+    <ul class="pagination" id="pagination"></ul>
+  </nav>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="civilModal" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Civil Form</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <form id="civilForm">
+          <div class="mb-2">
+            <input type="text" class="form-control" id="firstName" placeholder="First Name" required />
+          </div>
+          <div class="mb-2">
+            <input type="text" class="form-control" id="lastName" placeholder="Last Name" required />
+          </div>
+          <div class="mb-2">
+            <input type="text" class="form-control" id="civilId" placeholder="ID" required />
+          </div>
+          <div class="mb-2">
+            <input type="number" class="form-control" id="age" placeholder="Age" min="0" max="120" required />
+          </div>
+          <div class="mb-2">
+            <input type="text" class="form-control" id="mobile" placeholder="Mobile" required />
+          </div>
+          <div class="mb-2">
+            <select class="form-select" id="gender" required>
+              <option value="">Select Gender</option>
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+            </select>
+          </div>
+          <div class="mb-2">
+            <input type="date" class="form-control" id="dob" max="2025-12-31" />
+          </div>
+          <button type="submit" class="btn btn-primary w-100">Save</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  let genderChart;
+  let allData = [];
+  let currentPage = 1;
+  const itemsPerPage = 5;
+  const modal = new bootstrap.Modal(document.getElementById('civilModal'));
+  let editingId = null;
+
+  function renderChart(maleCount, femaleCount) {
+    const ctx = document.getElementById('genderChart').getContext('2d');
+    if (genderChart) genderChart.destroy();
+    setTimeout(() => {
+      genderChart = new Chart(ctx, {
+        type: 'doughnut',
+        data: {
+          labels: ['Male', 'Female'],
+          datasets: [{
+            data: [maleCount, femaleCount],
+            backgroundColor: ['#36A2EB', '#FF6384']
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: {
+              position: 'bottom'
+            }
+          }
+        }
+      });
+    }, 0);
+  }
+
+  function paginateData(data) {
+    const start = (currentPage - 1) * itemsPerPage;
+    return data.slice(start, start + itemsPerPage);
+  }
+
+  function renderPagination(totalItems) {
+    const pageCount = Math.ceil(totalItems / itemsPerPage);
+    const pagination = document.getElementById('pagination');
+    pagination.innerHTML = '';
+    for (let i = 1; i <= pageCount; i++) {
+      const li = document.createElement('li');
+      li.className = `page-item ${i === currentPage ? 'active' : ''}`;
+      li.innerHTML = `<a class='page-link' href='#'>${i}</a>`;
+      li.onclick = () => {
+        currentPage = i;
+        renderTable(allData);
+      };
+      pagination.appendChild(li);
+    }
+  }
+
+  function renderTable(data) {
+    const tbody = document.getElementById('tableBody');
+    tbody.innerHTML = '';
+    let maleCount = 0, femaleCount = 0;
+    allData.forEach(civil => {
+      if (civil.Gender === 'Male') maleCount++;
+      else if (civil.Gender === 'Female') femaleCount++;
+    });
+
+    paginateData(data).forEach(civil => {
+      const row = `<tr>
+        <td>${civil.FirstName}</td>
+        <td>${civil.LastName}</td>
+        <td>${civil.ID}</td>
+        <td>${civil.Age}</td>
+        <td>${civil.Mobile}</td>
+        <td>${civil.Gender}</td>
+        <td>${civil.DOB || ''}</td>
+        <td>
+          <button class='btn btn-sm btn-outline-primary me-1' onclick='editCivil(${JSON.stringify(civil)})'>Edit</button>
+          <button class='btn btn-sm btn-outline-danger' onclick='deleteCivil("${civil.ID}")'>Delete</button>
+        </td>
+      </tr>`;
+      tbody.innerHTML += row;
+    });
+
+    document.getElementById('stats').innerText = `Total Civils: ${data.length}, Males: ${maleCount}, Females: ${femaleCount}`;
+    renderChart(maleCount, femaleCount);
+    renderPagination(data.length);
+  }
+
+  function getCivils() {
+    fetch('http://localhost:3000/get/all')
+      .then(res => res.json())
+      .then(data => {
+        allData = data;
+        currentPage = 1;
+        renderTable(data);
+      });
+  }
+
+  function openModal() {
+    editingId = null;
+    document.getElementById('civilForm').reset();
+    modal.show();
+  }
+
+  function editCivil(civil) {
+    editingId = civil.ID;
+    document.getElementById('firstName').value = civil.FirstName;
+    document.getElementById('lastName').value = civil.LastName;
+    document.getElementById('civilId').value = civil.ID;
+    document.getElementById('age').value = civil.Age;
+    document.getElementById('mobile').value = civil.Mobile;
+    document.getElementById('gender').value = civil.Gender;
+    document.getElementById('dob').value = civil.DOB || '';
+    modal.show();
+  }
+
+  function deleteCivil(id) {
+    if (!confirm("Are you sure you want to delete this civil record?")) return;
+
+    fetch(`http://localhost:3000/delete/${id}`, {
+      method: 'DELETE'
+    })
+    .then(res => {
+      if (res.ok) getCivils();
+      else throw new Error("Failed to delete");
+    })
+    .catch(err => alert("Deletion failed: " + err.message));
+  }
+
+  document.getElementById('civilForm').addEventListener('submit', e => {
+    e.preventDefault();
+    const civil = {
+      FirstName: document.getElementById('firstName').value,
+      LastName: document.getElementById('lastName').value,
+      ID: document.getElementById('civilId').value,
+      Age: document.getElementById('age').value,
+      Mobile: document.getElementById('mobile').value,
+      Gender: document.getElementById('gender').value,
+      DOB: document.getElementById('dob').value
+    };
+
+    const url = editingId ? 'http://localhost:3000/edit/' : 'http://localhost:3000/add/';
+    const method = editingId ? 'PUT' : 'POST';
+
+    fetch(url, {
+      method,
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(civil)
+    })
+    .then(res => {
+      if (res.ok) return res.json();
+      else throw new Error('Invalid request');
+    })
+    .then(() => {
+      modal.hide();
+      getCivils();
+    })
+    .catch(() => alert('Failed to save. Check your input.'));
+  });
+
+  function filterTable() {
+    const value = document.getElementById('searchInput').value.toLowerCase();
+    const filtered = allData.filter(c =>
+      c.FirstName.toLowerCase().includes(value) ||
+      c.LastName.toLowerCase().includes(value) ||
+      c.ID.toLowerCase().includes(value)
+    );
+    currentPage = 1;
+    renderTable(filtered);
+  }
+
+  window.onload = getCivils;
+</script>
+</body>
+</html>
