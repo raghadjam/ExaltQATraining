@@ -1,0 +1,52 @@
+{
+  "invalidMobile": {
+    "data": {
+      "firstName": "raghad",
+      "age": "20",
+      "mobile": "05123456789",
+      "lastName": "jamhour",
+      "gender": 1,
+      "dob": "2004-08-08"
+    }
+  },
+  "invalidId": {
+    "data": {
+      "firstName": "raghad",
+      "age": "20",
+      "mobile": "0512345678",
+      "lastName": "jamhour",
+      "gender": 1,
+      "dob": "2004-08-08"
+    }
+  },
+  "invalidFirstName": {
+    "data": {
+      "firstName": "raghadraghadraghadraghad",
+      "age": "20",
+      "mobile": "0512345678",
+      "lastName": "jamhour",
+      "gender": 1,
+      "dob": "2004-08-08"
+    }
+  },
+  "invalidLastName": {
+    "data": {
+      "firstName": "raghad",
+      "age": "20",
+      "mobile": "0512345678",
+      "lastName": "jamhourjamhourjamhourjamhour",
+      "gender": 1,
+      "dob": "2004-08-08"
+    }
+  },
+  "missingDob": {
+    "data": {
+      "firstName": "raghad",
+      "age": "20",
+      "mobile": "0512345678",
+      "lastName": "jamhour",
+      "gender": 1,
+      "dob": ""
+    }
+  }
+}

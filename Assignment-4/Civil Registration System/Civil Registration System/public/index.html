@@ -38,10 +38,10 @@
   </div>
 
   <div class="mb-3 d-flex gap-2">
-    <input type="text" id="searchInput" class="form-control w-50" placeholder="Search by name or ID" oninput="filterTable()" />
-    <button class="btn btn-success" onclick="getCivils()">Refresh Table</button>
-    <button class="btn btn-primary" onclick="openModal()">Add Civil</button>
-    <button class="btn btn-danger" onclick="alert('All CVs removed!')">Delete All CVs</button>
+    <input data-test="search-input" type="text" id="searchInput" class="form-control w-50" placeholder="Search by name or ID" oninput="filterTable()" />
+    <button  data-test="refresh-btn" class="btn btn-success" onclick="getCivils()">Refresh Table</button>
+    <button  data-test="addcivil-btn" class="btn btn-primary" onclick="openModal()">Add Civil</button>
+    <button  data-test="deleteall-btn" class="btn btn-danger" onclick="alert('All CVs removed!')">Delete All CVs</button>
   </div>
 
   <table class="table table-striped table-bordered" id="civilsTable">
@@ -76,31 +76,31 @@
       <div class="modal-body">
         <form id="civilForm">
           <div class="mb-2">
-            <input type="text" class="form-control" id="firstName" placeholder="First Name" required />
+            <input data-test="civil-firstName" type="text" class="form-control" id="firstName" placeholder="First Name" required />
           </div>
           <div class="mb-2">
-            <input type="text" class="form-control" id="lastName" placeholder="Last Name" required />
+            <input data-test="civil-lastName" type="text" class="form-control" id="lastName" placeholder="Last Name" required />
           </div>
           <div class="mb-2">
-            <input type="text" class="form-control" id="civilId" placeholder="ID" required />
+            <input data-test="civil-id" type="text" class="form-control" id="civilId" placeholder="ID" required />
           </div>
           <div class="mb-2">
-            <input type="number" class="form-control" id="age" placeholder="Age" min="0" max="120" required />
+            <input data-test="civil-age" type="number" class="form-control" id="age" placeholder="Age" min="0" max="120" required />
           </div>
           <div class="mb-2">
-            <input type="text" class="form-control" id="mobile" placeholder="Mobile" required />
+            <input data-test="civil-mobile" type="text" class="form-control" id="mobile" placeholder="Mobile" required />
           </div>
           <div class="mb-2">
-            <select class="form-select" id="gender" required>
+            <select  data-test="civil-gender" class="form-select" id="gender" required>
               <option value="">Select Gender</option>
               <option value="Male">Male</option>
               <option value="Female">Female</option>
             </select>
           </div>
           <div class="mb-2">
-            <input type="date" class="form-control" id="dob" max="2025-12-31" />
+            <input data-test="civil-dob" type="date" class="form-control" id="dob" max="2025-12-31" />
           </div>
-          <button type="submit" class="btn btn-primary w-100">Save</button>
+          <button data-test="save-btn" type="submit" class="btn btn-primary w-100">Save</button>
         </form>
       </div>
     </div>
@@ -174,16 +174,16 @@
 
     paginateData(data).forEach(civil => {
       const row = `<tr>
-        <td>${civil.FirstName}</td>
-        <td>${civil.LastName}</td>
-        <td>${civil.ID}</td>
-        <td>${civil.Age}</td>
-        <td>${civil.Mobile}</td>
-        <td>${civil.Gender}</td>
-        <td>${civil.DOB || ''}</td>
+        <td data-test="civil-firstName-table">${civil.FirstName}</td>
+        <td data-test="civil-lastName-table">${civil.LastName}</td>
+        <td data-test="civil-id-table">${civil.ID}</td>
+        <td data-test="civil-age-table">${civil.Age}</td>
+        <td data-test="civil-mobile-table">${civil.Mobile}</td>
+        <td data-test="civil-gender-table">${civil.Gender}</td>
+        <td data-test="civil-dob-table">${civil.DOB || ''}</td>
         <td>
-          <button class='btn btn-sm btn-outline-primary me-1' onclick='editCivil(${JSON.stringify(civil)})'>Edit</button>
-          <button class='btn btn-sm btn-outline-danger' onclick='deleteCivil("${civil.ID}")'>Delete</button>
+          <button data-test="edit-btn" class='btn btn-sm btn-outline-primary me-1' onclick='editCivil(${JSON.stringify(civil)})'>Edit</button>
+          <button  data-test="delete-btn" class='btn btn-sm btn-outline-danger' onclick='deleteCivil("${civil.ID}")'>Delete</button>
         </td>
       </tr>`;
       tbody.innerHTML += row;

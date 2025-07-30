@@ -1,0 +1,36 @@
+{
+  "buttons": {
+    "refresh": "refresh-btn",
+    "addCivil": "addcivil-btn",
+    "deleteAll": "deleteall-btn",
+    "edit": "edit-btn",
+    "delete": "delete-btn",
+    "save": "save-btn",
+    "pages": "#pagination > li"
+  },
+  "inputs": {
+    "search": "search-input",
+    "firstName": "civil-firstName",
+    "lastName": "civil-lastName",
+    "civilId": "civil-id",
+    "age": "civil-age",
+    "mobile": "civil-mobile",
+    "gender": "civil-gender",
+    "dob": "civil-dob"
+  },
+
+    "table": {
+    "firstNameTable": "civil-firstName-table",
+    "lastNameTable": "civil-lastName-table",
+    "civilIdTable": "civil-id-table",
+    "ageTable": "civil-age-table",
+    "mobileTable": "civil-mobile-table",
+    "genderTable": "civil-gender-table",
+    "dobTable": "civil-dob-table"
+  },
+
+  "modal": {
+    "form": "civil-form",
+    "close": "modal-close"
+  }
+}
