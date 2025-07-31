@@ -1,3 +1,6 @@
+import civilPage from '../pages/CivilPage.js'
+
+
 export function getNextCivilId(caseKey) {
     const baseUrl = Cypress.env('BASE_URL')
     return cy.request('GET', `${baseUrl}get/all`).then((response) => {
@@ -32,3 +35,20 @@ export function getFixtureWithNextId(fixtureName, caseKey) {
     });
   });
 }
+
+  export function addCivilAndGetData(fixtureName = 'civil_valid.json', caseKey) {
+    return getFixtureWithNextId(fixtureName, caseKey).then(testData => {
+      return civilPage.fillCivilForm(testData).then(() => testData)
+    })
+  }
+
+  export function editCivilAndVerify(originalData, editData) {
+    return civilPage.editID(originalData.civilId)
+      .then(() => civilPage.verifyValues(originalData))
+      .then(() => civilPage.fillCivilForm(editData, 1))
+  }
+
+  export function validateErrorAndClose(element, regex) {
+    return cy.validateFieldError(element, regex)
+      .then(() => civilPage.elements.close().click())
+  }

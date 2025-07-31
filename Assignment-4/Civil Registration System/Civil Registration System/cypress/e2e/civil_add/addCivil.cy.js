@@ -1,6 +1,5 @@
 import civilPage from '../../pages/CivilPage.js'
-import { getFixtureWithNextId } from '../../support/utils.js'
-import { getNextCivilId } from '../../support/utils.js'
+import { getFixtureWithNextId, addCivilAndGetData, validateErrorAndClose } from '../../support/utils.js'
 
 describe('add civil testing', () => {
 
@@ -30,57 +29,61 @@ describe('add civil testing', () => {
 
   it('Adding civil with invalid data (age larger than 120)', () => {
     getFixtureWithNextId('civil_invalid.json', 'invalidAge').then(testData => {
-      return civilPage.fillCivilForm(testData).then(() => {
-        return cy.validateFieldError(civilPage.elements.age(), /less than or equal to 120/i);
-      });
+      return civilPage.fillCivilForm(testData)
+        .then(() => validateErrorAndClose(civilPage.elements.firstName(), /less than or equal to 120/i))
+        .then(() => civilPage.deleteID(testData.civilId))
+
     });
   });
 
   it.only('Adding civil with invalid data (Gender must be selected)', () => {
     getFixtureWithNextId('civil_invalid.json', 'missingGender').then(testData => {
-      return civilPage.fillCivilForm(testData).then(() => {
-        return cy.validateFieldError(civilPage.elements.gender(), /select an item/i);
-      });
+      return civilPage.fillCivilForm(testData)
+        .then(() => validateErrorAndClose(civilPage.elements.firstName(), /select an item/i))
+        .then(() => civilPage.deleteID(testData.civilId))
     });
   });
 
   it('Adding civil with invalid data (Mobile validation)', () => {
     getFixtureWithNextId('civil_invalid.json', 'invalidMobile').then(testData => {
-      return civilPage.fillCivilForm(testData).then(() => {
-        return cy.validateFieldError(civilPage.elements.mobile(), /should start with 05 and be 10 digits integer/i);
-      });
+      return civilPage.fillCivilForm(testData)
+        .then(() => validateErrorAndClose(civilPage.elements.firstName(), /should start with 05 and be 10 digits integer/i))
+        .then(() => civilPage.deleteID(testData.civilId))
+
     });
   });
 
   it.only('Adding civil with invalid data (ID must be an integer)', () => {
     getFixtureWithNextId('civil_invalid.json', 'invalidId').then(testData => {
-      return civilPage.fillCivilForm(testData).then(() => {
-        return cy.validateFieldError(civilPage.elements.ID(), /should be an integer/i);
-      });
+      return civilPage.fillCivilForm(testData)
+        .then(() => validateErrorAndClose(civilPage.elements.firstName(), /should be an integer/i))
+        .then(() => civilPage.deleteID(testData.civilId))
+
     });
   });
 
-  it('Adding civil with invalid data (first name at most 20 chars)', () => {
+  it.only('Adding civil with invalid data (first name at most 20 chars)', () => {
     getFixtureWithNextId('civil_invalid.json', 'invalidFirstName').then(testData => {
-      return civilPage.fillCivilForm(testData).then(() => {
-        return cy.validateFieldError(civilPage.elements.firstName(), /first name.*20 alphabetical characters/i);
-      });
-    });
+      return civilPage.fillCivilForm(testData)
+        .then(() => validateErrorAndClose(civilPage.elements.firstName(), /first name.*20 alphabetical characters/i))
+        .then(() => civilPage.deleteID(testData.civilId))
+    })
+
   });
 
   it('Adding civil with invalid data (last name at most 20 chars)', () => {
     getFixtureWithNextId('civil_invalid.json', 'invalidLastName').then(testData => {
-      return civilPage.fillCivilForm(testData).then(() => {
-        return cy.validateFieldError(civilPage.elements.lastName(), /last name.*20 alphabetical characters/i);
-      });
+      return civilPage.fillCivilForm(testData)
+        .then(() => validateErrorAndClose(civilPage.elements.firstName(), /last name.*20 alphabetical characters/i))
+        .then(() => civilPage.deleteID(testData.civilId))
     });
   });
 
   it('Adding civil with invalid data (DOB must be set)', () => {
     getFixtureWithNextId('civil_invalid.json', 'missingDob').then(testData => {
-      return civilPage.fillCivilForm(testData).then(() => {
-        return cy.validateFieldError(civilPage.elements.dob(), /select/i);
-      });
+      return civilPage.fillCivilForm(testData)
+        .then(() => validateErrorAndClose(civilPage.elements.firstName(), /select/i))
+        .then(() => civilPage.deleteID(testData.civilId))
     });
   });
 })
