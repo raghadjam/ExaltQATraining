@@ -6,7 +6,8 @@
     "edit": "edit-btn",
     "delete": "delete-btn",
     "save": "save-btn",
-    "pages": "#pagination > li"
+    "pages": "#pagination > li",
+    "close": "btn-close"
   },
   "inputs": {
     "search": "search-input",

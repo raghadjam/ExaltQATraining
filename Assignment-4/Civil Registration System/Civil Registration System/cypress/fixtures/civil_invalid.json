@@ -9,6 +9,17 @@
       "dob": "2004-08-08"
     }
   },
+  "invalidAge": {
+    "data": {
+    "firstName" : "raghad",
+    "age": "160",
+    "mobile": "0512345678",
+    "lastName": "rghad",
+    "gender": "Female",  
+    "dob": "2004-08-08"
+    }
+},
+
   "invalidId": {
     "data": {
       "firstName": "raghad",
@@ -47,6 +58,16 @@
       "lastName": "jamhour",
       "gender": 1,
       "dob": ""
+    }
+  },
+    "missingGender": {
+    "data": {
+      "firstName": "raghad",
+      "age": "20",
+      "mobile": "0512345678",
+      "lastName": "jamhour",
+      "gender": "",
+      "dob": "2004-08-08"
     }
   }
 }
