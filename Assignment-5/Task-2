@@ -1,0 +1,94 @@
+displaymenu(){
+
+echo "Select your option"
+echo "1. Find factorial for a given integer."
+echo "2. Find sum for all given integers."
+echo "3. Check if the given string is palindrome or no."
+echo "4. Find the maximum number for the given array."
+echo "5. Exit."
+
+}
+
+
+validAnswer() {
+
+while true; do
+read value
+if echo "$value" | grep -E '^[0-9]+$' > /dev/null; then
+num="$value"
+break
+else
+echo -n "Invalid input, please enter a valid number: "
+fi
+done
+
+}
+
+factorial(){
+
+if (( $1 <= 1 ));
+then
+echo 1
+else
+n=$(factorial $(( $1 - 1 )))
+echo $(( $1 * n ))
+fi
+
+}
+
+sum(){
+
+sum=0
+while true; do
+echo -n "Enter a number (0 to stop): "
+validAnswer
+if (( num == 0 )); then
+break
+fi
+sum=$((sum + num))
+done
+echo "The sum of all numbers is $sum"
+
+}
+
+palindrome(){
+
+echo "Enter a string:"
+read str
+reversed=$(echo "$str" | rev)
+if [ "$reversed" = "$str" ]; then
+echo "String is a palindrome."
+else
+echo "String is not a palindrome."
+fi
+
+}
+
+maxNumber(){
+
+echo "Enter numbers seperated by spaces:"
+read -a arr
+echo "array is ${arr[@]}"
+max=$(printf "%s\n" "${arr[@]}" | sort -n | tail -1)
+echo "Maximum number is $max"
+}
+
+while true
+do
+displaymenu
+read answer
+case "$answer"
+in
+1) echo -n "Enter a number: "
+   validAnswer
+   result=$(factorial "$num")
+   echo "Factorial of $num is $result"
+   ;;
+2) sum;;
+3) palindrome;;
+4) maxNumber;;
+5) echo "Exiting..."; exit 0;;
+*) echo "please enter a valid number";;
+
+esac 
+done

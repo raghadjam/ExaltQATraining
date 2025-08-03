@@ -1,5 +1,5 @@
 import civilPage from '../../pages/CivilPage.js'
-import { getFixtureWithNextId, addCivilAndGetData, validateErrorAndClose } from '../../support/utils.js'
+import { getFixtureWithNextId, validateErrorAndClose } from '../../support/utils.js'
 
 describe('add civil testing', () => {
 
