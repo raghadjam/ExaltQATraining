@@ -66,9 +66,14 @@ fi
 
 maxNumber(){
 
-echo "Enter numbers seperated by spaces:"
+echo "Enter numbers separated by spaces:"
 read -a arr
-echo "array is ${arr[@]}"
+for n in "${arr[@]}"; do
+if ! echo "$n" | grep -qE '^[0-9]+$'; then
+echo "Invalid input: $n is not a number."
+return
+fi
+done
 max=$(printf "%s\n" "${arr[@]}" | sort -n | tail -1)
 echo "Maximum number is $max"
 }
