@@ -1,0 +1,336 @@
+{
+	"info": {
+		"_postman_id": "2f2e3368-9c15-4f3f-893b-87969fc60945",
+		"name": "getAllCivils",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "47301842",
+		"_collection_link": "https://raghadjamhour-1051765.postman.co/workspace/CivilSystem~326661de-9a4a-474f-aba5-7d379672a632/collection/47301842-2f2e3368-9c15-4f3f-893b-87969fc60945?action=share&source=collection_link&creator=47301842"
+	},
+	"item": [
+		{
+			"name": "Fetch Khader Ballout ID",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"const response = pm.response.json()\r",
+							"const civil = response.find((civil) => civil.ID == 6)\r",
+							"\r",
+							"pm.test(\"Khader Ballout has an ID of 6\", function () {\r",
+							"    pm.expect(civil).to.be.an('object')\r",
+							"    pm.expect(civil.FirstName.toLowerCase()).to.eql(\"khader\")\r",
+							"    pm.expect(civil.LastName.toLowerCase()).to.eql(\"ballout\")\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{baseUrl}}/get/all",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"get",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Civil Ages Between 10 and 60",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"const response = pm.response.json()\r",
+							"const civil = response.filter((civil)=>Number(civil.Age) < 10 || Number(civil.Age) > 60)\r",
+							"\r",
+							"pm.test(\"Civil ages are between 10 and 60\", function () {\r",
+							"    pm.expect(civil.length).to.eql(0)\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{baseUrl}}/get/all",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"get",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Fetch Oldest Civil Age",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"const response = pm.response.json()\r",
+							"const maxAge = Math.max(...response.map((civil) => Number(civil.Age)))\r",
+							"const civil = response.find((civil) => civil.Age == maxAge)\r",
+							"\r",
+							"pm.test(\"Ramzi Qaabar is the oldest civil\", function () {\r",
+							"    pm.expect(civil).to.be.an('object')\r",
+							"    pm.expect(civil.FirstName.toLowerCase()).to.eql(\"ramzi\")\r",
+							"    pm.expect(civil.LastName.toLowerCase()).to.eql(\"qaabar\")\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{baseUrl}}/get/all",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"get",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Fetch Civils in their Twenties",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"})\r",
+							"\r",
+							"const response = pm.response.json()\r",
+							"const civil = response.filter((civil)=>Number(civil.Age) < 30 && Number(civil.Age > 19))\r",
+							"\r",
+							"pm.test(\"There are four civils in their twenties\", function () {\r",
+							"    pm.expect(civil.length).to.eql(4)\r",
+							"})"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{baseUrl}}/get/all",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"get",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Fetch Civils Phone Number",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"const response = pm.response.json()\r",
+							"const ooredoo = [\"george ghawali\", \"alex dukmak\"]\r",
+							"const cellcom = [\"maan ibragheeth\"]\r",
+							"\r",
+							"pm.test(\"Civils with their correct phone prefix\", function () {\r",
+							"    response.forEach(civil => {\r",
+							"        let number = civil.Mobile.substring(0,3)\r",
+							"        let name = civil.FirstName + \" \" + civil.LastName\r",
+							"        if(number == \"056\"){\r",
+							"            pm.expect(ooredoo).to.include(name)\r",
+							"        }\r",
+							"        else if (number == \"052\"){\r",
+							"            pm.expect(cellcom).to.include(name)\r",
+							"        }\r",
+							"         else if (number === \"059\") {\r",
+							"            pm.expect(ooredoo).to.not.include(name)\r",
+							"            pm.expect(cellcom).to.not.include(name)\r",
+							"        }\r",
+							"        else {\r",
+							"            pm.expect.fail(\"Unknown mobile prefix\")\r",
+							"        }\r",
+							"    })    \r",
+							"})"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{baseUrl}}/get/all",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"get",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Fetch Sorted Civils",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"})\r",
+							"\r",
+							"const response = pm.response.json()\r",
+							"const civilID = response.sort((a, b) => Number(b.ID) - Number(a.ID))\r",
+							"const civilName = response.map(civil => civil.FirstName + \" \" + civil.LastName).sort()\r",
+							"\r",
+							"pm.test(\"Sorting based on ID and names\", function () {\r",
+							"    pm.expect(civilID[0]).to.be.an('object')\r",
+							"    pm.expect(civilID[0].FirstName.toLowerCase()).to.eql(\"maan\")\r",
+							"    pm.expect(civilID[0].LastName.toLowerCase()).to.eql(\"ibragheeth\")\r",
+							"    pm.expect(civilName[civilName.length - 1].toLowerCase()).to.eql(\"ramzi qaabar\")\r",
+							"})"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{baseUrl}}/get/all",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"get",
+						"all"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:3000",
+			"type": "default"
+		}
+	]
+}

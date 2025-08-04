@@ -143,7 +143,6 @@ class civilPage {
                                 this.elements.dobTable().should('contain.text', data.DOB);
                                 return
                             })
-
                     }
                     clickPage(index + 1);
                 });

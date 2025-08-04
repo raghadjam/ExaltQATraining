@@ -29,7 +29,6 @@ describe('delete civil testing', () => {
         cy.get('tr').should('have.length', 1);
     });
 
-
     it('delete a civil that does not exist', () => {
         civilPage.verifyIDisDeleted("desntexist")  //if the ID doesnt exist it wont have an entry in the table therfore no delete button
     })
