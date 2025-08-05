@@ -6,7 +6,7 @@ yarn-debug.log*
 yarn-error.log*
 lerna-debug.log*
 # Created by pytest automatically.
-*
+
 __pycache__/
 env/
 .pytest_cache
