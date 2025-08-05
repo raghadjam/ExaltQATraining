@@ -1,0 +1,17 @@
+{
+    "name": "civil-registration-system",
+    "version": "1.0.0",
+    "description": "Training program project",
+    "main": "server.js",
+    "scripts": {
+        "test": "start",
+        "start": "node index.js"
+    },
+    "author": "Exalt",
+    "license": "ISC",
+    "dependencies": {
+        "cors": "^2.8.5",
+        "express": "^5.1.0",
+        "express-rate-limit": "^7.5.1"
+    }
+}
