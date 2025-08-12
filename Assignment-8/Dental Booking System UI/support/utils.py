@@ -82,3 +82,8 @@ def getPastTime():
 def getTodaysDate():
     today = datetime.now()
     return today.strftime("%m-%d-%Y")
+
+def generate_non_existing_username():
+    timestamp = int(time.time())
+    rand_num = random.randint(1000, 9999)
+    return f"nonexistent_{timestamp}_{rand_num}"

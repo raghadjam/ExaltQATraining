@@ -5,7 +5,6 @@ API_DELETE = "http://localhost:3000/user"
 # Credentials
 VALID_PASSWORD = "123"
 VALID_PHONE = "059999999"
-INVALID_USERNAME = "JAMHOUR"
 INVALID_PASSWORD = "3456"
 
 # Files

@@ -1,4 +1,4 @@
-from support import config
+from support import config, utils
 
 def test_login_success(setup_create_teardown_delete):
     page, username = setup_create_teardown_delete
@@ -14,8 +14,9 @@ def test_login_fail_with_wrong_password(setup_create_teardown_delete):
     assert message == config.LOGIN_FAIL
     assert classColor == config.CLASS_ERROR
 
-def test_login_fail_with_wrong_userrname(setup_get_driver):
-    setup_get_driver.fill_login(config.INVALID_USERNAME, config.VALID_PASSWORD)
+def test_login_fail_with_nonexisting_user(setup_get_driver):
+    invalid_name = utils.generate_non_existing_username()
+    setup_get_driver.fill_login(invalid_name, config.VALID_PASSWORD)
     message, classColor = setup_get_driver.get_message_class() 
     assert message == config.LOGIN_FAIL
     assert classColor == config.CLASS_ERROR 
