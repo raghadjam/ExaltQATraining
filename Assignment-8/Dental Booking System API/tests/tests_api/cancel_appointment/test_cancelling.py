@@ -1,4 +1,5 @@
-from support import config
+from pages.main_page.main_page import MainPage
+from support import config, utils
 
 def test_cancel_success(setup_main_page):
     main_page, maxDate, username = setup_main_page
@@ -16,5 +17,11 @@ def test_cancel_fail(setup_main_page):
     main_page, _ , username = setup_main_page
     response = main_page.cancel(username, "", "", "")
     assert response.status_code == config.HTTP_NOTFOUND
+    body = response.json()  
+    assert body[config.CLASS_SUCCESS] is False
+
+def test_cancel_nonexisting_user(cancel_non_existing_user):
+    response = cancel_non_existing_user
+    assert response.status_code == config.HTTP_UNATHORIZED
     body = response.json()  
     assert body[config.CLASS_SUCCESS] is False

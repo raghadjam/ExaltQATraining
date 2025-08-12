@@ -1,4 +1,5 @@
 from pages.authentication_page.authentication_page import AuthPage
+from pages.main_page.main_page import MainPage
 from support import config, utils
 
 def test_book_success(setup_main_page):
@@ -28,3 +29,9 @@ def test_bad_request(setup_main_page):
     body = response.json()  
     assert body[config.CLASS_SUCCESS] is False
     assert body[config.MESSAGE] == config.BOOK_PAST
+
+def test_book_nonexisting_user(cancel_non_existing_user):
+    response = cancel_non_existing_user
+    assert response.status_code == config.HTTP_UNATHORIZED
+    body = response.json()  
+    assert body[config.CLASS_SUCCESS] is False
