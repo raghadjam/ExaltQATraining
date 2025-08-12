@@ -1,0 +1,14 @@
+{
+  "buttons": {
+    "book": "//button[text()='Book Appointment']",
+    "cancel": "cancel-appointment"
+  },
+    "inputs": {
+    "date": "date",
+    "start": "start-time",
+    "end": "end-time"
+  },
+  "message": {
+    "message": "message"
+  }
+}

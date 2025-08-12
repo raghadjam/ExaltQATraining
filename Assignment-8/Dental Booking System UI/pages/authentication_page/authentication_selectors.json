@@ -1,0 +1,16 @@
+{
+  "buttons": {
+    "login": "//button[text()='Login']",
+    "signup": "//button[text()='Sign Up']"
+  },
+    "inputs": {
+    "username_login": "login-username",
+    "password_login": "login-password",
+    "username_signup": "signup-username",
+    "password_signup": "signup-password",
+    "phone": "signup-phone"
+  },
+  "message": {
+    "message": "message"
+  }
+}

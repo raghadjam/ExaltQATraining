@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dental Booking System</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Dental Booking System</h1>
+
+        <div id="login-section">
+            <h2>Login</h2>
+            <form id="login-form">
+                <label for="login-username">Username:</label>
+                <input type="text" id="login-username" name="username" required>
+                <label for="login-password">Password:</label>
+                <input type="password" id="login-password" name="password" required>
+                <button type="submit">Login</button>
+            </form>
+        </div>
+
+        <div id="signup-section">
+            <h2>Sign Up</h2>
+            <form id="signup-form">
+                <label for="signup-username">Username:</label>
+                <input type="text" id="signup-username" name="username" required>
+                <label for="signup-password">Password:</label>
+                <input type="password" id="signup-password" name="password" required>
+                <label for="signup-phone">Phone Number:</label>
+                <input type="text" id="signup-phone" name="phone" required>
+                <button type="submit">Sign Up</button>
+            </form>
+        </div>
+
+        <div id="booking-section" style="display: none;">
+            <h2>Book an Appointment</h2>
+            <form id="booking-form">
+                <label for="date">Date:</label>
+                <input type="date" id="date" name="date" required>
+                <label for="start-time">Start Time:</label>
+                <input type="time" id="start-time" name="start-time" required>
+                <label for="end-time">End Time:</label>
+                <input type="time" id="end-time" name="end-time" required>
+                <button type="submit">Book Appointment</button>
+            </form>
+            <button id="cancel-appointment">Cancel Appointment</button>
+        </div>
+
+        <div id="message"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
