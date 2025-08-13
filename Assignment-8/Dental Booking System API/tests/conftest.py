@@ -20,8 +20,8 @@ def setup_main_page(setup_create_teardown_delete):
     yield main_page, max_date, username
 
 @pytest.fixture
-def cancel_non_existing_user():
+def setup_non_existing_user():
     non_existing_username = utils.generate_non_existing_username()
     main_page = MainPage(config.BASE_URL)
-    response = main_page.cancel(non_existing_username, "", "", "")
-    yield response
+    max = utils.getNextDate()
+    yield main_page, max, non_existing_username

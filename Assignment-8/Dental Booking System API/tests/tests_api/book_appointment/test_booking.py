@@ -13,12 +13,14 @@ def test_book_fail(setup_main_page):
     main_page, maxDate, username = setup_main_page
     main_page.book(username, maxDate, config.VALID_START, config.VALID_END)
     auth = AuthPage(config.BASE_URL)
-    utils.create_user(auth)
-    response = main_page.book(username, maxDate, config.VALID_START, config.VALID_END)
+    new_user, _ = utils.create_user(auth)
+    auth.login(new_user, config.VALID_PASSWORD)
+    response = main_page.book(new_user, maxDate, config.VALID_START, config.VALID_END)
     assert response.status_code == config.HTTP_CONFLICT
     body = response.json()  
     assert body[config.CLASS_SUCCESS] is False
     assert body[config.MESSAGE] == config.BOOK_OVERLAPPING
+    auth.delete_user(new_user)
 
 def test_bad_request(setup_main_page):
     main_page, _ , username = setup_main_page
@@ -30,8 +32,10 @@ def test_bad_request(setup_main_page):
     assert body[config.CLASS_SUCCESS] is False
     assert body[config.MESSAGE] == config.BOOK_PAST
 
-def test_book_nonexisting_user(cancel_non_existing_user):
-    response = cancel_non_existing_user
-    assert response.status_code == config.HTTP_UNATHORIZED
-    body = response.json()  
+def test_book_nonexisting_user(setup_non_existing_user):
+    page, max, non_existing_user = setup_non_existing_user
+    response = page.book(non_existing_user, max, config.VALID_START, config.VALID_END)
+    body = response.json() 
+    page.cancel(non_existing_user, max, config.VALID_START, config.VALID_END)
     assert body[config.CLASS_SUCCESS] is False
+    assert response.status_code == config.HTTP_UNATHORIZED
