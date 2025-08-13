@@ -1,0 +1,672 @@
+{
+	"info": {
+		"_postman_id": "eb2ad031-f551-4ff3-accf-f2d88a001ac7",
+		"name": "DentalBooking",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "47301842",
+		"_collection_link": "https://raghadjamhour-1051765.postman.co/workspace/Booking~5fcce79e-1d91-436d-bbd9-0c2b843080f2/collection/47301842-eb2ad031-f551-4ff3-accf-f2d88a001ac7?action=share&source=collection_link&creator=47301842"
+	},
+	"item": [
+		{
+			"name": "test_login_success",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200 ok\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"let data = pm.response.json();\r",
+							"\r",
+							"pm.test(\"login success is true\", function () {\r",
+							"    pm.expect(data.success).to.eql(true);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\":\"Raghad\", \r\n    \"password\": \"12345\" \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BaseUrl}}{{login}}",
+					"host": [
+						"{{BaseUrl}}{{login}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "test_login_fail",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 401\", function () {\r",
+							"    pm.response.to.have.status(401);\r",
+							"});\r",
+							"\r",
+							"let data = pm.response.json();\r",
+							"\r",
+							"pm.test(\"login success is false\", function () {\r",
+							"    pm.expect(data.success).to.eql(false);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Message is correct\", function () {\r",
+							"    pm.expect(data.message).to.eql(\"Invalid username or password\");\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\":\"Raghad\", \r\n    \"password\": \"123\" \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BaseUrl}}{{login}}",
+					"host": [
+						"{{BaseUrl}}{{login}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "test_login_empty_data",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 401\", function () {\r",
+							"    pm.response.to.have.status(401);\r",
+							"});\r",
+							"\r",
+							"let data = pm.response.json();\r",
+							"\r",
+							"pm.test(\"login success is false\", function () {\r",
+							"    pm.expect(data.success).to.eql(false);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Message is correct\", function () {\r",
+							"    pm.expect(data.message).to.eql(\"Cant create user\");\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\":\"\", \r\n    \"password\": \"\" \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BaseUrl}}{{login}}",
+					"host": [
+						"{{BaseUrl}}{{login}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "test_signup_success",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 201 created\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});\r",
+							"\r",
+							"let data = pm.response.json();\r",
+							"\r",
+							"pm.test(\"signup success is true\", function () {\r",
+							"    pm.expect(data.success).to.eql(true);\r",
+							"});\r",
+							"\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\":\"Raghad\", \r\n    \"password\": \"12345\", \r\n    \"phone\": \"54321\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BaseUrl}}{{signup}}",
+					"host": [
+						"{{BaseUrl}}{{signup}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "test_signup_empty_data",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {\r",
+							"    pm.response.to.have.status(400);\r",
+							"});\r",
+							"\r",
+							"let data = pm.response.json();\r",
+							"\r",
+							"pm.test(\"signup success is false\", function () {\r",
+							"    pm.expect(data.success).to.eql(false);\r",
+							"});\r",
+							"\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\":\"\", \r\n    \"password\": \"\", \r\n    \"phone\": \"\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BaseUrl}}{{signup}}",
+					"host": [
+						"{{BaseUrl}}{{signup}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "test_signup_fail",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 409 conflict\", function () {\r",
+							"    pm.response.to.have.status(409);\r",
+							"});\r",
+							"\r",
+							"let data = pm.response.json();\r",
+							"\r",
+							"pm.test(\"Signup success is false\", function () {\r",
+							"    pm.expect(data.success).to.eql(false);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Message is correct\", function () {\r",
+							"    pm.expect(data.message).to.eql(\"Username or phone number already exists\");\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\":\"Raghad\", \r\n    \"password\": \"12345\", \r\n    \"phone\": \"54321\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BaseUrl}}{{signup}}",
+					"host": [
+						"{{BaseUrl}}{{signup}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "test_cancel",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"let data = pm.response.json();\r",
+							"\r",
+							"pm.test(\"cancel success is true\", function () {\r",
+							"    pm.expect(data.success).to.eql(true);\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"username\": \"george\", \"date\": \"2025-08-29\", \"startTime\": \"18:28\", \"endTime\": \"20:32\"}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BaseUrl}}{{cancel}}",
+					"host": [
+						"{{BaseUrl}}{{cancel}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "test_cancel_invalid_user",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 401\", function () {\r",
+							"    pm.response.to.have.status(401);\r",
+							"});\r",
+							"\r",
+							"let data = pm.response.json();\r",
+							"\r",
+							"pm.test(\"cancel success is false\", function () {\r",
+							"    pm.expect(data.success).to.eql(false);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Message is correct\", function () {\r",
+							"    pm.expect(data.message).to.eql(\"Cannot cancel an appointment\");\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"username\": \"GGGGGGG\", \"date\": \"2037-08-29\", \"startTime\": \"18:28\", \"endTime\": \"20:32\"}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BaseUrl}}{{cancel}}",
+					"host": [
+						"{{BaseUrl}}{{cancel}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "test_book",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 201 created\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});\r",
+							"\r",
+							"let data = pm.response.json();\r",
+							"\r",
+							"pm.test(\"book success is true\", function () {\r",
+							"    pm.expect(data.success).to.eql(true);\r",
+							"});\r",
+							"\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"username\": \"george\", \"date\": \"2025-08-29\", \"startTime\": \"18:28\", \"endTime\": \"20:32\"}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BaseUrl}}{{book}}",
+					"host": [
+						"{{BaseUrl}}{{book}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "test_book_inavlid_date",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {\r",
+							"    pm.response.to.have.status(400);\r",
+							"});\r",
+							"\r",
+							"let data = pm.response.json();\r",
+							"\r",
+							"pm.test(\"book success is false\", function () {\r",
+							"    pm.expect(data.success).to.eql(false);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Message is correct\", function () {\r",
+							"    pm.expect(data.message).to.eql(\"Cannot book an appointment in the past\");\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"username\": \"george\", \"date\": \"2000-08-29\", \"startTime\": \"18:28\", \"endTime\": \"20:32\"}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BaseUrl}}{{book}}",
+					"host": [
+						"{{BaseUrl}}{{book}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "test_book_inavlid_user",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 401\", function () {\r",
+							"    pm.response.to.have.status(401);\r",
+							"});\r",
+							"\r",
+							"let data = pm.response.json();\r",
+							"\r",
+							"pm.test(\"book success is false\", function () {\r",
+							"    pm.expect(data.success).to.eql(false);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Message is correct\", function () {\r",
+							"    pm.expect(data.message).to.eql(\"Cannot book an appointment\");\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"username\": \"J\", \"date\": \"2027-08-29\", \"startTime\": \"18:28\", \"endTime\": \"20:32\"}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BaseUrl}}{{book}}",
+					"host": [
+						"{{BaseUrl}}{{book}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "test_delete",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"let data = pm.response.json();\r",
+							"\r",
+							"pm.test(\"delete success is true\", function () {\r",
+							"    pm.expect(data.success).to.eql(true);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Message is correct\", function () {\r",
+							"    pm.expect(data.message).to.eql(\"User deleted successfully\");\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"username\": \"Raghad\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BaseUrl}}{{delete}}",
+					"host": [
+						"{{BaseUrl}}{{delete}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "test_delete_invalid_use",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"    pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"let data = pm.response.json();\r",
+							"\r",
+							"pm.test(\"Signup success is false\", function () {\r",
+							"    pm.expect(data.success).to.eql(false);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Message is correct\", function () {\r",
+							"    pm.expect(data.message).to.eql(\"User not found\");\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"username\": \"Raghad\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BaseUrl}}{{delete}}",
+					"host": [
+						"{{BaseUrl}}{{delete}}"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "BaseUrl",
+			"value": "http://localhost:3000",
+			"type": "string"
+		},
+		{
+			"key": "delete",
+			"value": "/user",
+			"type": "string"
+		},
+		{
+			"key": "signup",
+			"value": "/signup",
+			"type": "string"
+		},
+		{
+			"key": "login",
+			"value": "/login",
+			"type": "string"
+		},
+		{
+			"key": "cancel",
+			"value": "/cancel",
+			"type": "string"
+		},
+		{
+			"key": "book",
+			"value": "/book",
+			"type": "string"
+		}
+	]
+}
