@@ -568,7 +568,7 @@
 			"response": []
 		},
 		{
-			"name": "test_delete_invalid_use",
+			"name": "test_delete_invalid_user",
 			"event": [
 				{
 					"listen": "test",
