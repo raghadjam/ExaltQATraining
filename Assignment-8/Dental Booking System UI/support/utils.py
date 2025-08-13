@@ -10,7 +10,7 @@ from datetime import date, datetime
 
 def create_user(page):
     username = f'user_{int(time.time())}_{random.randint(1,10000)}'
-    phone = f'{int(time.time())}{random.randint(1,10000)}'
+    phone = generate_unique_phone()
 
     page.fill_signup(username, config.VALID_PASSWORD, phone)
     return username
@@ -60,6 +60,20 @@ def get_message_class_text(driver, msg_selector, expected_text):
     message_element = driver.find_element(By.ID, msg_selector["message"])
     message_class = message_element.get_attribute('class')
     return message_class
+
+
+def generate_unique_phone():
+    existing_phones = set()
+    with open(config.FILENAME, 'r') as file:
+        data = json.load(file)
+        for user in data.get("users", []):
+            existing_phones.add(user.get("phone"))
+
+    while True:
+        phone = str(random.randint(1_000_000_000, 9_999_999_999))
+        if phone not in existing_phones:
+            return phone 
+        
 
 def getPastTime():
     now = datetime.now()

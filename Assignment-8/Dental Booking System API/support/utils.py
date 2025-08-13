@@ -6,7 +6,7 @@ from datetime import date, datetime
 
 def create_user(page):
     username = f'user_{int(time.time())}_{random.randint(1,10000)}'
-    phone = f'{int(time.time())}{random.randint(1,10000)}'
+    phone = generate_unique_phone()
     response = page.signup(username, config.VALID_PASSWORD, phone)
     return username, response
 
@@ -30,6 +30,18 @@ def getNextDate():
 
     return next_date.strftime("%Y-%m-%d")
 
+def generate_unique_phone():
+    existing_phones = set()
+    with open(config.FILENAME, 'r') as file:
+        data = json.load(file)
+        for user in data.get("users", []):
+            existing_phones.add(user.get("phone"))
+
+    while True:
+        phone = str(random.randint(1_000_000_000, 9_999_999_999))
+        if phone not in existing_phones:
+            return phone 
+        
 
 def getPastTime():
     now = datetime.now()
