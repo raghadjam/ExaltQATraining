@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shipping Tracking System</title>
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <style>
+        /* Updated styles.css */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 600px;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .form input {
+            width: 80%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .form button {
+            padding: 10px 20px;
+            border: none;
+            background-color: #28a745;
+            color: white;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .form button:hover {
+            background-color: #218838;
+        }
+
+        .stages {
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            overflow-x: auto;
+        }
+
+        .stage {
+            margin-bottom: 20px;
+            /* Increased margin for spacing */
+            padding: 15px;
+            background-color: #e9ecef;
+            border-radius: 4px;
+            width: 100%;
+            /* Ensures full-width */
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .stage h3 {
+            margin: 0 0 10px 0;
+            color: #007bff;
+        }
+
+        .buttons {
+            margin-top: 10px;
+        }
+
+        .buttons button {
+            margin: 0 10px;
+            /* Increased spacing between buttons */
+            padding: 10px 15px;
+            /* More padding for better appearance */
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1em;
+        }
+
+        .buttons .done {
+            background-color: #28a745;
+            color: white;
+        }
+
+        .buttons .pending {
+            background-color: #ffc107;
+            color: black;
+        }
+
+        .buttons .rejected {
+            background-color: #dc3545;
+            color: white;
+        }
+
+        .buttons button:disabled {
+            background-color: #6c757d;
+            cursor: not-allowed;
+        }
+
+        .rejection-cause {
+            display: none;
+            margin-top: 15px;
+        }
+
+        .rejection-cause input {
+            width: calc(100% - 20px);
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .message {
+            margin-top: 20px;
+            font-size: 1em;
+            padding: 10px;
+            border-radius: 4px;
+        }
+
+        .message.success {
+            color: #155724;
+            background-color: #d4edda;
+            border: 1px solid #c3e6cb;
+        }
+
+        .message.error {
+            color: #721c24;
+            background-color: #f8d7da;
+            border: 1px solid #f5c6cb;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Shipping Tracking System</h1>
+        <div class="form">
+            <input type="text" id="trackingId" placeholder="Tracking ID">
+            <input type="password" id="password" placeholder="Password">
+            <button onclick="trackShipment()">Track</button>
+        </div>
+        <div id="stages" class="stages">
+            <!-- Stages will be populated here -->
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
