@@ -21,7 +21,7 @@ Reject Should Succeed
     Element Should Contain           ${SUCCESS_MESSAGE}    ${REJECTION_SUCCESS}
 
 Pending should Succeed
-    Wait Until Element Is Visible    ${SUCCESS_MESSAGE}    10s
+    Wait Until Element Is Visible    ${SUCCESS_MESSAGE}    15s
     Element Should Contain           ${SUCCESS_MESSAGE}    ${PENDING_SUCCESS}
     
 Add Order

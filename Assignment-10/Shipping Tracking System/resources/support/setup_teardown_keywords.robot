@@ -27,8 +27,7 @@ Login And Reject
     Set Test Variable    ${STAGE_HEADER}    ${header_text}
 
 Click Pending
-    Open Browser And Login
-    Reject a Stage
+    Login And Reject
     ${header_text}=    Get Stage Header Text    ${PENDING_EN}
     Set Test Variable    ${STAGE_HEADER}    ${header_text}
     Click Button    ${ENABLED_PENDING}
