@@ -1,7 +1,7 @@
 *** Settings ***
 Library    SeleniumLibrary
 Resource   ../../../resources/variables/variables.robot
-Resource   ../../../resources/selectors/selectors.robot
+Resource   ../../../resources/selectors/login_selectors.robot
 
 
 *** Keywords ***

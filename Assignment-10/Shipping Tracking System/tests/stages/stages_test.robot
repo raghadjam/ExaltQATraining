@@ -3,10 +3,8 @@ Library    SeleniumLibrary
 Library    Collections
 Resource   ../../resources/variables/variables.robot
 Resource   ../../resources/keywords/login_keywords/login_keywords.robot
-Resource   ../../resources/selectors/selectors.robot
 Resource   ../../resources/keywords/stage_keywords/stage_keywords.robot
-Resource   ../../resources/keywords/support/utils_keywords.robot
-Resource   ../../resources/selectors/selectors.robot
+Resource   ../../resources/support/utils_keywords.robot
 Test Setup         Open Browser And Login
 Test Teardown      Delete Order
 

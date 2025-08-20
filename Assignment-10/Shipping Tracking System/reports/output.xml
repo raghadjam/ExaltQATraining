@@ -1,2223 +1,811 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.3.2 (Python 3.13.5 on win32)" generated="2025-08-19T15:09:39.409123" rpa="false" schemaversion="5">
-<suite id="s1" name="Stages Test" source="C:\Users\raghad.jamhour\Downloads\Shipping Tracking System\tests\stages\stages_test.robot">
-<test id="s1-t1" name="Validate Shipment Stages" line="15">
-<kw name="Open Browser And Login" owner="setup_teardown_keywords" type="SETUP">
+<robot generator="Robot 7.3.2 (Python 3.13.5 on win32)" generated="2025-08-20T09:20:25.032153" rpa="false" schemaversion="5">
+<suite id="s1" name="Login Test" source="C:\Users\raghad.jamhour\Desktop\Exalt\Training\Exalt-QA-Training-2025-raghad-jamhour\Assignment-10\Shipping Tracking System\tests\login\login_test.robot">
+<test id="s1-t1" name="Login Successful" line="13">
+<kw name="Create User" owner="setup_teardown_keywords" type="SETUP">
 <kw name="Open Web Browser" owner="utils_keywords">
 <kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2025-08-19T15:09:40.259332" level="INFO">Opening browser 'chrome' to base url 'http://localhost:3000'.</msg>
+<msg time="2025-08-20T09:20:25.815286" level="INFO">Opening browser 'chrome' to base url 'http://localhost:3000'.</msg>
 <arg>${BASE_URL}</arg>
 <arg>chrome</arg>
 <arg>options=add_experimental_option("excludeSwitches", ["enable-automation","disable-popup-blocking"])</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2025-08-19T15:09:40.259086" elapsed="1.570283"/>
+<status status="PASS" start="2025-08-20T09:20:25.815049" elapsed="1.415060"/>
 </kw>
-<status status="PASS" start="2025-08-19T15:09:40.258409" elapsed="1.571271"/>
+<status status="PASS" start="2025-08-20T09:20:25.814375" elapsed="1.416061"/>
 </kw>
 <kw name="Add Order" owner="stage_keywords">
 <kw name="Set Variable" owner="BuiltIn">
-<msg time="2025-08-19T15:09:41.831724" level="INFO">${success} = False</msg>
+<msg time="2025-08-20T09:20:27.232359" level="INFO">${success} = False</msg>
 <var>${success}</var>
 <arg>${False}</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2025-08-19T15:09:41.831207" elapsed="0.000618"/>
+<status status="PASS" start="2025-08-20T09:20:27.231854" elapsed="0.000594"/>
 </kw>
 <for flavor="IN RANGE">
 <iter>
 <kw name="Random Integer" owner="utils_keywords">
 <kw name="Evaluate" owner="BuiltIn">
-<msg time="2025-08-19T15:09:41.834154" level="INFO">${num} = 4747</msg>
+<msg time="2025-08-20T09:20:27.234596" level="INFO">${num} = 9065</msg>
 <var>${num}</var>
 <arg>random.randint(1000,9999)</arg>
 <arg>modules=random</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2025-08-19T15:09:41.833621" elapsed="0.000636"/>
+<status status="PASS" start="2025-08-20T09:20:27.234125" elapsed="0.000536"/>
 </kw>
 <return>
 <value>${num}</value>
-<status status="PASS" start="2025-08-19T15:09:41.834451" elapsed="0.000122"/>
+<status status="PASS" start="2025-08-20T09:20:27.234805" elapsed="0.000102"/>
 </return>
-<msg time="2025-08-19T15:09:41.834966" level="INFO">${trackingId} = 4747</msg>
+<msg time="2025-08-20T09:20:27.235233" level="INFO">${trackingId} = 9065</msg>
 <var>${trackingId}</var>
-<status status="PASS" start="2025-08-19T15:09:41.832978" elapsed="0.002077"/>
+<status status="PASS" start="2025-08-20T09:20:27.233601" elapsed="0.001691"/>
 </kw>
 <kw name="Convert To String" owner="BuiltIn">
-<msg time="2025-08-19T15:09:41.835803" level="INFO">${trackingId} = 4747</msg>
+<msg time="2025-08-20T09:20:27.235931" level="INFO">${trackingId} = 9065</msg>
 <var>${trackingId}</var>
 <arg>${trackingId}</arg>
 <doc>Converts the given item to a Unicode string.</doc>
-<status status="PASS" start="2025-08-19T15:09:41.835400" elapsed="0.000475"/>
+<status status="PASS" start="2025-08-20T09:20:27.235553" elapsed="0.000434"/>
 </kw>
 <kw name="Create Dictionary" owner="BuiltIn">
-<msg time="2025-08-19T15:09:41.836784" level="INFO">${json} = {'trackingId': '4747', 'password': '4747'}</msg>
+<msg time="2025-08-20T09:20:27.237196" level="INFO">${json} = {'trackingId': '9065', 'password': '9065'}</msg>
 <var>${json}</var>
 <arg>${KEY_TRACKING_ID}=${trackingId}</arg>
 <arg>${KEY_PASSWORD}=${trackingId}</arg>
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<status status="PASS" start="2025-08-19T15:09:41.836124" elapsed="0.000727"/>
+<status status="PASS" start="2025-08-20T09:20:27.236267" elapsed="0.001007"/>
 </kw>
 <kw name="POST" owner="RequestsLibrary">
-<msg time="2025-08-19T15:09:41.849468" level="INFO">POST Request : url=http://localhost:3000/addOrder 
+<msg time="2025-08-20T09:20:27.247439" level="INFO">POST Request : url=http://localhost:3000/addOrder 
  path_url=/addOrder 
  headers={'User-Agent': 'python-requests/2.32.4', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '42', 'Content-Type': 'application/json'} 
- body=b'{"trackingId": "4747", "password": "4747"}' 
+ body=b'{"trackingId": "9065", "password": "9065"}' 
  </msg>
-<msg time="2025-08-19T15:09:41.849606" level="INFO">POST Response : url=http://localhost:3000/addOrder 
+<msg time="2025-08-20T09:20:27.247759" level="INFO">POST Response : url=http://localhost:3000/addOrder 
  status=201, reason=Created 
- headers={'X-Powered-By': 'Express', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '406', 'ETag': 'W/"196-xtZOhOnEN8Q3rcKxZP1xUr6ooDo"', 'Date': 'Tue, 19 Aug 2025 12:09:41 GMT', 'Connection': 'keep-alive', 'Keep-Alive': 'timeout=5'} 
+ headers={'X-Powered-By': 'Express', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '406', 'ETag': 'W/"196-xtZOhOnEN8Q3rcKxZP1xUr6ooDo"', 'Date': 'Wed, 20 Aug 2025 06:20:27 GMT', 'Connection': 'keep-alive', 'Keep-Alive': 'timeout=5'} 
  body={"success":true,"stages":[{"name":"Order Received","status":"pending","cause":""},{"name":"Order Shipped","status":"pending","cause":""},{"name":"Order Received to Destination Country","status":"pending","cause":""},{"name":"Order Clearance Completed","status":"pending","cause":""},{"name":"Order in Delivery Stage","status":"pending","cause":""},{"name":"Order Delivered","status":"pending","cause":""}]} 
  </msg>
-<msg time="2025-08-19T15:09:41.849765" level="INFO">${resp} = &lt;Response [201]&gt;</msg>
+<msg time="2025-08-20T09:20:27.248047" level="INFO">${resp} = &lt;Response [201]&gt;</msg>
 <var>${resp}</var>
 <arg>${BASE_URL}${ADD_ORDER}</arg>
 <arg>json=${json}</arg>
 <doc>Sends a POST request.</doc>
-<status status="PASS" start="2025-08-19T15:09:41.837121" elapsed="0.012679"/>
+<status status="PASS" start="2025-08-20T09:20:27.237624" elapsed="0.010491"/>
 </kw>
 <if>
 <branch type="IF" condition="'${resp.status_code}' == '201'">
 <kw name="Set Variable" owner="BuiltIn">
-<msg time="2025-08-19T15:09:41.851039" level="INFO">${success} = True</msg>
+<msg time="2025-08-20T09:20:27.253516" level="INFO">${success} = True</msg>
 <var>${success}</var>
 <arg>${True}</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2025-08-19T15:09:41.850810" elapsed="0.000265"/>
+<status status="PASS" start="2025-08-20T09:20:27.249793" elapsed="0.003783"/>
 </kw>
 <kw name="Exit For Loop" owner="BuiltIn">
-<msg time="2025-08-19T15:09:41.851368" level="INFO">Exiting for loop altogether.</msg>
+<msg time="2025-08-20T09:20:27.253855" level="INFO">Exiting for loop altogether.</msg>
 <doc>Stops executing the enclosing FOR loop.</doc>
-<status status="PASS" start="2025-08-19T15:09:41.851243" elapsed="0.000222"/>
+<status status="PASS" start="2025-08-20T09:20:27.253744" elapsed="0.000207"/>
 </kw>
-<status status="PASS" start="2025-08-19T15:09:41.849955" elapsed="0.001589"/>
+<status status="PASS" start="2025-08-20T09:20:27.248446" elapsed="0.005565"/>
 </branch>
-<status status="PASS" start="2025-08-19T15:09:41.849918" elapsed="0.001741"/>
+<status status="PASS" start="2025-08-20T09:20:27.248354" elapsed="0.005719"/>
 </if>
 <var name="${i}">0</var>
-<status status="PASS" start="2025-08-19T15:09:41.832621" elapsed="0.019117"/>
+<status status="PASS" start="2025-08-20T09:20:27.233282" elapsed="0.020839"/>
 </iter>
 <var>${i}</var>
 <value>1000</value>
-<status status="PASS" start="2025-08-19T15:09:41.832027" elapsed="0.019828"/>
+<status status="PASS" start="2025-08-20T09:20:27.232695" elapsed="0.021485"/>
 </for>
 <if>
 <branch type="IF" condition="'${success}'=='False'">
 <kw name="Fail" owner="BuiltIn">
 <arg>Could not add order after 1000 attempts</arg>
 <doc>Fails the test with the given message and optionally alters its tags.</doc>
-<status status="NOT RUN" start="2025-08-19T15:09:41.852565" elapsed="0.000064"/>
+<status status="NOT RUN" start="2025-08-20T09:20:27.254543" elapsed="0.000044"/>
 </kw>
-<status status="NOT RUN" start="2025-08-19T15:09:41.852077" elapsed="0.000666"/>
+<status status="NOT RUN" start="2025-08-20T09:20:27.254299" elapsed="0.000336"/>
 </branch>
-<status status="PASS" start="2025-08-19T15:09:41.852033" elapsed="0.000801"/>
+<status status="PASS" start="2025-08-20T09:20:27.254275" elapsed="0.000402"/>
 </if>
 <return>
 <value>${trackingId}</value>
-<status status="PASS" start="2025-08-19T15:09:41.852922" elapsed="0.000092"/>
+<status status="PASS" start="2025-08-20T09:20:27.254717" elapsed="0.000042"/>
 </return>
-<msg time="2025-08-19T15:09:41.853511" level="INFO">${TRACKING_ID} = 4747</msg>
+<msg time="2025-08-20T09:20:27.254907" level="INFO">${TRACKING_ID} = 9065</msg>
 <var>${TRACKING_ID}</var>
-<status status="PASS" start="2025-08-19T15:09:41.830558" elapsed="0.023027"/>
+<status status="PASS" start="2025-08-20T09:20:27.231180" elapsed="0.023770"/>
+</kw>
+<kw name="Set Global Variable" owner="BuiltIn">
+<msg time="2025-08-20T09:20:27.255300" level="INFO">${TRACKING_ID} = 9065</msg>
+<arg>${TRACKING_ID}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<status status="PASS" start="2025-08-20T09:20:27.255071" elapsed="0.000283"/>
+</kw>
+<status status="PASS" start="2025-08-20T09:20:25.814078" elapsed="1.441360"/>
 </kw>
 <kw name="Login With Credentials" owner="login_keywords">
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-08-19T15:09:41.855047" level="INFO">Typing text '4747' into text field 'id=trackingId'.</msg>
+<msg time="2025-08-20T09:20:27.256663" level="INFO">Typing text '9065' into text field 'id=trackingId'.</msg>
 <arg>${LOGIN_ID_FIELD}</arg>
 <arg>${id}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-08-19T15:09:41.854580" elapsed="0.107979"/>
+<status status="PASS" start="2025-08-20T09:20:27.256306" elapsed="0.101886"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-08-19T15:09:41.963387" level="INFO">Typing text '4747' into text field 'id=password'.</msg>
+<msg time="2025-08-20T09:20:27.359036" level="INFO">Typing text '9065' into text field 'id=password'.</msg>
 <arg>${LOGIN_PASS_FIELD}</arg>
 <arg>${password}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-08-19T15:09:41.962876" elapsed="0.083333"/>
+<status status="PASS" start="2025-08-20T09:20:27.358574" elapsed="0.080148"/>
 </kw>
 <kw name="Click Button" owner="SeleniumLibrary">
-<msg time="2025-08-19T15:09:42.046634" level="INFO">Clicking button 'xpath=//button[text()='Track']'.</msg>
+<msg time="2025-08-20T09:20:27.439150" level="INFO">Clicking button 'xpath=//button[text()='Track']'.</msg>
 <arg>${TRACK_BUTTON}</arg>
 <doc>Clicks the button identified by ``locator``.</doc>
-<status status="PASS" start="2025-08-19T15:09:42.046405" elapsed="0.069176"/>
+<status status="PASS" start="2025-08-20T09:20:27.438917" elapsed="0.074586"/>
 </kw>
 <arg>${TRACKING_ID}</arg>
 <arg>${TRACKING_ID}</arg>
-<status status="PASS" start="2025-08-19T15:09:41.853985" elapsed="0.261736"/>
+<status status="PASS" start="2025-08-20T09:20:27.255836" elapsed="0.257812"/>
 </kw>
-<kw name="Set Global Variable" owner="BuiltIn">
-<msg time="2025-08-19T15:09:42.116108" level="INFO">${TRACKING_ID} = 4747</msg>
-<arg>${TRACKING_ID}</arg>
-<doc>Makes a variable available globally in all tests and suites.</doc>
-<status status="PASS" start="2025-08-19T15:09:42.115884" elapsed="0.000273"/>
+<kw name="Login Should Succeed" owner="login_keywords">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${SUCCESS_MESSAGE}</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-08-20T09:20:27.514316" elapsed="0.272849"/>
 </kw>
-<status status="PASS" start="2025-08-19T15:09:40.258124" elapsed="1.858107"/>
+<kw name="Element Should Contain" owner="SeleniumLibrary">
+<msg time="2025-08-20T09:20:27.835292" level="INFO">Element 'xpath=//*[@class='message success']' contains text 'Shipment stages loaded successfully!'.</msg>
+<arg>${SUCCESS_MESSAGE}</arg>
+<arg>${SHIPMENT_SUCESS}</arg>
+<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<status status="PASS" start="2025-08-20T09:20:27.787843" elapsed="0.047641"/>
 </kw>
-<kw name="Get WebElements" owner="SeleniumLibrary">
-<msg time="2025-08-19T15:09:42.138514" level="INFO">@{stages} = [ &lt;selenium.webdriver.remote.webelement.WebElement (session="43e8479cd8849f40be6e025857185bbc", element="f.819EB4F16477A7DA883CA4B406DAFECC.d.8384A1E46DDBE91A2A0A5E7A81AFDF18.e.11")&gt; | &lt;selenium.webdr...</msg>
-<var>@{stages}</var>
-<arg>${STAGES}</arg>
-<doc>Returns a list of WebElement objects matching the ``locator``.</doc>
-<status status="PASS" start="2025-08-19T15:09:42.116712" elapsed="0.022124"/>
+<status status="PASS" start="2025-08-20T09:20:27.514013" elapsed="0.321691"/>
 </kw>
-<kw name="Set Variable" owner="BuiltIn">
-<msg time="2025-08-19T15:09:42.139730" level="INFO">${i} = 0</msg>
-<var>${i}</var>
-<arg>0</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2025-08-19T15:09:42.139414" elapsed="0.000386"/>
-</kw>
-<for flavor="IN">
-<iter>
-<kw name="Get Text" owner="SeleniumLibrary">
-<msg time="2025-08-19T15:09:42.159516" level="INFO">${text} = Stage 1: Order Received</msg>
-<var>${text}</var>
-<arg>${stage}</arg>
-<doc>Returns the text value of the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-08-19T15:09:42.140761" elapsed="0.018845"/>
-</kw>
-<kw name="Get From List" owner="Collections">
-<msg time="2025-08-19T15:09:42.160353" level="INFO">${expected} = Stage 1: Order Received</msg>
-<var>${expected}</var>
-<arg>${EXPECTED_STAGES}</arg>
-<arg>${i}</arg>
-<doc>Returns the value specified with an ``index`` from ``list``.</doc>
-<status status="PASS" start="2025-08-19T15:09:42.159923" elapsed="0.000500"/>
-</kw>
-<kw name="Should Be Equal" owner="BuiltIn">
-<arg>${text}</arg>
-<arg>${expected}</arg>
-<doc>Fails if the given objects are unequal.</doc>
-<status status="PASS" start="2025-08-19T15:09:42.160655" elapsed="0.000339"/>
-</kw>
-<kw name="Evaluate" owner="BuiltIn">
-<msg time="2025-08-19T15:09:42.161615" level="INFO">${i} = 1</msg>
-<var>${i}</var>
-<arg>${i}+1</arg>
-<doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2025-08-19T15:09:42.161236" elapsed="0.000440"/>
-</kw>
-<var name="${stage}">&lt;selenium.webdriver.remote.webelement.WebElement (session="43e8479cd8849f40be6e025857185bbc", element="f.819EB4F16477A7DA883CA4B406DAFECC.d.8384A1E46DDBE91A2A0A5E7A81AFDF18.e.11")&gt;</var>
-<status status="PASS" start="2025-08-19T15:09:42.140525" elapsed="0.021248"/>
-</iter>
-<iter>
-<kw name="Get Text" owner="SeleniumLibrary">
-<msg time="2025-08-19T15:09:42.171097" level="INFO">${text} = Stage 2: Order Shipped</msg>
-<var>${text}</var>
-<arg>${stage}</arg>
-<doc>Returns the text value of the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-08-19T15:09:42.162220" elapsed="0.008928"/>
-</kw>
-<kw name="Get From List" owner="Collections">
-<msg time="2025-08-19T15:09:42.171608" level="INFO">${expected} = Stage 2: Order Shipped</msg>
-<var>${expected}</var>
-<arg>${EXPECTED_STAGES}</arg>
-<arg>${i}</arg>
-<doc>Returns the value specified with an ``index`` from ``list``.</doc>
-<status status="PASS" start="2025-08-19T15:09:42.171369" elapsed="0.000272"/>
-</kw>
-<kw name="Should Be Equal" owner="BuiltIn">
-<arg>${text}</arg>
-<arg>${expected}</arg>
-<doc>Fails if the given objects are unequal.</doc>
-<status status="PASS" start="2025-08-19T15:09:42.171785" elapsed="0.000209"/>
-</kw>
-<kw name="Evaluate" owner="BuiltIn">
-<msg time="2025-08-19T15:09:42.172362" level="INFO">${i} = 2</msg>
-<var>${i}</var>
-<arg>${i}+1</arg>
-<doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2025-08-19T15:09:42.172120" elapsed="0.000272"/>
-</kw>
-<var name="${stage}">&lt;selenium.webdriver.remote.webelement.WebElement (session="43e8479cd8849f40be6e025857185bbc", element="f.819EB4F16477A7DA883CA4B406DAFECC.d.8384A1E46DDBE91A2A0A5E7A81AFDF18.e.12")&gt;</var>
-<status status="PASS" start="2025-08-19T15:09:42.162029" elapsed="0.010414"/>
-</iter>
-<iter>
-<kw name="Get Text" owner="SeleniumLibrary">
-<msg time="2025-08-19T15:09:42.182217" level="INFO">${text} = Stage 3: Order Received to Destination Country</msg>
-<var>${text}</var>
-<arg>${stage}</arg>
-<doc>Returns the text value of the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-08-19T15:09:42.172676" elapsed="0.009587"/>
-</kw>
-<kw name="Get From List" owner="Collections">
-<msg time="2025-08-19T15:09:42.182621" level="INFO">${expected} = Stage 3: Order Received to Destination Country</msg>
-<var>${expected}</var>
-<arg>${EXPECTED_STAGES}</arg>
-<arg>${i}</arg>
-<doc>Returns the value specified with an ``index`` from ``list``.</doc>
-<status status="PASS" start="2025-08-19T15:09:42.182427" elapsed="0.000225"/>
-</kw>
-<kw name="Should Be Equal" owner="BuiltIn">
-<arg>${text}</arg>
-<arg>${expected}</arg>
-<doc>Fails if the given objects are unequal.</doc>
-<status status="PASS" start="2025-08-19T15:09:42.182774" elapsed="0.000169"/>
-</kw>
-<kw name="Evaluate" owner="BuiltIn">
-<msg time="2025-08-19T15:09:42.183270" level="INFO">${i} = 3</msg>
-<var>${i}</var>
-<arg>${i}+1</arg>
-<doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2025-08-19T15:09:42.183052" elapsed="0.000248"/>
-</kw>
-<var name="${stage}">&lt;selenium.webdriver.remote.webelement.WebElement (session="43e8479cd8849f40be6e025857185bbc", element="f.819EB4F16477A7DA883CA4B406DAFECC.d.8384A1E46DDBE91A2A0A5E7A81AFDF18.e.13")&gt;</var>
-<status status="PASS" start="2025-08-19T15:09:42.172568" elapsed="0.010788"/>
-</iter>
-<iter>
-<kw name="Get Text" owner="SeleniumLibrary">
-<msg time="2025-08-19T15:09:42.190865" level="INFO">${text} = Stage 4: Order Clearance Completed</msg>
-<var>${text}</var>
-<arg>${stage}</arg>
-<doc>Returns the text value of the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-08-19T15:09:42.183567" elapsed="0.007344"/>
-</kw>
-<kw name="Get From List" owner="Collections">
-<msg time="2025-08-19T15:09:42.191268" level="INFO">${expected} = Stage 4: Order Clearance Completed</msg>
-<var>${expected}</var>
-<arg>${EXPECTED_STAGES}</arg>
-<arg>${i}</arg>
-<doc>Returns the value specified with an ``index`` from ``list``.</doc>
-<status status="PASS" start="2025-08-19T15:09:42.191076" elapsed="0.000221"/>
-</kw>
-<kw name="Should Be Equal" owner="BuiltIn">
-<arg>${text}</arg>
-<arg>${expected}</arg>
-<doc>Fails if the given objects are unequal.</doc>
-<status status="PASS" start="2025-08-19T15:09:42.191422" elapsed="0.000166"/>
-</kw>
-<kw name="Evaluate" owner="BuiltIn">
-<msg time="2025-08-19T15:09:42.191908" level="INFO">${i} = 4</msg>
-<var>${i}</var>
-<arg>${i}+1</arg>
-<doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2025-08-19T15:09:42.191699" elapsed="0.000238"/>
-</kw>
-<var name="${stage}">&lt;selenium.webdriver.remote.webelement.WebElement (session="43e8479cd8849f40be6e025857185bbc", element="f.819EB4F16477A7DA883CA4B406DAFECC.d.8384A1E46DDBE91A2A0A5E7A81AFDF18.e.14")&gt;</var>
-<status status="PASS" start="2025-08-19T15:09:42.183474" elapsed="0.008510"/>
-</iter>
-<iter>
-<kw name="Get Text" owner="SeleniumLibrary">
-<msg time="2025-08-19T15:09:42.198395" level="INFO">${text} = Stage 5: Order in Delivery Stage</msg>
-<var>${text}</var>
-<arg>${stage}</arg>
-<doc>Returns the text value of the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-08-19T15:09:42.192226" elapsed="0.006214"/>
-</kw>
-<kw name="Get From List" owner="Collections">
-<msg time="2025-08-19T15:09:42.198790" level="INFO">${expected} = Stage 5: Order in Delivery Stage</msg>
-<var>${expected}</var>
-<arg>${EXPECTED_STAGES}</arg>
-<arg>${i}</arg>
-<doc>Returns the value specified with an ``index`` from ``list``.</doc>
-<status status="PASS" start="2025-08-19T15:09:42.198597" elapsed="0.000222"/>
-</kw>
-<kw name="Should Be Equal" owner="BuiltIn">
-<arg>${text}</arg>
-<arg>${expected}</arg>
-<doc>Fails if the given objects are unequal.</doc>
-<status status="PASS" start="2025-08-19T15:09:42.198936" elapsed="0.000167"/>
-</kw>
-<kw name="Evaluate" owner="BuiltIn">
-<msg time="2025-08-19T15:09:42.199412" level="INFO">${i} = 5</msg>
-<var>${i}</var>
-<arg>${i}+1</arg>
-<doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2025-08-19T15:09:42.199213" elapsed="0.000228"/>
-</kw>
-<var name="${stage}">&lt;selenium.webdriver.remote.webelement.WebElement (session="43e8479cd8849f40be6e025857185bbc", element="f.819EB4F16477A7DA883CA4B406DAFECC.d.8384A1E46DDBE91A2A0A5E7A81AFDF18.e.15")&gt;</var>
-<status status="PASS" start="2025-08-19T15:09:42.192132" elapsed="0.007363"/>
-</iter>
-<iter>
-<kw name="Get Text" owner="SeleniumLibrary">
-<msg time="2025-08-19T15:09:42.206630" level="INFO">${text} = Stage 6: Order Delivered</msg>
-<var>${text}</var>
-<arg>${stage}</arg>
-<doc>Returns the text value of the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-08-19T15:09:42.199814" elapsed="0.006861"/>
-</kw>
-<kw name="Get From List" owner="Collections">
-<msg time="2025-08-19T15:09:42.207025" level="INFO">${expected} = Stage 6: Order Delivered</msg>
-<var>${expected}</var>
-<arg>${EXPECTED_STAGES}</arg>
-<arg>${i}</arg>
-<doc>Returns the value specified with an ``index`` from ``list``.</doc>
-<status status="PASS" start="2025-08-19T15:09:42.206832" elapsed="0.000222"/>
-</kw>
-<kw name="Should Be Equal" owner="BuiltIn">
-<arg>${text}</arg>
-<arg>${expected}</arg>
-<doc>Fails if the given objects are unequal.</doc>
-<status status="PASS" start="2025-08-19T15:09:42.207184" elapsed="0.000173"/>
-</kw>
-<kw name="Evaluate" owner="BuiltIn">
-<msg time="2025-08-19T15:09:42.207661" level="INFO">${i} = 6</msg>
-<var>${i}</var>
-<arg>${i}+1</arg>
-<doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2025-08-19T15:09:42.207468" elapsed="0.000224"/>
-</kw>
-<var name="${stage}">&lt;selenium.webdriver.remote.webelement.WebElement (session="43e8479cd8849f40be6e025857185bbc", element="f.819EB4F16477A7DA883CA4B406DAFECC.d.8384A1E46DDBE91A2A0A5E7A81AFDF18.e.16")&gt;</var>
-<status status="PASS" start="2025-08-19T15:09:42.199718" elapsed="0.008023"/>
-</iter>
-<var>${stage}</var>
-<value>@{stages}</value>
-<status status="PASS" start="2025-08-19T15:09:42.140123" elapsed="0.067674"/>
-</for>
 <kw name="Delete Order" owner="stage_keywords" type="TEARDOWN">
 <kw name="Create Dictionary" owner="BuiltIn">
-<msg time="2025-08-19T15:09:42.208833" level="INFO">${json} = {'trackingId': '4747', 'password': '4747'}</msg>
+<msg time="2025-08-20T09:20:27.838127" level="INFO">${json} = {'trackingId': '9065', 'password': '9065'}</msg>
 <var>${json}</var>
 <arg>${KEY_TRACKING_ID}=${TRACKING_ID}</arg>
 <arg>${KEY_PASSWORD}=${TRACKING_ID}</arg>
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<status status="PASS" start="2025-08-19T15:09:42.208500" elapsed="0.000367"/>
+<status status="PASS" start="2025-08-20T09:20:27.837347" elapsed="0.000865"/>
 </kw>
 <kw name="DELETE" owner="RequestsLibrary">
-<msg time="2025-08-19T15:09:42.212660" level="INFO">DELETE Request : url=http://localhost:3000/deleteOrder 
+<msg time="2025-08-20T09:20:27.847142" level="INFO">DELETE Request : url=http://localhost:3000/deleteOrder 
  path_url=/deleteOrder 
  headers={'User-Agent': 'python-requests/2.32.4', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '42', 'Content-Type': 'application/json'} 
- body=b'{"trackingId": "4747", "password": "4747"}' 
+ body=b'{"trackingId": "9065", "password": "9065"}' 
  </msg>
-<msg time="2025-08-19T15:09:42.212742" level="INFO">DELETE Response : url=http://localhost:3000/deleteOrder 
+<msg time="2025-08-20T09:20:27.847452" level="INFO">DELETE Response : url=http://localhost:3000/deleteOrder 
  status=200, reason=OK 
- headers={'X-Powered-By': 'Express', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '42', 'ETag': 'W/"2a-73HTL89b4tbDT7yR3vJfTGBT34w"', 'Date': 'Tue, 19 Aug 2025 12:09:42 GMT', 'Connection': 'keep-alive', 'Keep-Alive': 'timeout=5'} 
+ headers={'X-Powered-By': 'Express', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '42', 'ETag': 'W/"2a-73HTL89b4tbDT7yR3vJfTGBT34w"', 'Date': 'Wed, 20 Aug 2025 06:20:27 GMT', 'Connection': 'keep-alive', 'Keep-Alive': 'timeout=5'} 
  body={"success":true,"message":"Order deleted"} 
  </msg>
 <arg>${BASE_URL}${DELETE_ORDER}</arg>
 <arg>json=${json}</arg>
 <arg>expected_status=200</arg>
 <doc>Sends a DELETE request.</doc>
-<status status="PASS" start="2025-08-19T15:09:42.208981" elapsed="0.003835"/>
+<status status="PASS" start="2025-08-20T09:20:27.838532" elapsed="0.009128"/>
 </kw>
 <kw name="Close Browser" owner="SeleniumLibrary">
 <doc>Closes the current browser.</doc>
-<status status="PASS" start="2025-08-19T15:09:42.212996" elapsed="2.271062"/>
+<status status="PASS" start="2025-08-20T09:20:27.848073" elapsed="2.251217"/>
 </kw>
-<status status="PASS" start="2025-08-19T15:09:42.208199" elapsed="2.276233"/>
+<status status="PASS" start="2025-08-20T09:20:27.836646" elapsed="2.263427"/>
 </kw>
-<status status="PASS" start="2025-08-19T15:09:40.257259" elapsed="4.227798"/>
+<status status="PASS" start="2025-08-20T09:20:25.813290" elapsed="4.288298"/>
 </test>
-<test id="s1-t2" name="Text Field and Submit Button Are Invisible" line="25">
-<kw name="Open Browser And Login" owner="setup_teardown_keywords" type="SETUP">
+<test id="s1-t2" name="Login Fail With Wrong Password" line="17">
+<kw name="Create User" owner="setup_teardown_keywords" type="SETUP">
 <kw name="Open Web Browser" owner="utils_keywords">
 <kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2025-08-19T15:09:44.492146" level="INFO">Opening browser 'chrome' to base url 'http://localhost:3000'.</msg>
+<msg time="2025-08-20T09:20:30.120692" level="INFO">Opening browser 'chrome' to base url 'http://localhost:3000'.</msg>
 <arg>${BASE_URL}</arg>
 <arg>chrome</arg>
 <arg>options=add_experimental_option("excludeSwitches", ["enable-automation","disable-popup-blocking"])</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2025-08-19T15:09:44.491347" elapsed="1.527602"/>
+<status status="PASS" start="2025-08-20T09:20:30.117855" elapsed="1.561909"/>
 </kw>
-<status status="PASS" start="2025-08-19T15:09:44.490444" elapsed="1.528729"/>
+<status status="PASS" start="2025-08-20T09:20:30.115505" elapsed="1.564497"/>
 </kw>
 <kw name="Add Order" owner="stage_keywords">
 <kw name="Set Variable" owner="BuiltIn">
-<msg time="2025-08-19T15:09:46.020734" level="INFO">${success} = False</msg>
+<msg time="2025-08-20T09:20:31.681490" level="INFO">${success} = False</msg>
 <var>${success}</var>
 <arg>${False}</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2025-08-19T15:09:46.020339" elapsed="0.000477"/>
+<status status="PASS" start="2025-08-20T09:20:31.681172" elapsed="0.000382"/>
 </kw>
 <for flavor="IN RANGE">
 <iter>
 <kw name="Random Integer" owner="utils_keywords">
 <kw name="Evaluate" owner="BuiltIn">
-<msg time="2025-08-19T15:09:46.022446" level="INFO">${num} = 1592</msg>
+<msg time="2025-08-20T09:20:31.683358" level="INFO">${num} = 1194</msg>
 <var>${num}</var>
 <arg>random.randint(1000,9999)</arg>
 <arg>modules=random</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2025-08-19T15:09:46.022080" elapsed="0.000430"/>
+<status status="PASS" start="2025-08-20T09:20:31.683032" elapsed="0.000367"/>
 </kw>
 <return>
 <value>${num}</value>
-<status status="PASS" start="2025-08-19T15:09:46.022656" elapsed="0.000062"/>
+<status status="PASS" start="2025-08-20T09:20:31.683500" elapsed="0.000053"/>
 </return>
-<msg time="2025-08-19T15:09:46.022903" level="INFO">${trackingId} = 1592</msg>
+<msg time="2025-08-20T09:20:31.683752" level="INFO">${trackingId} = 1194</msg>
 <var>${trackingId}</var>
-<status status="PASS" start="2025-08-19T15:09:46.021755" elapsed="0.001192"/>
+<status status="PASS" start="2025-08-20T09:20:31.682549" elapsed="0.001257"/>
 </kw>
 <kw name="Convert To String" owner="BuiltIn">
-<msg time="2025-08-19T15:09:46.023358" level="INFO">${trackingId} = 1592</msg>
+<msg time="2025-08-20T09:20:31.684419" level="INFO">${trackingId} = 1194</msg>
 <var>${trackingId}</var>
 <arg>${trackingId}</arg>
 <doc>Converts the given item to a Unicode string.</doc>
-<status status="PASS" start="2025-08-19T15:09:46.023118" elapsed="0.000313"/>
+<status status="PASS" start="2025-08-20T09:20:31.684095" elapsed="0.000375"/>
 </kw>
 <kw name="Create Dictionary" owner="BuiltIn">
-<msg time="2025-08-19T15:09:46.024388" level="INFO">${json} = {'trackingId': '1592', 'password': '1592'}</msg>
+<msg time="2025-08-20T09:20:31.685368" level="INFO">${json} = {'trackingId': '1194', 'password': '1194'}</msg>
 <var>${json}</var>
 <arg>${KEY_TRACKING_ID}=${trackingId}</arg>
 <arg>${KEY_PASSWORD}=${trackingId}</arg>
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<status status="PASS" start="2025-08-19T15:09:46.023681" elapsed="0.000752"/>
+<status status="PASS" start="2025-08-20T09:20:31.684728" elapsed="0.000700"/>
 </kw>
 <kw name="POST" owner="RequestsLibrary">
-<msg time="2025-08-19T15:09:46.029806" level="INFO">POST Request : url=http://localhost:3000/addOrder 
+<msg time="2025-08-20T09:20:31.690222" level="INFO">POST Request : url=http://localhost:3000/addOrder 
  path_url=/addOrder 
  headers={'User-Agent': 'python-requests/2.32.4', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '42', 'Content-Type': 'application/json'} 
- body=b'{"trackingId": "1592", "password": "1592"}' 
+ body=b'{"trackingId": "1194", "password": "1194"}' 
  </msg>
-<msg time="2025-08-19T15:09:46.029949" level="INFO">POST Response : url=http://localhost:3000/addOrder 
+<msg time="2025-08-20T09:20:31.690384" level="INFO">POST Response : url=http://localhost:3000/addOrder 
  status=201, reason=Created 
- headers={'X-Powered-By': 'Express', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '406', 'ETag': 'W/"196-xtZOhOnEN8Q3rcKxZP1xUr6ooDo"', 'Date': 'Tue, 19 Aug 2025 12:09:46 GMT', 'Connection': 'keep-alive', 'Keep-Alive': 'timeout=5'} 
+ headers={'X-Powered-By': 'Express', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '406', 'ETag': 'W/"196-xtZOhOnEN8Q3rcKxZP1xUr6ooDo"', 'Date': 'Wed, 20 Aug 2025 06:20:31 GMT', 'Connection': 'keep-alive', 'Keep-Alive': 'timeout=5'} 
  body={"success":true,"stages":[{"name":"Order Received","status":"pending","cause":""},{"name":"Order Shipped","status":"pending","cause":""},{"name":"Order Received to Destination Country","status":"pending","cause":""},{"name":"Order Clearance Completed","status":"pending","cause":""},{"name":"Order in Delivery Stage","status":"pending","cause":""},{"name":"Order Delivered","status":"pending","cause":""}]} 
  </msg>
-<msg time="2025-08-19T15:09:46.030344" level="INFO">${resp} = &lt;Response [201]&gt;</msg>
+<msg time="2025-08-20T09:20:31.690738" level="INFO">${resp} = &lt;Response [201]&gt;</msg>
 <var>${resp}</var>
 <arg>${BASE_URL}${ADD_ORDER}</arg>
 <arg>json=${json}</arg>
 <doc>Sends a POST request.</doc>
-<status status="PASS" start="2025-08-19T15:09:46.024610" elapsed="0.005807"/>
+<status status="PASS" start="2025-08-20T09:20:31.685697" elapsed="0.005101"/>
 </kw>
 <if>
 <branch type="IF" condition="'${resp.status_code}' == '201'">
 <kw name="Set Variable" owner="BuiltIn">
-<msg time="2025-08-19T15:09:46.032671" level="INFO">${success} = True</msg>
+<msg time="2025-08-20T09:20:31.692967" level="INFO">${success} = True</msg>
 <var>${success}</var>
 <arg>${True}</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2025-08-19T15:09:46.032313" elapsed="0.000425"/>
+<status status="PASS" start="2025-08-20T09:20:31.692608" elapsed="0.000419"/>
 </kw>
 <kw name="Exit For Loop" owner="BuiltIn">
-<msg time="2025-08-19T15:09:46.033275" level="INFO">Exiting for loop altogether.</msg>
+<msg time="2025-08-20T09:20:31.693439" level="INFO">Exiting for loop altogether.</msg>
 <doc>Stops executing the enclosing FOR loop.</doc>
-<status status="PASS" start="2025-08-19T15:09:46.033099" elapsed="0.000304"/>
+<status status="PASS" start="2025-08-20T09:20:31.693283" elapsed="0.000296"/>
 </kw>
-<status status="PASS" start="2025-08-19T15:09:46.030648" elapsed="0.002872"/>
+<status status="PASS" start="2025-08-20T09:20:31.690999" elapsed="0.002667"/>
 </branch>
-<status status="PASS" start="2025-08-19T15:09:46.030601" elapsed="0.003015"/>
+<status status="PASS" start="2025-08-20T09:20:31.690961" elapsed="0.002787"/>
 </if>
 <var name="${i}">0</var>
-<status status="PASS" start="2025-08-19T15:09:46.021540" elapsed="0.012137"/>
+<status status="PASS" start="2025-08-20T09:20:31.682234" elapsed="0.011569"/>
 </iter>
 <var>${i}</var>
 <value>1000</value>
-<status status="PASS" start="2025-08-19T15:09:46.021009" elapsed="0.012771"/>
+<status status="PASS" start="2025-08-20T09:20:31.681723" elapsed="0.012211"/>
 </for>
 <if>
 <branch type="IF" condition="'${success}'=='False'">
 <kw name="Fail" owner="BuiltIn">
 <arg>Could not add order after 1000 attempts</arg>
 <doc>Fails the test with the given message and optionally alters its tags.</doc>
-<status status="NOT RUN" start="2025-08-19T15:09:46.034325" elapsed="0.000059"/>
+<status status="NOT RUN" start="2025-08-20T09:20:31.694429" elapsed="0.000054"/>
 </kw>
-<status status="NOT RUN" start="2025-08-19T15:09:46.033964" elapsed="0.000513"/>
+<status status="NOT RUN" start="2025-08-20T09:20:31.694099" elapsed="0.000607"/>
 </branch>
-<status status="PASS" start="2025-08-19T15:09:46.033928" elapsed="0.000637"/>
+<status status="PASS" start="2025-08-20T09:20:31.694067" elapsed="0.000716"/>
 </if>
 <return>
 <value>${trackingId}</value>
-<status status="PASS" start="2025-08-19T15:09:46.034741" elapsed="0.000085"/>
+<status status="PASS" start="2025-08-20T09:20:31.694856" elapsed="0.000072"/>
 </return>
-<msg time="2025-08-19T15:09:46.035224" level="INFO">${TRACKING_ID} = 1592</msg>
+<msg time="2025-08-20T09:20:31.695156" level="INFO">${TRACKING_ID} = 1194</msg>
 <var>${TRACKING_ID}</var>
-<status status="PASS" start="2025-08-19T15:09:46.019781" elapsed="0.015510"/>
+<status status="PASS" start="2025-08-20T09:20:31.680616" elapsed="0.014574"/>
+</kw>
+<kw name="Set Global Variable" owner="BuiltIn">
+<msg time="2025-08-20T09:20:31.695527" level="INFO">${TRACKING_ID} = 1194</msg>
+<arg>${TRACKING_ID}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<status status="PASS" start="2025-08-20T09:20:31.695330" elapsed="0.000247"/>
+</kw>
+<status status="PASS" start="2025-08-20T09:20:30.112152" elapsed="1.583510"/>
 </kw>
 <kw name="Login With Credentials" owner="login_keywords">
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-08-19T15:09:46.036868" level="INFO">Typing text '1592' into text field 'id=trackingId'.</msg>
+<msg time="2025-08-20T09:20:31.697311" level="INFO">Typing text '1194' into text field 'id=trackingId'.</msg>
 <arg>${LOGIN_ID_FIELD}</arg>
 <arg>${id}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-08-19T15:09:46.036419" elapsed="0.098459"/>
+<status status="PASS" start="2025-08-20T09:20:31.696902" elapsed="0.101723"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-08-19T15:09:46.135668" level="INFO">Typing text '1592' into text field 'id=password'.</msg>
+<msg time="2025-08-20T09:20:31.799450" level="INFO">Typing text '999999' into text field 'id=password'.</msg>
 <arg>${LOGIN_PASS_FIELD}</arg>
 <arg>${password}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-08-19T15:09:46.135200" elapsed="0.095713"/>
+<status status="PASS" start="2025-08-20T09:20:31.798998" elapsed="0.092415"/>
 </kw>
 <kw name="Click Button" owner="SeleniumLibrary">
-<msg time="2025-08-19T15:09:46.231595" level="INFO">Clicking button 'xpath=//button[text()='Track']'.</msg>
+<msg time="2025-08-20T09:20:31.892398" level="INFO">Clicking button 'xpath=//button[text()='Track']'.</msg>
 <arg>${TRACK_BUTTON}</arg>
 <doc>Clicks the button identified by ``locator``.</doc>
-<status status="PASS" start="2025-08-19T15:09:46.231225" elapsed="0.076751"/>
+<status status="PASS" start="2025-08-20T09:20:31.891878" elapsed="0.080274"/>
 </kw>
 <arg>${TRACKING_ID}</arg>
-<arg>${TRACKING_ID}</arg>
-<status status="PASS" start="2025-08-19T15:09:46.035686" elapsed="0.272757"/>
+<arg>${INVALID_PASS}</arg>
+<status status="PASS" start="2025-08-20T09:20:31.696199" elapsed="0.276148"/>
 </kw>
-<kw name="Set Global Variable" owner="BuiltIn">
-<msg time="2025-08-19T15:09:46.309001" level="INFO">${TRACKING_ID} = 1592</msg>
-<arg>${TRACKING_ID}</arg>
-<doc>Makes a variable available globally in all tests and suites.</doc>
-<status status="PASS" start="2025-08-19T15:09:46.308700" elapsed="0.000359"/>
-</kw>
-<status status="PASS" start="2025-08-19T15:09:44.489424" elapsed="1.819714"/>
-</kw>
-<kw name="Element Should Not Be Visible" owner="SeleniumLibrary">
-<msg time="2025-08-19T15:09:46.341172" level="INFO">Element 'xpath=//input[@placeholder='Reason for rejection']' exists but is not displayed.</msg>
-<arg>${REJECTION_REASON}</arg>
-<doc>Verifies that the element identified by ``locator`` is NOT visible.</doc>
-<status status="PASS" start="2025-08-19T15:09:46.309460" elapsed="0.031898"/>
-</kw>
-<kw name="Element Should Not Be Visible" owner="SeleniumLibrary">
-<msg time="2025-08-19T15:09:46.364247" level="INFO">Element 'xpath=//button[text()='Submit']' exists but is not displayed.</msg>
-<arg>${SUBMIT_BUTTON}</arg>
-<doc>Verifies that the element identified by ``locator`` is NOT visible.</doc>
-<status status="PASS" start="2025-08-19T15:09:46.341999" elapsed="0.022348"/>
-</kw>
-<kw name="Click Button" owner="SeleniumLibrary">
-<msg time="2025-08-19T15:09:46.364907" level="INFO">Clicking button 'xpath=//button[(text()='Rejected') and not(@disabled)]'.</msg>
-<arg>${ENABLED_REJECT}</arg>
-<doc>Clicks the button identified by ``locator``.</doc>
-<status status="PASS" start="2025-08-19T15:09:46.364681" elapsed="0.095233"/>
-</kw>
-<kw name="Element Should Be Visible" owner="SeleniumLibrary">
-<msg time="2025-08-19T15:09:46.480011" level="INFO">Element 'xpath=//input[@placeholder='Reason for rejection']' is displayed.</msg>
-<arg>${REJECTION_REASON}</arg>
-<doc>Verifies that the element identified by ``locator`` is visible.</doc>
-<status status="PASS" start="2025-08-19T15:09:46.460306" elapsed="0.019835"/>
-</kw>
-<kw name="Element Should Be Visible" owner="SeleniumLibrary">
-<msg time="2025-08-19T15:09:46.497257" level="INFO">Element 'xpath=//button[text()='Submit']' is displayed.</msg>
-<arg>${SUBMIT_BUTTON}</arg>
-<doc>Verifies that the element identified by ``locator`` is visible.</doc>
-<status status="PASS" start="2025-08-19T15:09:46.480480" elapsed="0.016881"/>
-</kw>
-<kw name="Delete Order" owner="stage_keywords" type="TEARDOWN">
-<kw name="Create Dictionary" owner="BuiltIn">
-<msg time="2025-08-19T15:09:46.499098" level="INFO">${json} = {'trackingId': '1592', 'password': '1592'}</msg>
-<var>${json}</var>
-<arg>${KEY_TRACKING_ID}=${TRACKING_ID}</arg>
-<arg>${KEY_PASSWORD}=${TRACKING_ID}</arg>
-<doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<status status="PASS" start="2025-08-19T15:09:46.498487" elapsed="0.000664"/>
-</kw>
-<kw name="DELETE" owner="RequestsLibrary">
-<msg time="2025-08-19T15:09:46.504138" level="INFO">DELETE Request : url=http://localhost:3000/deleteOrder 
- path_url=/deleteOrder 
- headers={'User-Agent': 'python-requests/2.32.4', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '42', 'Content-Type': 'application/json'} 
- body=b'{"trackingId": "1592", "password": "1592"}' 
- </msg>
-<msg time="2025-08-19T15:09:46.504336" level="INFO">DELETE Response : url=http://localhost:3000/deleteOrder 
- status=200, reason=OK 
- headers={'X-Powered-By': 'Express', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '42', 'ETag': 'W/"2a-73HTL89b4tbDT7yR3vJfTGBT34w"', 'Date': 'Tue, 19 Aug 2025 12:09:46 GMT', 'Connection': 'keep-alive', 'Keep-Alive': 'timeout=5'} 
- body={"success":true,"message":"Order deleted"} 
- </msg>
-<arg>${BASE_URL}${DELETE_ORDER}</arg>
-<arg>json=${json}</arg>
-<arg>expected_status=200</arg>
-<doc>Sends a DELETE request.</doc>
-<status status="PASS" start="2025-08-19T15:09:46.499342" elapsed="0.005423"/>
-</kw>
-<kw name="Close Browser" owner="SeleniumLibrary">
-<doc>Closes the current browser.</doc>
-<status status="PASS" start="2025-08-19T15:09:46.505222" elapsed="2.277768"/>
-</kw>
-<status status="PASS" start="2025-08-19T15:09:46.497988" elapsed="2.285816"/>
-</kw>
-<status status="PASS" start="2025-08-19T15:09:44.487684" elapsed="4.297699"/>
-</test>
-<test id="s1-t3" name="Reject Fail Without a Reason" line="32">
-<kw name="Open Browser And Login" owner="setup_teardown_keywords" type="SETUP">
-<kw name="Open Web Browser" owner="utils_keywords">
-<kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2025-08-19T15:09:48.803022" level="INFO">Opening browser 'chrome' to base url 'http://localhost:3000'.</msg>
-<arg>${BASE_URL}</arg>
-<arg>chrome</arg>
-<arg>options=add_experimental_option("excludeSwitches", ["enable-automation","disable-popup-blocking"])</arg>
-<doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2025-08-19T15:09:48.801042" elapsed="1.480728"/>
-</kw>
-<status status="PASS" start="2025-08-19T15:09:48.798923" elapsed="1.483015"/>
-</kw>
-<kw name="Add Order" owner="stage_keywords">
-<kw name="Set Variable" owner="BuiltIn">
-<msg time="2025-08-19T15:09:50.283106" level="INFO">${success} = False</msg>
-<var>${success}</var>
-<arg>${False}</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2025-08-19T15:09:50.282718" elapsed="0.000484"/>
-</kw>
-<for flavor="IN RANGE">
-<iter>
-<kw name="Random Integer" owner="utils_keywords">
-<kw name="Evaluate" owner="BuiltIn">
-<msg time="2025-08-19T15:09:50.284828" level="INFO">${num} = 9042</msg>
-<var>${num}</var>
-<arg>random.randint(1000,9999)</arg>
-<arg>modules=random</arg>
-<doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2025-08-19T15:09:50.284409" elapsed="0.000493"/>
-</kw>
-<return>
-<value>${num}</value>
-<status status="PASS" start="2025-08-19T15:09:50.285117" elapsed="0.000098"/>
-</return>
-<msg time="2025-08-19T15:09:50.285560" level="INFO">${trackingId} = 9042</msg>
-<var>${trackingId}</var>
-<status status="PASS" start="2025-08-19T15:09:50.284123" elapsed="0.001497"/>
-</kw>
-<kw name="Convert To String" owner="BuiltIn">
-<msg time="2025-08-19T15:09:50.286220" level="INFO">${trackingId} = 9042</msg>
-<var>${trackingId}</var>
-<arg>${trackingId}</arg>
-<doc>Converts the given item to a Unicode string.</doc>
-<status status="PASS" start="2025-08-19T15:09:50.285903" elapsed="0.000353"/>
-</kw>
-<kw name="Create Dictionary" owner="BuiltIn">
-<msg time="2025-08-19T15:09:50.286884" level="INFO">${json} = {'trackingId': '9042', 'password': '9042'}</msg>
-<var>${json}</var>
-<arg>${KEY_TRACKING_ID}=${trackingId}</arg>
-<arg>${KEY_PASSWORD}=${trackingId}</arg>
-<doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<status status="PASS" start="2025-08-19T15:09:50.286455" elapsed="0.000488"/>
-</kw>
-<kw name="POST" owner="RequestsLibrary">
-<msg time="2025-08-19T15:09:50.291311" level="INFO">POST Request : url=http://localhost:3000/addOrder 
- path_url=/addOrder 
- headers={'User-Agent': 'python-requests/2.32.4', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '42', 'Content-Type': 'application/json'} 
- body=b'{"trackingId": "9042", "password": "9042"}' 
- </msg>
-<msg time="2025-08-19T15:09:50.291451" level="INFO">POST Response : url=http://localhost:3000/addOrder 
- status=201, reason=Created 
- headers={'X-Powered-By': 'Express', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '406', 'ETag': 'W/"196-xtZOhOnEN8Q3rcKxZP1xUr6ooDo"', 'Date': 'Tue, 19 Aug 2025 12:09:50 GMT', 'Connection': 'keep-alive', 'Keep-Alive': 'timeout=5'} 
- body={"success":true,"stages":[{"name":"Order Received","status":"pending","cause":""},{"name":"Order Shipped","status":"pending","cause":""},{"name":"Order Received to Destination Country","status":"pending","cause":""},{"name":"Order Clearance Completed","status":"pending","cause":""},{"name":"Order in Delivery Stage","status":"pending","cause":""},{"name":"Order Delivered","status":"pending","cause":""}]} 
- </msg>
-<msg time="2025-08-19T15:09:50.291842" level="INFO">${resp} = &lt;Response [201]&gt;</msg>
-<var>${resp}</var>
-<arg>${BASE_URL}${ADD_ORDER}</arg>
-<arg>json=${json}</arg>
-<doc>Sends a POST request.</doc>
-<status status="PASS" start="2025-08-19T15:09:50.287101" elapsed="0.004825"/>
-</kw>
-<if>
-<branch type="IF" condition="'${resp.status_code}' == '201'">
-<kw name="Set Variable" owner="BuiltIn">
-<msg time="2025-08-19T15:09:50.294684" level="INFO">${success} = True</msg>
-<var>${success}</var>
-<arg>${True}</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2025-08-19T15:09:50.294189" elapsed="0.000581"/>
-</kw>
-<kw name="Exit For Loop" owner="BuiltIn">
-<msg time="2025-08-19T15:09:50.295420" level="INFO">Exiting for loop altogether.</msg>
-<doc>Stops executing the enclosing FOR loop.</doc>
-<status status="PASS" start="2025-08-19T15:09:50.295129" elapsed="0.000444"/>
-</kw>
-<status status="PASS" start="2025-08-19T15:09:50.292177" elapsed="0.003525"/>
-</branch>
-<status status="PASS" start="2025-08-19T15:09:50.292127" elapsed="0.003670"/>
-</if>
-<var name="${i}">0</var>
-<status status="PASS" start="2025-08-19T15:09:50.283932" elapsed="0.011928"/>
-</iter>
-<var>${i}</var>
-<value>1000</value>
-<status status="PASS" start="2025-08-19T15:09:50.283540" elapsed="0.012422"/>
-</for>
-<if>
-<branch type="IF" condition="'${success}'=='False'">
-<kw name="Fail" owner="BuiltIn">
-<arg>Could not add order after 1000 attempts</arg>
-<doc>Fails the test with the given message and optionally alters its tags.</doc>
-<status status="NOT RUN" start="2025-08-19T15:09:50.296590" elapsed="0.000062"/>
-</kw>
-<status status="NOT RUN" start="2025-08-19T15:09:50.296166" elapsed="0.000616"/>
-</branch>
-<status status="PASS" start="2025-08-19T15:09:50.296123" elapsed="0.000737"/>
-</if>
-<return>
-<value>${trackingId}</value>
-<status status="PASS" start="2025-08-19T15:09:50.296940" elapsed="0.000072"/>
-</return>
-<msg time="2025-08-19T15:09:50.297324" level="INFO">${TRACKING_ID} = 9042</msg>
-<var>${TRACKING_ID}</var>
-<status status="PASS" start="2025-08-19T15:09:50.282251" elapsed="0.015151"/>
-</kw>
-<kw name="Login With Credentials" owner="login_keywords">
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-08-19T15:09:50.298909" level="INFO">Typing text '9042' into text field 'id=trackingId'.</msg>
-<arg>${LOGIN_ID_FIELD}</arg>
-<arg>${id}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-08-19T15:09:50.298428" elapsed="0.110598"/>
-</kw>
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-08-19T15:09:50.409907" level="INFO">Typing text '9042' into text field 'id=password'.</msg>
-<arg>${LOGIN_PASS_FIELD}</arg>
-<arg>${password}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-08-19T15:09:50.409409" elapsed="0.088874"/>
-</kw>
-<kw name="Click Button" owner="SeleniumLibrary">
-<msg time="2025-08-19T15:09:50.498874" level="INFO">Clicking button 'xpath=//button[text()='Track']'.</msg>
-<arg>${TRACK_BUTTON}</arg>
-<doc>Clicks the button identified by ``locator``.</doc>
-<status status="PASS" start="2025-08-19T15:09:50.498623" elapsed="0.080265"/>
-</kw>
-<arg>${TRACKING_ID}</arg>
-<arg>${TRACKING_ID}</arg>
-<status status="PASS" start="2025-08-19T15:09:50.297749" elapsed="0.281321"/>
-</kw>
-<kw name="Set Global Variable" owner="BuiltIn">
-<msg time="2025-08-19T15:09:50.579494" level="INFO">${TRACKING_ID} = 9042</msg>
-<arg>${TRACKING_ID}</arg>
-<doc>Makes a variable available globally in all tests and suites.</doc>
-<status status="PASS" start="2025-08-19T15:09:50.579245" elapsed="0.000296"/>
-</kw>
-<status status="PASS" start="2025-08-19T15:09:48.796196" elapsed="1.783413"/>
-</kw>
-<kw name="Click Button" owner="SeleniumLibrary">
-<msg time="2025-08-19T15:09:50.580215" level="INFO">Clicking button 'xpath=//button[(text()='Rejected') and not(@disabled)]'.</msg>
-<arg>${ENABLED_REJECT}</arg>
-<doc>Clicks the button identified by ``locator``.</doc>
-<status status="PASS" start="2025-08-19T15:09:50.579950" elapsed="0.098506"/>
-</kw>
-<kw name="Click Button" owner="SeleniumLibrary">
-<msg time="2025-08-19T15:09:50.679115" level="INFO">Clicking button 'xpath=//button[text()='Submit']'.</msg>
-<arg>${SUBMIT_BUTTON}</arg>
-<doc>Clicks the button identified by ``locator``.</doc>
-<status status="PASS" start="2025-08-19T15:09:50.678874" elapsed="0.125561"/>
-</kw>
-<kw name="Reject Should Fail" owner="stage_keywords">
+<kw name="Login Should Fail" owner="login_keywords">
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
 <arg>${ERROR_MESSAGE}</arg>
 <arg>10s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-08-19T15:09:50.805285" elapsed="0.023564"/>
+<status status="PASS" start="2025-08-20T09:20:31.973252" elapsed="0.021102"/>
 </kw>
 <kw name="Element Should Contain" owner="SeleniumLibrary">
-<msg time="2025-08-19T15:09:50.850985" level="INFO">Element 'xpath=//*[@class='message error']' contains text 'Please provide a reason for rejection'.</msg>
+<msg time="2025-08-20T09:20:32.013735" level="INFO">Element 'xpath=//*[@class='message error']' contains text 'Invalid Tracking ID or Password'.</msg>
 <arg>${ERROR_MESSAGE}</arg>
-<arg>${REJECTION_ERROR}</arg>
+<arg>${LOGIN_FAIL}</arg>
 <doc>Verifies that element ``locator`` contains text ``expected``.</doc>
-<status status="PASS" start="2025-08-19T15:09:50.829030" elapsed="0.022045"/>
+<status status="PASS" start="2025-08-20T09:20:31.994569" elapsed="0.019282"/>
 </kw>
-<status status="PASS" start="2025-08-19T15:09:50.804935" elapsed="0.046238"/>
+<status status="PASS" start="2025-08-20T09:20:31.972828" elapsed="0.041163"/>
 </kw>
 <kw name="Delete Order" owner="stage_keywords" type="TEARDOWN">
 <kw name="Create Dictionary" owner="BuiltIn">
-<msg time="2025-08-19T15:09:50.853015" level="INFO">${json} = {'trackingId': '9042', 'password': '9042'}</msg>
+<msg time="2025-08-20T09:20:32.015456" level="INFO">${json} = {'trackingId': '1194', 'password': '1194'}</msg>
 <var>${json}</var>
 <arg>${KEY_TRACKING_ID}=${TRACKING_ID}</arg>
 <arg>${KEY_PASSWORD}=${TRACKING_ID}</arg>
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<status status="PASS" start="2025-08-19T15:09:50.852302" elapsed="0.000822"/>
+<status status="PASS" start="2025-08-20T09:20:32.015097" elapsed="0.000410"/>
 </kw>
 <kw name="DELETE" owner="RequestsLibrary">
-<msg time="2025-08-19T15:09:50.857191" level="INFO">DELETE Request : url=http://localhost:3000/deleteOrder 
+<msg time="2025-08-20T09:20:32.019266" level="INFO">DELETE Request : url=http://localhost:3000/deleteOrder 
  path_url=/deleteOrder 
  headers={'User-Agent': 'python-requests/2.32.4', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '42', 'Content-Type': 'application/json'} 
- body=b'{"trackingId": "9042", "password": "9042"}' 
+ body=b'{"trackingId": "1194", "password": "1194"}' 
  </msg>
-<msg time="2025-08-19T15:09:50.857270" level="INFO">DELETE Response : url=http://localhost:3000/deleteOrder 
+<msg time="2025-08-20T09:20:32.019362" level="INFO">DELETE Response : url=http://localhost:3000/deleteOrder 
  status=200, reason=OK 
- headers={'X-Powered-By': 'Express', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '42', 'ETag': 'W/"2a-73HTL89b4tbDT7yR3vJfTGBT34w"', 'Date': 'Tue, 19 Aug 2025 12:09:50 GMT', 'Connection': 'keep-alive', 'Keep-Alive': 'timeout=5'} 
+ headers={'X-Powered-By': 'Express', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '42', 'ETag': 'W/"2a-73HTL89b4tbDT7yR3vJfTGBT34w"', 'Date': 'Wed, 20 Aug 2025 06:20:32 GMT', 'Connection': 'keep-alive', 'Keep-Alive': 'timeout=5'} 
  body={"success":true,"message":"Order deleted"} 
  </msg>
 <arg>${BASE_URL}${DELETE_ORDER}</arg>
 <arg>json=${json}</arg>
 <arg>expected_status=200</arg>
 <doc>Sends a DELETE request.</doc>
-<status status="PASS" start="2025-08-19T15:09:50.853342" elapsed="0.003999"/>
+<status status="PASS" start="2025-08-20T09:20:32.015643" elapsed="0.003806"/>
 </kw>
 <kw name="Close Browser" owner="SeleniumLibrary">
 <doc>Closes the current browser.</doc>
-<status status="PASS" start="2025-08-19T15:09:50.857520" elapsed="2.271174"/>
+<status status="PASS" start="2025-08-20T09:20:32.019634" elapsed="2.289178"/>
 </kw>
-<status status="PASS" start="2025-08-19T15:09:50.851851" elapsed="2.277230"/>
+<status status="PASS" start="2025-08-20T09:20:32.014773" elapsed="2.294820"/>
 </kw>
-<status status="PASS" start="2025-08-19T15:09:48.791912" elapsed="4.337884"/>
+<status status="PASS" start="2025-08-20T09:20:30.107731" elapsed="4.203341"/>
 </test>
-<test id="s1-t4" name="Reject Succeed With a Reason" line="37">
-<kw name="Open Browser And Login" owner="setup_teardown_keywords" type="SETUP">
+<test id="s1-t3" name=" Login Fail With Wrong ID" line="21">
+<kw name="Create User" owner="setup_teardown_keywords" type="SETUP">
 <kw name="Open Web Browser" owner="utils_keywords">
 <kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2025-08-19T15:09:53.136744" level="INFO">Opening browser 'chrome' to base url 'http://localhost:3000'.</msg>
+<msg time="2025-08-20T09:20:34.328699" level="INFO">Opening browser 'chrome' to base url 'http://localhost:3000'.</msg>
 <arg>${BASE_URL}</arg>
 <arg>chrome</arg>
 <arg>options=add_experimental_option("excludeSwitches", ["enable-automation","disable-popup-blocking"])</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2025-08-19T15:09:53.135968" elapsed="1.510283"/>
+<status status="PASS" start="2025-08-20T09:20:34.326403" elapsed="1.541957"/>
 </kw>
-<status status="PASS" start="2025-08-19T15:09:53.135019" elapsed="1.511447"/>
+<status status="PASS" start="2025-08-20T09:20:34.323117" elapsed="1.545418"/>
 </kw>
 <kw name="Add Order" owner="stage_keywords">
 <kw name="Set Variable" owner="BuiltIn">
-<msg time="2025-08-19T15:09:54.647898" level="INFO">${success} = False</msg>
+<msg time="2025-08-20T09:20:35.869484" level="INFO">${success} = False</msg>
 <var>${success}</var>
 <arg>${False}</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2025-08-19T15:09:54.647543" elapsed="0.000420"/>
+<status status="PASS" start="2025-08-20T09:20:35.869284" elapsed="0.000237"/>
 </kw>
 <for flavor="IN RANGE">
 <iter>
 <kw name="Random Integer" owner="utils_keywords">
 <kw name="Evaluate" owner="BuiltIn">
-<msg time="2025-08-19T15:09:54.650239" level="INFO">${num} = 1384</msg>
+<msg time="2025-08-20T09:20:35.870624" level="INFO">${num} = 2788</msg>
 <var>${num}</var>
 <arg>random.randint(1000,9999)</arg>
 <arg>modules=random</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2025-08-19T15:09:54.649663" elapsed="0.000628"/>
+<status status="PASS" start="2025-08-20T09:20:35.870325" elapsed="0.000334"/>
 </kw>
 <return>
 <value>${num}</value>
-<status status="PASS" start="2025-08-19T15:09:54.650389" elapsed="0.000078"/>
+<status status="PASS" start="2025-08-20T09:20:35.870791" elapsed="0.000077"/>
 </return>
-<msg time="2025-08-19T15:09:54.650683" level="INFO">${trackingId} = 1384</msg>
+<msg time="2025-08-20T09:20:35.871144" level="INFO">${trackingId} = 2788</msg>
 <var>${trackingId}</var>
-<status status="PASS" start="2025-08-19T15:09:54.649077" elapsed="0.001656"/>
+<status status="PASS" start="2025-08-20T09:20:35.870055" elapsed="0.001165"/>
 </kw>
 <kw name="Convert To String" owner="BuiltIn">
-<msg time="2025-08-19T15:09:54.651182" level="INFO">${trackingId} = 1384</msg>
+<msg time="2025-08-20T09:20:35.871754" level="INFO">${trackingId} = 2788</msg>
 <var>${trackingId}</var>
 <arg>${trackingId}</arg>
 <doc>Converts the given item to a Unicode string.</doc>
-<status status="PASS" start="2025-08-19T15:09:54.650935" elapsed="0.000293"/>
+<status status="PASS" start="2025-08-20T09:20:35.871399" elapsed="0.000443"/>
 </kw>
 <kw name="Create Dictionary" owner="BuiltIn">
-<msg time="2025-08-19T15:09:54.651859" level="INFO">${json} = {'trackingId': '1384', 'password': '1384'}</msg>
+<msg time="2025-08-20T09:20:35.872744" level="INFO">${json} = {'trackingId': '2788', 'password': '2788'}</msg>
 <var>${json}</var>
 <arg>${KEY_TRACKING_ID}=${trackingId}</arg>
 <arg>${KEY_PASSWORD}=${trackingId}</arg>
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<status status="PASS" start="2025-08-19T15:09:54.651396" elapsed="0.000524"/>
+<status status="PASS" start="2025-08-20T09:20:35.872225" elapsed="0.000563"/>
 </kw>
 <kw name="POST" owner="RequestsLibrary">
-<msg time="2025-08-19T15:09:54.656761" level="INFO">POST Request : url=http://localhost:3000/addOrder 
+<msg time="2025-08-20T09:20:35.878984" level="INFO">POST Request : url=http://localhost:3000/addOrder 
  path_url=/addOrder 
  headers={'User-Agent': 'python-requests/2.32.4', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '42', 'Content-Type': 'application/json'} 
- body=b'{"trackingId": "1384", "password": "1384"}' 
+ body=b'{"trackingId": "2788", "password": "2788"}' 
  </msg>
-<msg time="2025-08-19T15:09:54.656875" level="INFO">POST Response : url=http://localhost:3000/addOrder 
+<msg time="2025-08-20T09:20:35.879100" level="INFO">POST Response : url=http://localhost:3000/addOrder 
  status=201, reason=Created 
- headers={'X-Powered-By': 'Express', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '406', 'ETag': 'W/"196-xtZOhOnEN8Q3rcKxZP1xUr6ooDo"', 'Date': 'Tue, 19 Aug 2025 12:09:54 GMT', 'Connection': 'keep-alive', 'Keep-Alive': 'timeout=5'} 
+ headers={'X-Powered-By': 'Express', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '406', 'ETag': 'W/"196-xtZOhOnEN8Q3rcKxZP1xUr6ooDo"', 'Date': 'Wed, 20 Aug 2025 06:20:35 GMT', 'Connection': 'keep-alive', 'Keep-Alive': 'timeout=5'} 
  body={"success":true,"stages":[{"name":"Order Received","status":"pending","cause":""},{"name":"Order Shipped","status":"pending","cause":""},{"name":"Order Received to Destination Country","status":"pending","cause":""},{"name":"Order Clearance Completed","status":"pending","cause":""},{"name":"Order in Delivery Stage","status":"pending","cause":""},{"name":"Order Delivered","status":"pending","cause":""}]} 
  </msg>
-<msg time="2025-08-19T15:09:54.657133" level="INFO">${resp} = &lt;Response [201]&gt;</msg>
+<msg time="2025-08-20T09:20:35.879588" level="INFO">${resp} = &lt;Response [201]&gt;</msg>
 <var>${resp}</var>
 <arg>${BASE_URL}${ADD_ORDER}</arg>
 <arg>json=${json}</arg>
 <doc>Sends a POST request.</doc>
-<status status="PASS" start="2025-08-19T15:09:54.652220" elapsed="0.004976"/>
+<status status="PASS" start="2025-08-20T09:20:35.873102" elapsed="0.006562"/>
 </kw>
 <if>
 <branch type="IF" condition="'${resp.status_code}' == '201'">
 <kw name="Set Variable" owner="BuiltIn">
-<msg time="2025-08-19T15:09:54.659592" level="INFO">${success} = True</msg>
+<msg time="2025-08-20T09:20:35.881956" level="INFO">${success} = True</msg>
 <var>${success}</var>
 <arg>${True}</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2025-08-19T15:09:54.659236" elapsed="0.000419"/>
+<status status="PASS" start="2025-08-20T09:20:35.881611" elapsed="0.000409"/>
 </kw>
 <kw name="Exit For Loop" owner="BuiltIn">
-<msg time="2025-08-19T15:09:54.660073" level="INFO">Exiting for loop altogether.</msg>
+<msg time="2025-08-20T09:20:35.882453" level="INFO">Exiting for loop altogether.</msg>
 <doc>Stops executing the enclosing FOR loop.</doc>
-<status status="PASS" start="2025-08-19T15:09:54.659924" elapsed="0.000268"/>
+<status status="PASS" start="2025-08-20T09:20:35.882309" elapsed="0.000252"/>
 </kw>
-<status status="PASS" start="2025-08-19T15:09:54.657502" elapsed="0.002790"/>
+<status status="PASS" start="2025-08-20T09:20:35.879891" elapsed="0.002768"/>
 </branch>
-<status status="PASS" start="2025-08-19T15:09:54.657432" elapsed="0.002946"/>
+<status status="PASS" start="2025-08-20T09:20:35.879842" elapsed="0.002905"/>
 </if>
 <var name="${i}">0</var>
-<status status="PASS" start="2025-08-19T15:09:54.648673" elapsed="0.011764"/>
+<status status="PASS" start="2025-08-20T09:20:35.869878" elapsed="0.012930"/>
 </iter>
 <var>${i}</var>
 <value>1000</value>
-<status status="PASS" start="2025-08-19T15:09:54.648165" elapsed="0.012382"/>
+<status status="PASS" start="2025-08-20T09:20:35.869607" elapsed="0.013297"/>
 </for>
 <if>
 <branch type="IF" condition="'${success}'=='False'">
 <kw name="Fail" owner="BuiltIn">
 <arg>Could not add order after 1000 attempts</arg>
 <doc>Fails the test with the given message and optionally alters its tags.</doc>
-<status status="NOT RUN" start="2025-08-19T15:09:54.661059" elapsed="0.000056"/>
+<status status="NOT RUN" start="2025-08-20T09:20:35.883584" elapsed="0.000064"/>
 </kw>
-<status status="NOT RUN" start="2025-08-19T15:09:54.660711" elapsed="0.000519"/>
+<status status="NOT RUN" start="2025-08-20T09:20:35.883136" elapsed="0.000650"/>
 </branch>
-<status status="PASS" start="2025-08-19T15:09:54.660676" elapsed="0.000633"/>
+<status status="PASS" start="2025-08-20T09:20:35.883074" elapsed="0.000803"/>
 </if>
 <return>
 <value>${trackingId}</value>
-<status status="PASS" start="2025-08-19T15:09:54.661376" elapsed="0.000065"/>
+<status status="PASS" start="2025-08-20T09:20:35.883986" elapsed="0.000076"/>
 </return>
-<msg time="2025-08-19T15:09:54.661711" level="INFO">${TRACKING_ID} = 1384</msg>
+<msg time="2025-08-20T09:20:35.884420" level="INFO">${TRACKING_ID} = 2788</msg>
 <var>${TRACKING_ID}</var>
-<status status="PASS" start="2025-08-19T15:09:54.647020" elapsed="0.014750"/>
+<status status="PASS" start="2025-08-20T09:20:35.868939" elapsed="0.015569"/>
+</kw>
+<kw name="Set Global Variable" owner="BuiltIn">
+<msg time="2025-08-20T09:20:35.885478" level="INFO">${TRACKING_ID} = 2788</msg>
+<arg>${TRACKING_ID}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<status status="PASS" start="2025-08-20T09:20:35.884904" elapsed="0.000719"/>
+</kw>
+<status status="PASS" start="2025-08-20T09:20:34.320741" elapsed="1.565095"/>
+</kw>
+<kw name="Get Current Date" owner="DateTime">
+<msg time="2025-08-20T09:20:35.886971" level="INFO">${timestamp} = 20250820092035886762</msg>
+<var>${timestamp}</var>
+<arg>result_format=%Y%m%d%H%M%S%f</arg>
+<doc>Returns current local or UTC time with an optional increment.</doc>
+<status status="PASS" start="2025-08-20T09:20:35.886418" elapsed="0.000621"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-08-20T09:20:35.888055" level="INFO">${fake_id} = 20250820092035886762</msg>
+<var>${fake_id}</var>
+<arg>${timestamp}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-08-20T09:20:35.887621" elapsed="0.000497"/>
 </kw>
 <kw name="Login With Credentials" owner="login_keywords">
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-08-19T15:09:54.663200" level="INFO">Typing text '1384' into text field 'id=trackingId'.</msg>
+<msg time="2025-08-20T09:20:35.889950" level="INFO">Typing text '20250820092035886762' into text field 'id=trackingId'.</msg>
 <arg>${LOGIN_ID_FIELD}</arg>
 <arg>${id}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-08-19T15:09:54.662726" elapsed="0.112046"/>
+<status status="PASS" start="2025-08-20T09:20:35.889491" elapsed="0.131943"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-08-19T15:09:54.775263" level="INFO">Typing text '1384' into text field 'id=password'.</msg>
+<msg time="2025-08-20T09:20:36.022273" level="INFO">Typing text '20250820092035886762' into text field 'id=password'.</msg>
 <arg>${LOGIN_PASS_FIELD}</arg>
 <arg>${password}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-08-19T15:09:54.774991" elapsed="0.093682"/>
+<status status="PASS" start="2025-08-20T09:20:36.021779" elapsed="0.107817"/>
 </kw>
 <kw name="Click Button" owner="SeleniumLibrary">
-<msg time="2025-08-19T15:09:54.869524" level="INFO">Clicking button 'xpath=//button[text()='Track']'.</msg>
+<msg time="2025-08-20T09:20:36.130037" level="INFO">Clicking button 'xpath=//button[text()='Track']'.</msg>
 <arg>${TRACK_BUTTON}</arg>
 <doc>Clicks the button identified by ``locator``.</doc>
-<status status="PASS" start="2025-08-19T15:09:54.869060" elapsed="0.088509"/>
+<status status="PASS" start="2025-08-20T09:20:36.129809" elapsed="0.073852"/>
 </kw>
-<arg>${TRACKING_ID}</arg>
-<arg>${TRACKING_ID}</arg>
-<status status="PASS" start="2025-08-19T15:09:54.662077" elapsed="0.295742"/>
+<arg>${fake_id}</arg>
+<arg>${fake_id}</arg>
+<status status="PASS" start="2025-08-20T09:20:35.888672" elapsed="0.315362"/>
 </kw>
-<kw name="Set Global Variable" owner="BuiltIn">
-<msg time="2025-08-19T15:09:54.958459" level="INFO">${TRACKING_ID} = 1384</msg>
-<arg>${TRACKING_ID}</arg>
-<doc>Makes a variable available globally in all tests and suites.</doc>
-<status status="PASS" start="2025-08-19T15:09:54.958142" elapsed="0.000384"/>
-</kw>
-<status status="PASS" start="2025-08-19T15:09:53.134099" elapsed="1.824521"/>
-</kw>
-<kw name="Reject a Stage" owner="stage_keywords">
-<kw name="Click Button" owner="SeleniumLibrary">
-<msg time="2025-08-19T15:09:54.959558" level="INFO">Clicking button 'xpath=//button[(text()='Rejected') and not(@disabled)]'.</msg>
-<arg>${ENABLED_REJECT}</arg>
-<doc>Clicks the button identified by ``locator``.</doc>
-<status status="PASS" start="2025-08-19T15:09:54.959379" elapsed="0.096201"/>
-</kw>
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-08-19T15:09:55.056135" level="INFO">Typing text 'Reject' into text field 'xpath=//input[@placeholder='Reason for rejection']'.</msg>
-<arg>${REJECTION_REASON}</arg>
-<arg>Reject</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-08-19T15:09:55.055850" elapsed="0.079406"/>
-</kw>
-<kw name="Click Button" owner="SeleniumLibrary">
-<msg time="2025-08-19T15:09:55.136170" level="INFO">Clicking button 'xpath=//button[text()='Submit']'.</msg>
-<arg>${SUBMIT_BUTTON}</arg>
-<doc>Clicks the button identified by ``locator``.</doc>
-<status status="PASS" start="2025-08-19T15:09:55.135656" elapsed="0.125027"/>
-</kw>
-<kw name="Reject Should Succeed" owner="stage_keywords">
+<kw name="Login Should Fail" owner="login_keywords">
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>${SUCCESS_MESSAGE}</arg>
+<arg>${ERROR_MESSAGE}</arg>
 <arg>10s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-08-19T15:09:55.261639" elapsed="0.070117"/>
+<status status="PASS" start="2025-08-20T09:20:36.205281" elapsed="0.023936"/>
 </kw>
 <kw name="Element Should Contain" owner="SeleniumLibrary">
-<msg time="2025-08-19T15:09:55.358842" level="INFO">Element 'xpath=//*[@class='message success']' contains text 'marked as rejected'.</msg>
-<arg>${SUCCESS_MESSAGE}</arg>
-<arg>${REJECTION_SUCCESS}</arg>
+<msg time="2025-08-20T09:20:36.251143" level="INFO">Element 'xpath=//*[@class='message error']' contains text 'Invalid Tracking ID or Password'.</msg>
+<arg>${ERROR_MESSAGE}</arg>
+<arg>${LOGIN_FAIL}</arg>
 <doc>Verifies that element ``locator`` contains text ``expected``.</doc>
-<status status="PASS" start="2025-08-19T15:09:55.331933" elapsed="0.027051"/>
+<status status="PASS" start="2025-08-20T09:20:36.229554" elapsed="0.021681"/>
 </kw>
-<status status="PASS" start="2025-08-19T15:09:55.261091" elapsed="0.098037"/>
-</kw>
-<status status="PASS" start="2025-08-19T15:09:54.959065" elapsed="0.400219"/>
+<status status="PASS" start="2025-08-20T09:20:36.204770" elapsed="0.046560"/>
 </kw>
 <kw name="Delete Order" owner="stage_keywords" type="TEARDOWN">
 <kw name="Create Dictionary" owner="BuiltIn">
-<msg time="2025-08-19T15:09:55.361182" level="INFO">${json} = {'trackingId': '1384', 'password': '1384'}</msg>
+<msg time="2025-08-20T09:20:36.252388" level="INFO">${json} = {'trackingId': '2788', 'password': '2788'}</msg>
 <var>${json}</var>
 <arg>${KEY_TRACKING_ID}=${TRACKING_ID}</arg>
 <arg>${KEY_PASSWORD}=${TRACKING_ID}</arg>
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<status status="PASS" start="2025-08-19T15:09:55.360581" elapsed="0.000676"/>
+<status status="PASS" start="2025-08-20T09:20:36.252095" elapsed="0.000324"/>
 </kw>
 <kw name="DELETE" owner="RequestsLibrary">
-<msg time="2025-08-19T15:09:55.366964" level="INFO">DELETE Request : url=http://localhost:3000/deleteOrder 
+<msg time="2025-08-20T09:20:36.255685" level="INFO">DELETE Request : url=http://localhost:3000/deleteOrder 
  path_url=/deleteOrder 
  headers={'User-Agent': 'python-requests/2.32.4', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '42', 'Content-Type': 'application/json'} 
- body=b'{"trackingId": "1384", "password": "1384"}' 
+ body=b'{"trackingId": "2788", "password": "2788"}' 
  </msg>
-<msg time="2025-08-19T15:09:55.367047" level="INFO">DELETE Response : url=http://localhost:3000/deleteOrder 
+<msg time="2025-08-20T09:20:36.255755" level="INFO">DELETE Response : url=http://localhost:3000/deleteOrder 
  status=200, reason=OK 
- headers={'X-Powered-By': 'Express', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '42', 'ETag': 'W/"2a-73HTL89b4tbDT7yR3vJfTGBT34w"', 'Date': 'Tue, 19 Aug 2025 12:09:55 GMT', 'Connection': 'keep-alive', 'Keep-Alive': 'timeout=5'} 
+ headers={'X-Powered-By': 'Express', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '42', 'ETag': 'W/"2a-73HTL89b4tbDT7yR3vJfTGBT34w"', 'Date': 'Wed, 20 Aug 2025 06:20:36 GMT', 'Connection': 'keep-alive', 'Keep-Alive': 'timeout=5'} 
  body={"success":true,"message":"Order deleted"} 
  </msg>
 <arg>${BASE_URL}${DELETE_ORDER}</arg>
 <arg>json=${json}</arg>
 <arg>expected_status=200</arg>
 <doc>Sends a DELETE request.</doc>
-<status status="PASS" start="2025-08-19T15:09:55.361430" elapsed="0.005814"/>
+<status status="PASS" start="2025-08-20T09:20:36.252530" elapsed="0.003290"/>
 </kw>
 <kw name="Close Browser" owner="SeleniumLibrary">
 <doc>Closes the current browser.</doc>
-<status status="PASS" start="2025-08-19T15:09:55.367448" elapsed="2.286205"/>
+<status status="PASS" start="2025-08-20T09:20:36.255973" elapsed="2.309245"/>
 </kw>
-<status status="PASS" start="2025-08-19T15:09:55.359944" elapsed="2.294656"/>
+<status status="PASS" start="2025-08-20T09:20:36.251770" elapsed="2.314231"/>
 </kw>
-<status status="PASS" start="2025-08-19T15:09:53.132524" elapsed="4.523690"/>
+<status status="PASS" start="2025-08-20T09:20:34.317168" elapsed="4.250298"/>
 </test>
-<test id="s1-t5" name="Pending Button Disabled Until Rejected" line="40">
-<kw name="Open Browser And Login" owner="setup_teardown_keywords" type="SETUP">
+<test id="s1-t4" name="Login Fail With Empty Fields" line="27">
+<kw name="Create User" owner="setup_teardown_keywords" type="SETUP">
 <kw name="Open Web Browser" owner="utils_keywords">
 <kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2025-08-19T15:09:57.673794" level="INFO">Opening browser 'chrome' to base url 'http://localhost:3000'.</msg>
+<msg time="2025-08-20T09:20:38.585827" level="INFO">Opening browser 'chrome' to base url 'http://localhost:3000'.</msg>
 <arg>${BASE_URL}</arg>
 <arg>chrome</arg>
 <arg>options=add_experimental_option("excludeSwitches", ["enable-automation","disable-popup-blocking"])</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2025-08-19T15:09:57.672071" elapsed="1.524309"/>
+<status status="PASS" start="2025-08-20T09:20:38.583898" elapsed="1.526549"/>
 </kw>
-<status status="PASS" start="2025-08-19T15:09:57.669509" elapsed="1.527093"/>
+<status status="PASS" start="2025-08-20T09:20:38.581043" elapsed="1.529557"/>
 </kw>
 <kw name="Add Order" owner="stage_keywords">
 <kw name="Set Variable" owner="BuiltIn">
-<msg time="2025-08-19T15:09:59.198483" level="INFO">${success} = False</msg>
+<msg time="2025-08-20T09:20:40.111945" level="INFO">${success} = False</msg>
 <var>${success}</var>
 <arg>${False}</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2025-08-19T15:09:59.198055" elapsed="0.000529"/>
+<status status="PASS" start="2025-08-20T09:20:40.111648" elapsed="0.000341"/>
 </kw>
 <for flavor="IN RANGE">
 <iter>
 <kw name="Random Integer" owner="utils_keywords">
 <kw name="Evaluate" owner="BuiltIn">
-<msg time="2025-08-19T15:09:59.200946" level="INFO">${num} = 4161</msg>
+<msg time="2025-08-20T09:20:40.113515" level="INFO">${num} = 1229</msg>
 <var>${num}</var>
 <arg>random.randint(1000,9999)</arg>
 <arg>modules=random</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2025-08-19T15:09:59.200352" elapsed="0.000683"/>
+<status status="PASS" start="2025-08-20T09:20:40.113173" elapsed="0.000395"/>
 </kw>
 <return>
 <value>${num}</value>
-<status status="PASS" start="2025-08-19T15:09:59.201196" elapsed="0.000103"/>
+<status status="PASS" start="2025-08-20T09:20:40.113670" elapsed="0.000058"/>
 </return>
-<msg time="2025-08-19T15:09:59.201974" level="INFO">${trackingId} = 4161</msg>
+<msg time="2025-08-20T09:20:40.113917" level="INFO">${trackingId} = 1229</msg>
 <var>${trackingId}</var>
-<status status="PASS" start="2025-08-19T15:09:59.199706" elapsed="0.002364"/>
+<status status="PASS" start="2025-08-20T09:20:40.112832" elapsed="0.001120"/>
 </kw>
 <kw name="Convert To String" owner="BuiltIn">
-<msg time="2025-08-19T15:09:59.202787" level="INFO">${trackingId} = 4161</msg>
+<msg time="2025-08-20T09:20:40.114367" level="INFO">${trackingId} = 1229</msg>
 <var>${trackingId}</var>
 <arg>${trackingId}</arg>
 <doc>Converts the given item to a Unicode string.</doc>
-<status status="PASS" start="2025-08-19T15:09:59.202380" elapsed="0.000483"/>
+<status status="PASS" start="2025-08-20T09:20:40.114114" elapsed="0.000311"/>
 </kw>
 <kw name="Create Dictionary" owner="BuiltIn">
-<msg time="2025-08-19T15:09:59.203860" level="INFO">${json} = {'trackingId': '4161', 'password': '4161'}</msg>
+<msg time="2025-08-20T09:20:40.115299" level="INFO">${json} = {'trackingId': '1229', 'password': '1229'}</msg>
 <var>${json}</var>
 <arg>${KEY_TRACKING_ID}=${trackingId}</arg>
 <arg>${KEY_PASSWORD}=${trackingId}</arg>
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<status status="PASS" start="2025-08-19T15:09:59.203134" elapsed="0.000822"/>
+<status status="PASS" start="2025-08-20T09:20:40.114696" elapsed="0.000648"/>
 </kw>
 <kw name="POST" owner="RequestsLibrary">
-<msg time="2025-08-19T15:09:59.209475" level="INFO">POST Request : url=http://localhost:3000/addOrder 
+<msg time="2025-08-20T09:20:40.119804" level="INFO">POST Request : url=http://localhost:3000/addOrder 
  path_url=/addOrder 
  headers={'User-Agent': 'python-requests/2.32.4', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '42', 'Content-Type': 'application/json'} 
- body=b'{"trackingId": "4161", "password": "4161"}' 
+ body=b'{"trackingId": "1229", "password": "1229"}' 
  </msg>
-<msg time="2025-08-19T15:09:59.209604" level="INFO">POST Response : url=http://localhost:3000/addOrder 
+<msg time="2025-08-20T09:20:40.119935" level="INFO">POST Response : url=http://localhost:3000/addOrder 
  status=201, reason=Created 
- headers={'X-Powered-By': 'Express', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '406', 'ETag': 'W/"196-xtZOhOnEN8Q3rcKxZP1xUr6ooDo"', 'Date': 'Tue, 19 Aug 2025 12:09:59 GMT', 'Connection': 'keep-alive', 'Keep-Alive': 'timeout=5'} 
+ headers={'X-Powered-By': 'Express', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '406', 'ETag': 'W/"196-xtZOhOnEN8Q3rcKxZP1xUr6ooDo"', 'Date': 'Wed, 20 Aug 2025 06:20:40 GMT', 'Connection': 'keep-alive', 'Keep-Alive': 'timeout=5'} 
  body={"success":true,"stages":[{"name":"Order Received","status":"pending","cause":""},{"name":"Order Shipped","status":"pending","cause":""},{"name":"Order Received to Destination Country","status":"pending","cause":""},{"name":"Order Clearance Completed","status":"pending","cause":""},{"name":"Order in Delivery Stage","status":"pending","cause":""},{"name":"Order Delivered","status":"pending","cause":""}]} 
  </msg>
-<msg time="2025-08-19T15:09:59.209989" level="INFO">${resp} = &lt;Response [201]&gt;</msg>
+<msg time="2025-08-20T09:20:40.120328" level="INFO">${resp} = &lt;Response [201]&gt;</msg>
 <var>${resp}</var>
 <arg>${BASE_URL}${ADD_ORDER}</arg>
 <arg>json=${json}</arg>
 <doc>Sends a POST request.</doc>
-<status status="PASS" start="2025-08-19T15:09:59.204357" elapsed="0.005695"/>
+<status status="PASS" start="2025-08-20T09:20:40.115514" elapsed="0.004881"/>
 </kw>
 <if>
 <branch type="IF" condition="'${resp.status_code}' == '201'">
 <kw name="Set Variable" owner="BuiltIn">
-<msg time="2025-08-19T15:09:59.212014" level="INFO">${success} = True</msg>
+<msg time="2025-08-20T09:20:40.121769" level="INFO">${success} = True</msg>
 <var>${success}</var>
 <arg>${True}</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2025-08-19T15:09:59.211707" elapsed="0.000360"/>
+<status status="PASS" start="2025-08-20T09:20:40.121538" elapsed="0.000268"/>
 </kw>
 <kw name="Exit For Loop" owner="BuiltIn">
-<msg time="2025-08-19T15:09:59.212461" level="INFO">Exiting for loop altogether.</msg>
+<msg time="2025-08-20T09:20:40.122066" level="INFO">Exiting for loop altogether.</msg>
 <doc>Stops executing the enclosing FOR loop.</doc>
-<status status="PASS" start="2025-08-19T15:09:59.212288" elapsed="0.000276"/>
+<status status="PASS" start="2025-08-20T09:20:40.121955" elapsed="0.000185"/>
 </kw>
-<status status="PASS" start="2025-08-19T15:09:59.210275" elapsed="0.002394"/>
+<status status="PASS" start="2025-08-20T09:20:40.120557" elapsed="0.001640"/>
 </branch>
-<status status="PASS" start="2025-08-19T15:09:59.210232" elapsed="0.002531"/>
+<status status="PASS" start="2025-08-20T09:20:40.120523" elapsed="0.001729"/>
 </if>
 <var name="${i}">0</var>
-<status status="PASS" start="2025-08-19T15:09:59.199406" elapsed="0.013412"/>
+<status status="PASS" start="2025-08-20T09:20:40.112540" elapsed="0.009747"/>
 </iter>
 <var>${i}</var>
 <value>1000</value>
-<status status="PASS" start="2025-08-19T15:09:59.198785" elapsed="0.014122"/>
+<status status="PASS" start="2025-08-20T09:20:40.112085" elapsed="0.010259"/>
 </for>
 <if>
 <branch type="IF" condition="'${success}'=='False'">
 <kw name="Fail" owner="BuiltIn">
 <arg>Could not add order after 1000 attempts</arg>
 <doc>Fails the test with the given message and optionally alters its tags.</doc>
-<status status="NOT RUN" start="2025-08-19T15:09:59.213402" elapsed="0.000056"/>
+<status status="NOT RUN" start="2025-08-20T09:20:40.122672" elapsed="0.000036"/>
 </kw>
-<status status="NOT RUN" start="2025-08-19T15:09:59.213065" elapsed="0.000476"/>
+<status status="NOT RUN" start="2025-08-20T09:20:40.122460" elapsed="0.000299"/>
 </branch>
-<status status="PASS" start="2025-08-19T15:09:59.213034" elapsed="0.000582"/>
+<status status="PASS" start="2025-08-20T09:20:40.122426" elapsed="0.000376"/>
 </if>
 <return>
 <value>${trackingId}</value>
-<status status="PASS" start="2025-08-19T15:09:59.213696" elapsed="0.000060"/>
+<status status="PASS" start="2025-08-20T09:20:40.122857" elapsed="0.000044"/>
 </return>
-<msg time="2025-08-19T15:09:59.213999" level="INFO">${TRACKING_ID} = 4161</msg>
+<msg time="2025-08-20T09:20:40.123060" level="INFO">${TRACKING_ID} = 1229</msg>
 <var>${TRACKING_ID}</var>
-<status status="PASS" start="2025-08-19T15:09:59.197382" elapsed="0.016687"/>
-</kw>
-<kw name="Login With Credentials" owner="login_keywords">
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-08-19T15:09:59.215426" level="INFO">Typing text '4161' into text field 'id=trackingId'.</msg>
-<arg>${LOGIN_ID_FIELD}</arg>
-<arg>${id}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-08-19T15:09:59.215030" elapsed="0.108897"/>
-</kw>
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-08-19T15:09:59.324713" level="INFO">Typing text '4161' into text field 'id=password'.</msg>
-<arg>${LOGIN_PASS_FIELD}</arg>
-<arg>${password}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-08-19T15:09:59.324281" elapsed="0.084192"/>
-</kw>
-<kw name="Click Button" owner="SeleniumLibrary">
-<msg time="2025-08-19T15:09:59.408878" level="INFO">Clicking button 'xpath=//button[text()='Track']'.</msg>
-<arg>${TRACK_BUTTON}</arg>
-<doc>Clicks the button identified by ``locator``.</doc>
-<status status="PASS" start="2025-08-19T15:09:59.408658" elapsed="0.071563"/>
-</kw>
-<arg>${TRACKING_ID}</arg>
-<arg>${TRACKING_ID}</arg>
-<status status="PASS" start="2025-08-19T15:09:59.214368" elapsed="0.265985"/>
+<status status="PASS" start="2025-08-20T09:20:40.111029" elapsed="0.012065"/>
 </kw>
 <kw name="Set Global Variable" owner="BuiltIn">
-<msg time="2025-08-19T15:09:59.480720" level="INFO">${TRACKING_ID} = 4161</msg>
+<msg time="2025-08-20T09:20:40.123447" level="INFO">${TRACKING_ID} = 1229</msg>
 <arg>${TRACKING_ID}</arg>
 <doc>Makes a variable available globally in all tests and suites.</doc>
-<status status="PASS" start="2025-08-19T15:09:59.480506" elapsed="0.000262"/>
+<status status="PASS" start="2025-08-20T09:20:40.123243" elapsed="0.000260"/>
 </kw>
-<status status="PASS" start="2025-08-19T15:09:57.666533" elapsed="1.814304"/>
-</kw>
-<kw name="Get Child Sibling Element" owner="utils_keywords">
-<kw name="Set Variable" owner="BuiltIn">
-<msg time="2025-08-19T15:09:59.481844" level="INFO">${parent_xpath} = (//button[text()='Rejected' and not(@disabled)])/parent::*</msg>
-<var>${parent_xpath}</var>
-<arg>(${child})/parent::*</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2025-08-19T15:09:59.481652" elapsed="0.000223"/>
-</kw>
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>xpath=${parent_xpath}${target}</arg>
-<arg>10s</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-08-19T15:09:59.482021" elapsed="0.030070"/>
-</kw>
-<kw name="Get WebElement" owner="SeleniumLibrary">
-<msg time="2025-08-19T15:09:59.519454" level="INFO">${element} = &lt;selenium.webdriver.remote.webelement.WebElement (session="5368d88176edb1e4ec84a0ec9fbaec57", element="f.6F07A6B0F72DF1A23CBBA54A4632A879.d.7F4731F2C8CFA667E2DFE7323ADF8AA8.e.11")&gt;</msg>
-<var>${element}</var>
-<arg>xpath=${parent_xpath}${target}</arg>
-<doc>Returns the first WebElement matching the given ``locator``.</doc>
-<status status="PASS" start="2025-08-19T15:09:59.512316" elapsed="0.007226"/>
-</kw>
-<return>
-<value>${element}</value>
-<status status="PASS" start="2025-08-19T15:09:59.519704" elapsed="0.000111"/>
-</return>
-<msg time="2025-08-19T15:09:59.520168" level="INFO">${pending} = &lt;selenium.webdriver.remote.webelement.WebElement (session="5368d88176edb1e4ec84a0ec9fbaec57", element="f.6F07A6B0F72DF1A23CBBA54A4632A879.d.7F4731F2C8CFA667E2DFE7323ADF8AA8.e.11")&gt;</msg>
-<var>${pending}</var>
-<arg>${REJECT}</arg>
-<arg>${PENDING}</arg>
-<status status="PASS" start="2025-08-19T15:09:59.481272" elapsed="0.038983"/>
-</kw>
-<kw name="Element Should Be Disabled" owner="SeleniumLibrary">
-<arg>${pending}</arg>
-<doc>Verifies that element identified by ``locator`` is disabled.</doc>
-<status status="PASS" start="2025-08-19T15:09:59.520858" elapsed="0.007384"/>
-</kw>
-<kw name="Delete Order" owner="stage_keywords" type="TEARDOWN">
-<kw name="Create Dictionary" owner="BuiltIn">
-<msg time="2025-08-19T15:09:59.529409" level="INFO">${json} = {'trackingId': '4161', 'password': '4161'}</msg>
-<var>${json}</var>
-<arg>${KEY_TRACKING_ID}=${TRACKING_ID}</arg>
-<arg>${KEY_PASSWORD}=${TRACKING_ID}</arg>
-<doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<status status="PASS" start="2025-08-19T15:09:59.529029" elapsed="0.000420"/>
-</kw>
-<kw name="DELETE" owner="RequestsLibrary">
-<msg time="2025-08-19T15:09:59.533464" level="INFO">DELETE Request : url=http://localhost:3000/deleteOrder 
- path_url=/deleteOrder 
- headers={'User-Agent': 'python-requests/2.32.4', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '42', 'Content-Type': 'application/json'} 
- body=b'{"trackingId": "4161", "password": "4161"}' 
- </msg>
-<msg time="2025-08-19T15:09:59.533547" level="INFO">DELETE Response : url=http://localhost:3000/deleteOrder 
- status=200, reason=OK 
- headers={'X-Powered-By': 'Express', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '42', 'ETag': 'W/"2a-73HTL89b4tbDT7yR3vJfTGBT34w"', 'Date': 'Tue, 19 Aug 2025 12:09:59 GMT', 'Connection': 'keep-alive', 'Keep-Alive': 'timeout=5'} 
- body={"success":true,"message":"Order deleted"} 
- </msg>
-<arg>${BASE_URL}${DELETE_ORDER}</arg>
-<arg>json=${json}</arg>
-<arg>expected_status=200</arg>
-<doc>Sends a DELETE request.</doc>
-<status status="PASS" start="2025-08-19T15:09:59.529604" elapsed="0.004074"/>
-</kw>
-<kw name="Close Browser" owner="SeleniumLibrary">
-<doc>Closes the current browser.</doc>
-<status status="PASS" start="2025-08-19T15:09:59.533861" elapsed="2.339708"/>
-</kw>
-<status status="PASS" start="2025-08-19T15:09:59.528710" elapsed="2.345703"/>
-</kw>
-<status status="PASS" start="2025-08-19T15:09:57.662394" elapsed="4.213550"/>
-</test>
-<test id="s1-t6" name="Stage Can Change After Rejection" line="44">
-<kw name="Login And Reject" owner="setup_teardown_keywords" type="SETUP">
-<kw name="Open Browser And Login" owner="setup_teardown_keywords">
-<kw name="Open Web Browser" owner="utils_keywords">
-<kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2025-08-19T15:10:01.895124" level="INFO">Opening browser 'chrome' to base url 'http://localhost:3000'.</msg>
-<arg>${BASE_URL}</arg>
-<arg>chrome</arg>
-<arg>options=add_experimental_option("excludeSwitches", ["enable-automation","disable-popup-blocking"])</arg>
-<doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2025-08-19T15:10:01.893307" elapsed="1.500030"/>
-</kw>
-<status status="PASS" start="2025-08-19T15:10:01.891094" elapsed="1.502522"/>
-</kw>
-<kw name="Add Order" owner="stage_keywords">
-<kw name="Set Variable" owner="BuiltIn">
-<msg time="2025-08-19T15:10:03.395291" level="INFO">${success} = False</msg>
-<var>${success}</var>
-<arg>${False}</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2025-08-19T15:10:03.394835" elapsed="0.000557"/>
-</kw>
-<for flavor="IN RANGE">
-<iter>
-<kw name="Random Integer" owner="utils_keywords">
-<kw name="Evaluate" owner="BuiltIn">
-<msg time="2025-08-19T15:10:03.397192" level="INFO">${num} = 7409</msg>
-<var>${num}</var>
-<arg>random.randint(1000,9999)</arg>
-<arg>modules=random</arg>
-<doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2025-08-19T15:10:03.396777" elapsed="0.000472"/>
-</kw>
-<return>
-<value>${num}</value>
-<status status="PASS" start="2025-08-19T15:10:03.397374" elapsed="0.000068"/>
-</return>
-<msg time="2025-08-19T15:10:03.397678" level="INFO">${trackingId} = 7409</msg>
-<var>${trackingId}</var>
-<status status="PASS" start="2025-08-19T15:10:03.396335" elapsed="0.001393"/>
-</kw>
-<kw name="Convert To String" owner="BuiltIn">
-<msg time="2025-08-19T15:10:03.398239" level="INFO">${trackingId} = 7409</msg>
-<var>${trackingId}</var>
-<arg>${trackingId}</arg>
-<doc>Converts the given item to a Unicode string.</doc>
-<status status="PASS" start="2025-08-19T15:10:03.397930" elapsed="0.000364"/>
-</kw>
-<kw name="Create Dictionary" owner="BuiltIn">
-<msg time="2025-08-19T15:10:03.399131" level="INFO">${json} = {'trackingId': '7409', 'password': '7409'}</msg>
-<var>${json}</var>
-<arg>${KEY_TRACKING_ID}=${trackingId}</arg>
-<arg>${KEY_PASSWORD}=${trackingId}</arg>
-<doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<status status="PASS" start="2025-08-19T15:10:03.398544" elapsed="0.000648"/>
-</kw>
-<kw name="POST" owner="RequestsLibrary">
-<msg time="2025-08-19T15:10:03.405124" level="INFO">POST Request : url=http://localhost:3000/addOrder 
- path_url=/addOrder 
- headers={'User-Agent': 'python-requests/2.32.4', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '42', 'Content-Type': 'application/json'} 
- body=b'{"trackingId": "7409", "password": "7409"}' 
- </msg>
-<msg time="2025-08-19T15:10:03.405233" level="INFO">POST Response : url=http://localhost:3000/addOrder 
- status=201, reason=Created 
- headers={'X-Powered-By': 'Express', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '406', 'ETag': 'W/"196-xtZOhOnEN8Q3rcKxZP1xUr6ooDo"', 'Date': 'Tue, 19 Aug 2025 12:10:03 GMT', 'Connection': 'keep-alive', 'Keep-Alive': 'timeout=5'} 
- body={"success":true,"stages":[{"name":"Order Received","status":"pending","cause":""},{"name":"Order Shipped","status":"pending","cause":""},{"name":"Order Received to Destination Country","status":"pending","cause":""},{"name":"Order Clearance Completed","status":"pending","cause":""},{"name":"Order in Delivery Stage","status":"pending","cause":""},{"name":"Order Delivered","status":"pending","cause":""}]} 
- </msg>
-<msg time="2025-08-19T15:10:03.405487" level="INFO">${resp} = &lt;Response [201]&gt;</msg>
-<var>${resp}</var>
-<arg>${BASE_URL}${ADD_ORDER}</arg>
-<arg>json=${json}</arg>
-<doc>Sends a POST request.</doc>
-<status status="PASS" start="2025-08-19T15:10:03.399427" elapsed="0.006098"/>
-</kw>
-<if>
-<branch type="IF" condition="'${resp.status_code}' == '201'">
-<kw name="Set Variable" owner="BuiltIn">
-<msg time="2025-08-19T15:10:03.406602" level="INFO">${success} = True</msg>
-<var>${success}</var>
-<arg>${True}</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2025-08-19T15:10:03.406380" elapsed="0.000256"/>
-</kw>
-<kw name="Exit For Loop" owner="BuiltIn">
-<msg time="2025-08-19T15:10:03.406869" level="INFO">Exiting for loop altogether.</msg>
-<doc>Stops executing the enclosing FOR loop.</doc>
-<status status="PASS" start="2025-08-19T15:10:03.406765" elapsed="0.000172"/>
-</kw>
-<status status="PASS" start="2025-08-19T15:10:03.405658" elapsed="0.001335"/>
-</branch>
-<status status="PASS" start="2025-08-19T15:10:03.405630" elapsed="0.001412"/>
-</if>
-<var name="${i}">0</var>
-<status status="PASS" start="2025-08-19T15:10:03.396029" elapsed="0.011046"/>
-</iter>
-<var>${i}</var>
-<value>1000</value>
-<status status="PASS" start="2025-08-19T15:10:03.395569" elapsed="0.011563"/>
-</for>
-<if>
-<branch type="IF" condition="'${success}'=='False'">
-<kw name="Fail" owner="BuiltIn">
-<arg>Could not add order after 1000 attempts</arg>
-<doc>Fails the test with the given message and optionally alters its tags.</doc>
-<status status="NOT RUN" start="2025-08-19T15:10:03.407441" elapsed="0.000062"/>
-</kw>
-<status status="NOT RUN" start="2025-08-19T15:10:03.407248" elapsed="0.000301"/>
-</branch>
-<status status="PASS" start="2025-08-19T15:10:03.407227" elapsed="0.000372"/>
-</if>
-<return>
-<value>${trackingId}</value>
-<status status="PASS" start="2025-08-19T15:10:03.407636" elapsed="0.000035"/>
-</return>
-<msg time="2025-08-19T15:10:03.407803" level="INFO">${TRACKING_ID} = 7409</msg>
-<var>${TRACKING_ID}</var>
-<status status="PASS" start="2025-08-19T15:10:03.394257" elapsed="0.013575"/>
-</kw>
-<kw name="Login With Credentials" owner="login_keywords">
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-08-19T15:10:03.408521" level="INFO">Typing text '7409' into text field 'id=trackingId'.</msg>
-<arg>${LOGIN_ID_FIELD}</arg>
-<arg>${id}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-08-19T15:10:03.408304" elapsed="0.107502"/>
-</kw>
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-08-19T15:10:03.516504" level="INFO">Typing text '7409' into text field 'id=password'.</msg>
-<arg>${LOGIN_PASS_FIELD}</arg>
-<arg>${password}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-08-19T15:10:03.516147" elapsed="0.090705"/>
+<status status="PASS" start="2025-08-20T09:20:38.577455" elapsed="1.546126"/>
 </kw>
 <kw name="Click Button" owner="SeleniumLibrary">
-<msg time="2025-08-19T15:10:03.607628" level="INFO">Clicking button 'xpath=//button[text()='Track']'.</msg>
+<msg time="2025-08-20T09:20:40.124449" level="INFO">Clicking button 'xpath=//button[text()='Track']'.</msg>
 <arg>${TRACK_BUTTON}</arg>
 <doc>Clicks the button identified by ``locator``.</doc>
-<status status="PASS" start="2025-08-19T15:10:03.607173" elapsed="0.074811"/>
+<status status="PASS" start="2025-08-20T09:20:40.124050" elapsed="0.086462"/>
 </kw>
-<arg>${TRACKING_ID}</arg>
-<arg>${TRACKING_ID}</arg>
-<status status="PASS" start="2025-08-19T15:10:03.407993" elapsed="0.274172"/>
-</kw>
-<kw name="Set Global Variable" owner="BuiltIn">
-<msg time="2025-08-19T15:10:03.682668" level="INFO">${TRACKING_ID} = 7409</msg>
-<arg>${TRACKING_ID}</arg>
-<doc>Makes a variable available globally in all tests and suites.</doc>
-<status status="PASS" start="2025-08-19T15:10:03.682438" elapsed="0.000281"/>
-</kw>
-<status status="PASS" start="2025-08-19T15:10:01.889024" elapsed="1.793821"/>
-</kw>
-<kw name="Get Stage Header Text" owner="utils_keywords">
-<kw name="Set Variable" owner="BuiltIn">
-<msg time="2025-08-19T15:10:03.683461" level="INFO">${header_xpath} = (//button[text()='Rejected' and not(@disabled)])/ancestor::div[@class='stage']//h3</msg>
-<var>${header_xpath}</var>
-<arg>(${child_element})/ancestor::div[@class='stage']//h3</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2025-08-19T15:10:03.683260" elapsed="0.000231"/>
-</kw>
+<kw name="Login Should Fail" owner="login_keywords">
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>xpath=${header_xpath}</arg>
+<arg>${ERROR_MESSAGE}</arg>
 <arg>10s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-08-19T15:10:03.683607" elapsed="0.032254"/>
-</kw>
-<kw name="Get Text" owner="SeleniumLibrary">
-<msg time="2025-08-19T15:10:03.741647" level="INFO">${header_text} = Stage 1: Order Received</msg>
-<var>${header_text}</var>
-<arg>xpath=${header_xpath}</arg>
-<doc>Returns the text value of the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-08-19T15:10:03.716142" elapsed="0.025561"/>
-</kw>
-<return>
-<value>${header_text}</value>
-<status status="PASS" start="2025-08-19T15:10:03.741804" elapsed="0.000057"/>
-</return>
-<msg time="2025-08-19T15:10:03.742047" level="INFO">${header_text} = Stage 1: Order Received</msg>
-<var>${header_text}</var>
-<arg>${REJECT}</arg>
-<status status="PASS" start="2025-08-19T15:10:03.683007" elapsed="0.059078"/>
-</kw>
-<kw name="Reject a Stage" owner="stage_keywords">
-<kw name="Click Button" owner="SeleniumLibrary">
-<msg time="2025-08-19T15:10:03.742832" level="INFO">Clicking button 'xpath=//button[(text()='Rejected') and not(@disabled)]'.</msg>
-<arg>${ENABLED_REJECT}</arg>
-<doc>Clicks the button identified by ``locator``.</doc>
-<status status="PASS" start="2025-08-19T15:10:03.742619" elapsed="0.071095"/>
-</kw>
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-08-19T15:10:03.814127" level="INFO">Typing text 'Reject' into text field 'xpath=//input[@placeholder='Reason for rejection']'.</msg>
-<arg>${REJECTION_REASON}</arg>
-<arg>Reject</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-08-19T15:10:03.813904" elapsed="0.084459"/>
-</kw>
-<kw name="Click Button" owner="SeleniumLibrary">
-<msg time="2025-08-19T15:10:03.898787" level="INFO">Clicking button 'xpath=//button[text()='Submit']'.</msg>
-<arg>${SUBMIT_BUTTON}</arg>
-<doc>Clicks the button identified by ``locator``.</doc>
-<status status="PASS" start="2025-08-19T15:10:03.898574" elapsed="0.122369"/>
-</kw>
-<kw name="Reject Should Succeed" owner="stage_keywords">
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>${SUCCESS_MESSAGE}</arg>
-<arg>10s</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-08-19T15:10:04.021997" elapsed="0.069315"/>
+<status status="PASS" start="2025-08-20T09:20:40.211279" elapsed="0.243090"/>
 </kw>
 <kw name="Element Should Contain" owner="SeleniumLibrary">
-<msg time="2025-08-19T15:10:04.114387" level="INFO">Element 'xpath=//*[@class='message success']' contains text 'marked as rejected'.</msg>
-<arg>${SUCCESS_MESSAGE}</arg>
-<arg>${REJECTION_SUCCESS}</arg>
+<msg time="2025-08-20T09:20:40.483059" level="INFO">Element 'xpath=//*[@class='message error']' contains text 'Invalid Tracking ID or Password'.</msg>
+<arg>${ERROR_MESSAGE}</arg>
+<arg>${LOGIN_FAIL}</arg>
 <doc>Verifies that element ``locator`` contains text ``expected``.</doc>
-<status status="PASS" start="2025-08-19T15:10:04.091670" elapsed="0.022876"/>
+<status status="PASS" start="2025-08-20T09:20:40.454702" elapsed="0.028448"/>
 </kw>
-<status status="PASS" start="2025-08-19T15:10:04.021368" elapsed="0.093378"/>
-</kw>
-<status status="PASS" start="2025-08-19T15:10:03.742331" elapsed="0.372541"/>
-</kw>
-<kw name="Set Test Variable" owner="BuiltIn">
-<msg time="2025-08-19T15:10:04.118141" level="INFO">${STAGE_HEADER} = Stage 1: Order Received</msg>
-<arg>${STAGE_HEADER}</arg>
-<arg>${header_text}</arg>
-<doc>Makes a variable available everywhere within the scope of the current test.</doc>
-<status status="PASS" start="2025-08-19T15:10:04.115235" elapsed="0.003064"/>
-</kw>
-<status status="PASS" start="2025-08-19T15:10:01.885970" elapsed="2.232648"/>
-</kw>
-<kw name="Get Stage Header Text" owner="utils_keywords">
-<kw name="Set Variable" owner="BuiltIn">
-<msg time="2025-08-19T15:10:04.121302" level="INFO">${header_xpath} = (//button[(text()='Done') and not(@disabled)])/ancestor::div[@class='stage']//h3</msg>
-<var>${header_xpath}</var>
-<arg>(${child_element})/ancestor::div[@class='stage']//h3</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2025-08-19T15:10:04.120633" elapsed="0.000718"/>
-</kw>
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>xpath=${header_xpath}</arg>
-<arg>10s</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-08-19T15:10:04.121597" elapsed="0.021203"/>
-</kw>
-<kw name="Get Text" owner="SeleniumLibrary">
-<msg time="2025-08-19T15:10:04.159785" level="INFO">${header_text} = Stage 1: Order Received</msg>
-<var>${header_text}</var>
-<arg>xpath=${header_xpath}</arg>
-<doc>Returns the text value of the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-08-19T15:10:04.143155" elapsed="0.016676"/>
-</kw>
-<return>
-<value>${header_text}</value>
-<status status="PASS" start="2025-08-19T15:10:04.159917" elapsed="0.000047"/>
-</return>
-<msg time="2025-08-19T15:10:04.160118" level="INFO">${done_header_text} = Stage 1: Order Received</msg>
-<var>${done_header_text}</var>
-<arg>${DONE}</arg>
-<status status="PASS" start="2025-08-19T15:10:04.119493" elapsed="0.040656"/>
-</kw>
-<kw name="Should Be Equal As Strings" owner="BuiltIn">
-<arg>${STAGE_HEADER}</arg>
-<arg>${done_header_text}</arg>
-<doc>Fails if objects are unequal after converting them to strings.</doc>
-<status status="PASS" start="2025-08-19T15:10:04.160566" elapsed="0.000295"/>
-</kw>
-<kw name="Get WebElement" owner="SeleniumLibrary">
-<msg time="2025-08-19T15:10:04.173627" level="INFO">${done_el} = &lt;selenium.webdriver.remote.webelement.WebElement (session="57cc7fa88fbfb88dbd77565c7f531396", element="f.1180569419B528991C46448846C95E69.d.CE90FFF27D6AC68C1FCC0FBFD5BC35D3.e.43")&gt;</msg>
-<var>${done_el}</var>
-<arg>${DONE_BUTTON}</arg>
-<doc>Returns the first WebElement matching the given ``locator``.</doc>
-<status status="PASS" start="2025-08-19T15:10:04.161138" elapsed="0.012558"/>
-</kw>
-<kw name="Element Should Be Enabled" owner="SeleniumLibrary">
-<arg>${done_el}</arg>
-<doc>Verifies that element identified by ``locator`` is enabled.</doc>
-<status status="PASS" start="2025-08-19T15:10:04.174085" elapsed="0.013086"/>
-</kw>
-<kw name="Get Child Sibling Element" owner="utils_keywords">
-<kw name="Set Variable" owner="BuiltIn">
-<msg time="2025-08-19T15:10:04.188427" level="INFO">${parent_xpath} = (//button[(text()='Done') and not(@disabled)])/parent::*</msg>
-<var>${parent_xpath}</var>
-<arg>(${child})/parent::*</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2025-08-19T15:10:04.188214" elapsed="0.000248"/>
-</kw>
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>xpath=${parent_xpath}${target}</arg>
-<arg>10s</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-08-19T15:10:04.188586" elapsed="0.017552"/>
-</kw>
-<kw name="Get WebElement" owner="SeleniumLibrary">
-<msg time="2025-08-19T15:10:04.215056" level="INFO">${element} = &lt;selenium.webdriver.remote.webelement.WebElement (session="57cc7fa88fbfb88dbd77565c7f531396", element="f.1180569419B528991C46448846C95E69.d.CE90FFF27D6AC68C1FCC0FBFD5BC35D3.e.49")&gt;</msg>
-<var>${element}</var>
-<arg>xpath=${parent_xpath}${target}</arg>
-<doc>Returns the first WebElement matching the given ``locator``.</doc>
-<status status="PASS" start="2025-08-19T15:10:04.206434" elapsed="0.008684"/>
-</kw>
-<return>
-<value>${element}</value>
-<status status="PASS" start="2025-08-19T15:10:04.215207" elapsed="0.000049"/>
-</return>
-<msg time="2025-08-19T15:10:04.215462" level="INFO">${pending} = &lt;selenium.webdriver.remote.webelement.WebElement (session="57cc7fa88fbfb88dbd77565c7f531396", element="f.1180569419B528991C46448846C95E69.d.CE90FFF27D6AC68C1FCC0FBFD5BC35D3.e.49")&gt;</msg>
-<var>${pending}</var>
-<arg>${DONE}</arg>
-<arg>${PENDING}</arg>
-<status status="PASS" start="2025-08-19T15:10:04.187774" elapsed="0.027722"/>
-</kw>
-<kw name="Element Should Be Enabled" owner="SeleniumLibrary">
-<arg>${pending}</arg>
-<doc>Verifies that element identified by ``locator`` is enabled.</doc>
-<status status="PASS" start="2025-08-19T15:10:04.215832" elapsed="0.012677"/>
+<status status="PASS" start="2025-08-20T09:20:40.210954" elapsed="0.272292"/>
 </kw>
 <kw name="Delete Order" owner="stage_keywords" type="TEARDOWN">
 <kw name="Create Dictionary" owner="BuiltIn">
-<msg time="2025-08-19T15:10:04.229622" level="INFO">${json} = {'trackingId': '7409', 'password': '7409'}</msg>
+<msg time="2025-08-20T09:20:40.484259" level="INFO">${json} = {'trackingId': '1229', 'password': '1229'}</msg>
 <var>${json}</var>
 <arg>${KEY_TRACKING_ID}=${TRACKING_ID}</arg>
 <arg>${KEY_PASSWORD}=${TRACKING_ID}</arg>
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<status status="PASS" start="2025-08-19T15:10:04.229293" elapsed="0.000364"/>
+<status status="PASS" start="2025-08-20T09:20:40.483947" elapsed="0.000344"/>
 </kw>
 <kw name="DELETE" owner="RequestsLibrary">
-<msg time="2025-08-19T15:10:04.233216" level="INFO">DELETE Request : url=http://localhost:3000/deleteOrder 
+<msg time="2025-08-20T09:20:40.487529" level="INFO">DELETE Request : url=http://localhost:3000/deleteOrder 
  path_url=/deleteOrder 
  headers={'User-Agent': 'python-requests/2.32.4', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '42', 'Content-Type': 'application/json'} 
- body=b'{"trackingId": "7409", "password": "7409"}' 
+ body=b'{"trackingId": "1229", "password": "1229"}' 
  </msg>
-<msg time="2025-08-19T15:10:04.233314" level="INFO">DELETE Response : url=http://localhost:3000/deleteOrder 
+<msg time="2025-08-20T09:20:40.487602" level="INFO">DELETE Response : url=http://localhost:3000/deleteOrder 
  status=200, reason=OK 
- headers={'X-Powered-By': 'Express', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '42', 'ETag': 'W/"2a-73HTL89b4tbDT7yR3vJfTGBT34w"', 'Date': 'Tue, 19 Aug 2025 12:10:04 GMT', 'Connection': 'keep-alive', 'Keep-Alive': 'timeout=5'} 
+ headers={'X-Powered-By': 'Express', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '42', 'ETag': 'W/"2a-73HTL89b4tbDT7yR3vJfTGBT34w"', 'Date': 'Wed, 20 Aug 2025 06:20:40 GMT', 'Connection': 'keep-alive', 'Keep-Alive': 'timeout=5'} 
  body={"success":true,"message":"Order deleted"} 
  </msg>
 <arg>${BASE_URL}${DELETE_ORDER}</arg>
 <arg>json=${json}</arg>
 <arg>expected_status=200</arg>
 <doc>Sends a DELETE request.</doc>
-<status status="PASS" start="2025-08-19T15:10:04.229786" elapsed="0.003724"/>
+<status status="PASS" start="2025-08-20T09:20:40.484400" elapsed="0.003354"/>
 </kw>
 <kw name="Close Browser" owner="SeleniumLibrary">
 <doc>Closes the current browser.</doc>
-<status status="PASS" start="2025-08-19T15:10:04.233682" elapsed="2.278839"/>
+<status status="PASS" start="2025-08-20T09:20:40.487913" elapsed="2.334282"/>
 </kw>
-<status status="PASS" start="2025-08-19T15:10:04.228986" elapsed="2.284384"/>
+<status status="PASS" start="2025-08-20T09:20:40.483648" elapsed="2.339314"/>
 </kw>
-<status status="PASS" start="2025-08-19T15:10:01.882057" elapsed="4.632849"/>
+<status status="PASS" start="2025-08-20T09:20:38.573280" elapsed="4.251146"/>
 </test>
-<test id="s1-t7" name="Stage Can Change After Pending" line="53">
-<kw name="Click Pending" owner="setup_teardown_keywords" type="SETUP">
-<kw name="Open Browser And Login" owner="setup_teardown_keywords">
-<kw name="Open Web Browser" owner="utils_keywords">
-<kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2025-08-19T15:10:06.533589" level="INFO">Opening browser 'chrome' to base url 'http://localhost:3000'.</msg>
-<arg>${BASE_URL}</arg>
-<arg>chrome</arg>
-<arg>options=add_experimental_option("excludeSwitches", ["enable-automation","disable-popup-blocking"])</arg>
-<doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2025-08-19T15:10:06.532755" elapsed="1.487426"/>
-</kw>
-<status status="PASS" start="2025-08-19T15:10:06.530903" elapsed="1.489546"/>
-</kw>
-<kw name="Add Order" owner="stage_keywords">
-<kw name="Set Variable" owner="BuiltIn">
-<msg time="2025-08-19T15:10:08.021618" level="INFO">${success} = False</msg>
-<var>${success}</var>
-<arg>${False}</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2025-08-19T15:10:08.021291" elapsed="0.000386"/>
-</kw>
-<for flavor="IN RANGE">
-<iter>
-<kw name="Random Integer" owner="utils_keywords">
-<kw name="Evaluate" owner="BuiltIn">
-<msg time="2025-08-19T15:10:08.023470" level="INFO">${num} = 5902</msg>
-<var>${num}</var>
-<arg>random.randint(1000,9999)</arg>
-<arg>modules=random</arg>
-<doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2025-08-19T15:10:08.023148" elapsed="0.000361"/>
-</kw>
-<return>
-<value>${num}</value>
-<status status="PASS" start="2025-08-19T15:10:08.023617" elapsed="0.000052"/>
-</return>
-<msg time="2025-08-19T15:10:08.023882" level="INFO">${trackingId} = 5902</msg>
-<var>${trackingId}</var>
-<status status="PASS" start="2025-08-19T15:10:08.022538" elapsed="0.001432"/>
-</kw>
-<kw name="Convert To String" owner="BuiltIn">
-<msg time="2025-08-19T15:10:08.024343" level="INFO">${trackingId} = 5902</msg>
-<var>${trackingId}</var>
-<arg>${trackingId}</arg>
-<doc>Converts the given item to a Unicode string.</doc>
-<status status="PASS" start="2025-08-19T15:10:08.024125" elapsed="0.000251"/>
-</kw>
-<kw name="Create Dictionary" owner="BuiltIn">
-<msg time="2025-08-19T15:10:08.025010" level="INFO">${json} = {'trackingId': '5902', 'password': '5902'}</msg>
-<var>${json}</var>
-<arg>${KEY_TRACKING_ID}=${trackingId}</arg>
-<arg>${KEY_PASSWORD}=${trackingId}</arg>
-<doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<status status="PASS" start="2025-08-19T15:10:08.024514" elapsed="0.000580"/>
-</kw>
-<kw name="POST" owner="RequestsLibrary">
-<msg time="2025-08-19T15:10:08.029840" level="INFO">POST Request : url=http://localhost:3000/addOrder 
- path_url=/addOrder 
- headers={'User-Agent': 'python-requests/2.32.4', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '42', 'Content-Type': 'application/json'} 
- body=b'{"trackingId": "5902", "password": "5902"}' 
- </msg>
-<msg time="2025-08-19T15:10:08.029973" level="INFO">POST Response : url=http://localhost:3000/addOrder 
- status=201, reason=Created 
- headers={'X-Powered-By': 'Express', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '406', 'ETag': 'W/"196-xtZOhOnEN8Q3rcKxZP1xUr6ooDo"', 'Date': 'Tue, 19 Aug 2025 12:10:08 GMT', 'Connection': 'keep-alive', 'Keep-Alive': 'timeout=5'} 
- body={"success":true,"stages":[{"name":"Order Received","status":"pending","cause":""},{"name":"Order Shipped","status":"pending","cause":""},{"name":"Order Received to Destination Country","status":"pending","cause":""},{"name":"Order Clearance Completed","status":"pending","cause":""},{"name":"Order in Delivery Stage","status":"pending","cause":""},{"name":"Order Delivered","status":"pending","cause":""}]} 
- </msg>
-<msg time="2025-08-19T15:10:08.030344" level="INFO">${resp} = &lt;Response [201]&gt;</msg>
-<var>${resp}</var>
-<arg>${BASE_URL}${ADD_ORDER}</arg>
-<arg>json=${json}</arg>
-<doc>Sends a POST request.</doc>
-<status status="PASS" start="2025-08-19T15:10:08.025260" elapsed="0.005141"/>
-</kw>
-<if>
-<branch type="IF" condition="'${resp.status_code}' == '201'">
-<kw name="Set Variable" owner="BuiltIn">
-<msg time="2025-08-19T15:10:08.032244" level="INFO">${success} = True</msg>
-<var>${success}</var>
-<arg>${True}</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2025-08-19T15:10:08.032034" elapsed="0.000247"/>
-</kw>
-<kw name="Exit For Loop" owner="BuiltIn">
-<msg time="2025-08-19T15:10:08.032531" level="INFO">Exiting for loop altogether.</msg>
-<doc>Stops executing the enclosing FOR loop.</doc>
-<status status="PASS" start="2025-08-19T15:10:08.032433" elapsed="0.000187"/>
-</kw>
-<status status="PASS" start="2025-08-19T15:10:08.030617" elapsed="0.002062"/>
-</branch>
-<status status="PASS" start="2025-08-19T15:10:08.030575" elapsed="0.002170"/>
-</if>
-<var name="${i}">0</var>
-<status status="PASS" start="2025-08-19T15:10:08.022182" elapsed="0.010597"/>
-</iter>
-<var>${i}</var>
-<value>1000</value>
-<status status="PASS" start="2025-08-19T15:10:08.021821" elapsed="0.011018"/>
-</for>
-<if>
-<branch type="IF" condition="'${success}'=='False'">
-<kw name="Fail" owner="BuiltIn">
-<arg>Could not add order after 1000 attempts</arg>
-<doc>Fails the test with the given message and optionally alters its tags.</doc>
-<status status="NOT RUN" start="2025-08-19T15:10:08.033158" elapsed="0.000034"/>
-</kw>
-<status status="NOT RUN" start="2025-08-19T15:10:08.032939" elapsed="0.000402"/>
-</branch>
-<status status="PASS" start="2025-08-19T15:10:08.032917" elapsed="0.000505"/>
-</if>
-<return>
-<value>${trackingId}</value>
-<status status="PASS" start="2025-08-19T15:10:08.033507" elapsed="0.000088"/>
-</return>
-<msg time="2025-08-19T15:10:08.033924" level="INFO">${TRACKING_ID} = 5902</msg>
-<var>${TRACKING_ID}</var>
-<status status="PASS" start="2025-08-19T15:10:08.020973" elapsed="0.013010"/>
-</kw>
-<kw name="Login With Credentials" owner="login_keywords">
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-08-19T15:10:08.034988" level="INFO">Typing text '5902' into text field 'id=trackingId'.</msg>
-<arg>${LOGIN_ID_FIELD}</arg>
-<arg>${id}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-08-19T15:10:08.034738" elapsed="0.099500"/>
-</kw>
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-08-19T15:10:08.134764" level="INFO">Typing text '5902' into text field 'id=password'.</msg>
-<arg>${LOGIN_PASS_FIELD}</arg>
-<arg>${password}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-08-19T15:10:08.134466" elapsed="0.096023"/>
-</kw>
-<kw name="Click Button" owner="SeleniumLibrary">
-<msg time="2025-08-19T15:10:08.230935" level="INFO">Clicking button 'xpath=//button[text()='Track']'.</msg>
-<arg>${TRACK_BUTTON}</arg>
-<doc>Clicks the button identified by ``locator``.</doc>
-<status status="PASS" start="2025-08-19T15:10:08.230705" elapsed="0.077914"/>
-</kw>
-<arg>${TRACKING_ID}</arg>
-<arg>${TRACKING_ID}</arg>
-<status status="PASS" start="2025-08-19T15:10:08.034305" elapsed="0.274522"/>
-</kw>
-<kw name="Set Global Variable" owner="BuiltIn">
-<msg time="2025-08-19T15:10:08.309327" level="INFO">${TRACKING_ID} = 5902</msg>
-<arg>${TRACKING_ID}</arg>
-<doc>Makes a variable available globally in all tests and suites.</doc>
-<status status="PASS" start="2025-08-19T15:10:08.309061" elapsed="0.000327"/>
-</kw>
-<status status="PASS" start="2025-08-19T15:10:06.528774" elapsed="1.780697"/>
-</kw>
-<kw name="Reject a Stage" owner="stage_keywords">
-<kw name="Click Button" owner="SeleniumLibrary">
-<msg time="2025-08-19T15:10:08.310213" level="INFO">Clicking button 'xpath=//button[(text()='Rejected') and not(@disabled)]'.</msg>
-<arg>${ENABLED_REJECT}</arg>
-<doc>Clicks the button identified by ``locator``.</doc>
-<status status="PASS" start="2025-08-19T15:10:08.310001" elapsed="0.087981"/>
-</kw>
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-08-19T15:10:08.398400" level="INFO">Typing text 'Reject' into text field 'xpath=//input[@placeholder='Reason for rejection']'.</msg>
-<arg>${REJECTION_REASON}</arg>
-<arg>Reject</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-08-19T15:10:08.398160" elapsed="0.089953"/>
-</kw>
-<kw name="Click Button" owner="SeleniumLibrary">
-<msg time="2025-08-19T15:10:08.488802" level="INFO">Clicking button 'xpath=//button[text()='Submit']'.</msg>
-<arg>${SUBMIT_BUTTON}</arg>
-<doc>Clicks the button identified by ``locator``.</doc>
-<status status="PASS" start="2025-08-19T15:10:08.488429" elapsed="0.104375"/>
-</kw>
-<kw name="Reject Should Succeed" owner="stage_keywords">
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>${SUCCESS_MESSAGE}</arg>
-<arg>10s</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-08-19T15:10:08.593668" elapsed="0.066402"/>
-</kw>
-<kw name="Element Should Contain" owner="SeleniumLibrary">
-<msg time="2025-08-19T15:10:08.686835" level="INFO">Element 'xpath=//*[@class='message success']' contains text 'marked as rejected'.</msg>
-<arg>${SUCCESS_MESSAGE}</arg>
-<arg>${REJECTION_SUCCESS}</arg>
-<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
-<status status="PASS" start="2025-08-19T15:10:08.660463" elapsed="0.026512"/>
-</kw>
-<status status="PASS" start="2025-08-19T15:10:08.593116" elapsed="0.094005"/>
-</kw>
-<status status="PASS" start="2025-08-19T15:10:08.309733" elapsed="0.377507"/>
-</kw>
-<kw name="Get Stage Header Text" owner="utils_keywords">
-<kw name="Set Variable" owner="BuiltIn">
-<msg time="2025-08-19T15:10:08.688110" level="INFO">${header_xpath} = (//button[(text()='Pending') and not(@disabled)])/ancestor::div[@class='stage']//h3</msg>
-<var>${header_xpath}</var>
-<arg>(${child_element})/ancestor::div[@class='stage']//h3</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2025-08-19T15:10:08.687897" elapsed="0.000245"/>
-</kw>
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>xpath=${header_xpath}</arg>
-<arg>10s</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-08-19T15:10:08.688268" elapsed="0.016860"/>
-</kw>
-<kw name="Get Text" owner="SeleniumLibrary">
-<msg time="2025-08-19T15:10:08.715946" level="INFO">${header_text} = Stage 1: Order Received</msg>
-<var>${header_text}</var>
-<arg>xpath=${header_xpath}</arg>
-<doc>Returns the text value of the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-08-19T15:10:08.705313" elapsed="0.010679"/>
-</kw>
-<return>
-<value>${header_text}</value>
-<status status="PASS" start="2025-08-19T15:10:08.716072" elapsed="0.000046"/>
-</return>
-<msg time="2025-08-19T15:10:08.716259" level="INFO">${header_text} = Stage 1: Order Received</msg>
-<var>${header_text}</var>
-<arg>${PENDING_EN}</arg>
-<status status="PASS" start="2025-08-19T15:10:08.687514" elapsed="0.028773"/>
-</kw>
-<kw name="Set Test Variable" owner="BuiltIn">
-<msg time="2025-08-19T15:10:08.717324" level="INFO">${STAGE_HEADER} = Stage 1: Order Received</msg>
-<arg>${STAGE_HEADER}</arg>
-<arg>${header_text}</arg>
-<doc>Makes a variable available everywhere within the scope of the current test.</doc>
-<status status="PASS" start="2025-08-19T15:10:08.716434" elapsed="0.000941"/>
-</kw>
-<kw name="Click Button" owner="SeleniumLibrary">
-<msg time="2025-08-19T15:10:08.717687" level="INFO">Clicking button 'xpath=//button[(text()='Pending') and not(@disabled)]'.</msg>
-<arg>${ENABLED_PENDING}</arg>
-<doc>Clicks the button identified by ``locator``.</doc>
-<status status="PASS" start="2025-08-19T15:10:08.717494" elapsed="0.063744"/>
-</kw>
-<kw name="Pending should Succeed" owner="stage_keywords">
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>${SUCCESS_MESSAGE}</arg>
-<arg>10s</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-08-19T15:10:08.781863" elapsed="0.012781"/>
-</kw>
-<kw name="Element Should Contain" owner="SeleniumLibrary">
-<msg time="2025-08-19T15:10:08.806468" level="INFO">Element 'xpath=//*[@class='message success']' contains text 'marked as pending'.</msg>
-<arg>${SUCCESS_MESSAGE}</arg>
-<arg>${PENDING_SUCCESS}</arg>
-<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
-<status status="PASS" start="2025-08-19T15:10:08.794824" elapsed="0.011749"/>
-</kw>
-<status status="PASS" start="2025-08-19T15:10:08.781469" elapsed="0.025207"/>
-</kw>
-<status status="PASS" start="2025-08-19T15:10:06.525172" elapsed="2.281568"/>
-</kw>
-<kw name="Get Stage Header Text" owner="utils_keywords">
-<kw name="Set Variable" owner="BuiltIn">
-<msg time="2025-08-19T15:10:08.807798" level="INFO">${header_xpath} = (//button[(text()='Done') and not(@disabled)])/ancestor::div[@class='stage']//h3</msg>
-<var>${header_xpath}</var>
-<arg>(${child_element})/ancestor::div[@class='stage']//h3</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2025-08-19T15:10:08.807523" elapsed="0.000309"/>
-</kw>
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>xpath=${header_xpath}</arg>
-<arg>10s</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-08-19T15:10:08.807961" elapsed="0.025514"/>
-</kw>
-<kw name="Get Text" owner="SeleniumLibrary">
-<msg time="2025-08-19T15:10:08.859087" level="INFO">${header_text} = Stage 1: Order Received</msg>
-<var>${header_text}</var>
-<arg>xpath=${header_xpath}</arg>
-<doc>Returns the text value of the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-08-19T15:10:08.833799" elapsed="0.025342"/>
-</kw>
-<return>
-<value>${header_text}</value>
-<status status="PASS" start="2025-08-19T15:10:08.859235" elapsed="0.000056"/>
-</return>
-<msg time="2025-08-19T15:10:08.859474" level="INFO">${done_header_text} = Stage 1: Order Received</msg>
-<var>${done_header_text}</var>
-<arg>${DONE}</arg>
-<status status="PASS" start="2025-08-19T15:10:08.807136" elapsed="0.052374"/>
-</kw>
-<kw name="Should Be Equal As Strings" owner="BuiltIn">
-<arg>${STAGE_HEADER}</arg>
-<arg>${done_header_text}</arg>
-<doc>Fails if objects are unequal after converting them to strings.</doc>
-<status status="PASS" start="2025-08-19T15:10:08.859875" elapsed="0.000261"/>
-</kw>
-<kw name="Get WebElement" owner="SeleniumLibrary">
-<msg time="2025-08-19T15:10:08.874542" level="INFO">${done_el} = &lt;selenium.webdriver.remote.webelement.WebElement (session="de0c881b69f9c5757fa9596f7b69f655", element="f.BD0623901A8010C540842995C1FB8E82.d.35E9EBFABFAF56E09893E1F2D39454BD.e.45")&gt;</msg>
-<var>${done_el}</var>
-<arg>${DONE_BUTTON}</arg>
-<doc>Returns the first WebElement matching the given ``locator``.</doc>
-<status status="PASS" start="2025-08-19T15:10:08.860440" elapsed="0.014172"/>
-</kw>
-<kw name="Element Should Be Enabled" owner="SeleniumLibrary">
-<arg>${done_el}</arg>
-<doc>Verifies that element identified by ``locator`` is enabled.</doc>
-<status status="PASS" start="2025-08-19T15:10:08.875051" elapsed="0.027424"/>
-</kw>
-<kw name="Get Child Sibling Element" owner="utils_keywords">
-<kw name="Set Variable" owner="BuiltIn">
-<msg time="2025-08-19T15:10:08.906227" level="INFO">${parent_xpath} = (//button[(text()='Done') and not(@disabled)])/parent::*</msg>
-<var>${parent_xpath}</var>
-<arg>(${child})/parent::*</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2025-08-19T15:10:08.905626" elapsed="0.000767"/>
-</kw>
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>xpath=${parent_xpath}${target}</arg>
-<arg>10s</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-08-19T15:10:08.907290" elapsed="0.024139"/>
-</kw>
-<kw name="Get WebElement" owner="SeleniumLibrary">
-<msg time="2025-08-19T15:10:08.940756" level="INFO">${element} = &lt;selenium.webdriver.remote.webelement.WebElement (session="de0c881b69f9c5757fa9596f7b69f655", element="f.BD0623901A8010C540842995C1FB8E82.d.35E9EBFABFAF56E09893E1F2D39454BD.e.56")&gt;</msg>
-<var>${element}</var>
-<arg>xpath=${parent_xpath}${target}</arg>
-<doc>Returns the first WebElement matching the given ``locator``.</doc>
-<status status="PASS" start="2025-08-19T15:10:08.931700" elapsed="0.009115"/>
-</kw>
-<return>
-<value>${element}</value>
-<status status="PASS" start="2025-08-19T15:10:08.940913" elapsed="0.000055"/>
-</return>
-<msg time="2025-08-19T15:10:08.941176" level="INFO">${reject_stage} = &lt;selenium.webdriver.remote.webelement.WebElement (session="de0c881b69f9c5757fa9596f7b69f655", element="f.BD0623901A8010C540842995C1FB8E82.d.35E9EBFABFAF56E09893E1F2D39454BD.e.56")&gt;</msg>
-<var>${reject_stage}</var>
-<arg>${DONE}</arg>
-<arg>${REJECT}</arg>
-<status status="PASS" start="2025-08-19T15:10:08.904419" elapsed="0.036798"/>
-</kw>
-<kw name="Element Should Be Enabled" owner="SeleniumLibrary">
-<arg>${reject_stage}</arg>
-<doc>Verifies that element identified by ``locator`` is enabled.</doc>
-<status status="PASS" start="2025-08-19T15:10:08.941599" elapsed="0.012734"/>
-</kw>
-<kw name="Delete Order" owner="stage_keywords" type="TEARDOWN">
-<kw name="Create Dictionary" owner="BuiltIn">
-<msg time="2025-08-19T15:10:08.955784" level="INFO">${json} = {'trackingId': '5902', 'password': '5902'}</msg>
-<var>${json}</var>
-<arg>${KEY_TRACKING_ID}=${TRACKING_ID}</arg>
-<arg>${KEY_PASSWORD}=${TRACKING_ID}</arg>
-<doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<status status="PASS" start="2025-08-19T15:10:08.955433" elapsed="0.000385"/>
-</kw>
-<kw name="DELETE" owner="RequestsLibrary">
-<msg time="2025-08-19T15:10:08.961161" level="INFO">DELETE Request : url=http://localhost:3000/deleteOrder 
- path_url=/deleteOrder 
- headers={'User-Agent': 'python-requests/2.32.4', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '42', 'Content-Type': 'application/json'} 
- body=b'{"trackingId": "5902", "password": "5902"}' 
- </msg>
-<msg time="2025-08-19T15:10:08.961241" level="INFO">DELETE Response : url=http://localhost:3000/deleteOrder 
- status=200, reason=OK 
- headers={'X-Powered-By': 'Express', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '42', 'ETag': 'W/"2a-73HTL89b4tbDT7yR3vJfTGBT34w"', 'Date': 'Tue, 19 Aug 2025 12:10:08 GMT', 'Connection': 'keep-alive', 'Keep-Alive': 'timeout=5'} 
- body={"success":true,"message":"Order deleted"} 
- </msg>
-<arg>${BASE_URL}${DELETE_ORDER}</arg>
-<arg>json=${json}</arg>
-<arg>expected_status=200</arg>
-<doc>Sends a DELETE request.</doc>
-<status status="PASS" start="2025-08-19T15:10:08.955933" elapsed="0.005465"/>
-</kw>
-<kw name="Close Browser" owner="SeleniumLibrary">
-<doc>Closes the current browser.</doc>
-<status status="PASS" start="2025-08-19T15:10:08.961599" elapsed="2.267952"/>
-</kw>
-<status status="PASS" start="2025-08-19T15:10:08.955086" elapsed="2.275283"/>
-</kw>
-<status status="PASS" start="2025-08-19T15:10:06.521335" elapsed="4.710540"/>
-</test>
-<test id="s1-t8" name="Sequential Stage Completion" line="62">
-<kw name="Open Browser And Login" owner="setup_teardown_keywords" type="SETUP">
-<kw name="Open Web Browser" owner="utils_keywords">
-<kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2025-08-19T15:10:11.249883" level="INFO">Opening browser 'chrome' to base url 'http://localhost:3000'.</msg>
-<arg>${BASE_URL}</arg>
-<arg>chrome</arg>
-<arg>options=add_experimental_option("excludeSwitches", ["enable-automation","disable-popup-blocking"])</arg>
-<doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2025-08-19T15:10:11.247670" elapsed="1.508803"/>
-</kw>
-<status status="PASS" start="2025-08-19T15:10:11.244534" elapsed="1.512157"/>
-</kw>
-<kw name="Add Order" owner="stage_keywords">
-<kw name="Set Variable" owner="BuiltIn">
-<msg time="2025-08-19T15:10:12.758084" level="INFO">${success} = False</msg>
-<var>${success}</var>
-<arg>${False}</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2025-08-19T15:10:12.757687" elapsed="0.000512"/>
-</kw>
-<for flavor="IN RANGE">
-<iter>
-<kw name="Random Integer" owner="utils_keywords">
-<kw name="Evaluate" owner="BuiltIn">
-<msg time="2025-08-19T15:10:12.759799" level="INFO">${num} = 4199</msg>
-<var>${num}</var>
-<arg>random.randint(1000,9999)</arg>
-<arg>modules=random</arg>
-<doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2025-08-19T15:10:12.759329" elapsed="0.000551"/>
-</kw>
-<return>
-<value>${num}</value>
-<status status="PASS" start="2025-08-19T15:10:12.760032" elapsed="0.000074"/>
-</return>
-<msg time="2025-08-19T15:10:12.760358" level="INFO">${trackingId} = 4199</msg>
-<var>${trackingId}</var>
-<status status="PASS" start="2025-08-19T15:10:12.758963" elapsed="0.001447"/>
-</kw>
-<kw name="Convert To String" owner="BuiltIn">
-<msg time="2025-08-19T15:10:12.760796" level="INFO">${trackingId} = 4199</msg>
-<var>${trackingId}</var>
-<arg>${trackingId}</arg>
-<doc>Converts the given item to a Unicode string.</doc>
-<status status="PASS" start="2025-08-19T15:10:12.760567" elapsed="0.000262"/>
-</kw>
-<kw name="Create Dictionary" owner="BuiltIn">
-<msg time="2025-08-19T15:10:12.761684" level="INFO">${json} = {'trackingId': '4199', 'password': '4199'}</msg>
-<var>${json}</var>
-<arg>${KEY_TRACKING_ID}=${trackingId}</arg>
-<arg>${KEY_PASSWORD}=${trackingId}</arg>
-<doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<status status="PASS" start="2025-08-19T15:10:12.761045" elapsed="0.000689"/>
-</kw>
-<kw name="POST" owner="RequestsLibrary">
-<msg time="2025-08-19T15:10:12.766700" level="INFO">POST Request : url=http://localhost:3000/addOrder 
- path_url=/addOrder 
- headers={'User-Agent': 'python-requests/2.32.4', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '42', 'Content-Type': 'application/json'} 
- body=b'{"trackingId": "4199", "password": "4199"}' 
- </msg>
-<msg time="2025-08-19T15:10:12.766805" level="INFO">POST Response : url=http://localhost:3000/addOrder 
- status=201, reason=Created 
- headers={'X-Powered-By': 'Express', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '406', 'ETag': 'W/"196-xtZOhOnEN8Q3rcKxZP1xUr6ooDo"', 'Date': 'Tue, 19 Aug 2025 12:10:12 GMT', 'Connection': 'keep-alive', 'Keep-Alive': 'timeout=5'} 
- body={"success":true,"stages":[{"name":"Order Received","status":"pending","cause":""},{"name":"Order Shipped","status":"pending","cause":""},{"name":"Order Received to Destination Country","status":"pending","cause":""},{"name":"Order Clearance Completed","status":"pending","cause":""},{"name":"Order in Delivery Stage","status":"pending","cause":""},{"name":"Order Delivered","status":"pending","cause":""}]} 
- </msg>
-<msg time="2025-08-19T15:10:12.767273" level="INFO">${resp} = &lt;Response [201]&gt;</msg>
-<var>${resp}</var>
-<arg>${BASE_URL}${ADD_ORDER}</arg>
-<arg>json=${json}</arg>
-<doc>Sends a POST request.</doc>
-<status status="PASS" start="2025-08-19T15:10:12.762027" elapsed="0.005334"/>
-</kw>
-<if>
-<branch type="IF" condition="'${resp.status_code}' == '201'">
-<kw name="Set Variable" owner="BuiltIn">
-<msg time="2025-08-19T15:10:12.769878" level="INFO">${success} = True</msg>
-<var>${success}</var>
-<arg>${True}</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2025-08-19T15:10:12.769512" elapsed="0.000431"/>
-</kw>
-<kw name="Exit For Loop" owner="BuiltIn">
-<msg time="2025-08-19T15:10:12.770382" level="INFO">Exiting for loop altogether.</msg>
-<doc>Stops executing the enclosing FOR loop.</doc>
-<status status="PASS" start="2025-08-19T15:10:12.770220" elapsed="0.000278"/>
-</kw>
-<status status="PASS" start="2025-08-19T15:10:12.767729" elapsed="0.002887"/>
-</branch>
-<status status="PASS" start="2025-08-19T15:10:12.767586" elapsed="0.003125"/>
-</if>
-<var name="${i}">0</var>
-<status status="PASS" start="2025-08-19T15:10:12.758756" elapsed="0.012019"/>
-</iter>
-<var>${i}</var>
-<value>1000</value>
-<status status="PASS" start="2025-08-19T15:10:12.758349" elapsed="0.012534"/>
-</for>
-<if>
-<branch type="IF" condition="'${success}'=='False'">
-<kw name="Fail" owner="BuiltIn">
-<arg>Could not add order after 1000 attempts</arg>
-<doc>Fails the test with the given message and optionally alters its tags.</doc>
-<status status="NOT RUN" start="2025-08-19T15:10:12.771450" elapsed="0.000065"/>
-</kw>
-<status status="NOT RUN" start="2025-08-19T15:10:12.771087" elapsed="0.000541"/>
-</branch>
-<status status="PASS" start="2025-08-19T15:10:12.771049" elapsed="0.000680"/>
-</if>
-<return>
-<value>${trackingId}</value>
-<status status="PASS" start="2025-08-19T15:10:12.771812" elapsed="0.000070"/>
-</return>
-<msg time="2025-08-19T15:10:12.772202" level="INFO">${TRACKING_ID} = 4199</msg>
-<var>${TRACKING_ID}</var>
-<status status="PASS" start="2025-08-19T15:10:12.757082" elapsed="0.015184"/>
-</kw>
-<kw name="Login With Credentials" owner="login_keywords">
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-08-19T15:10:12.773783" level="INFO">Typing text '4199' into text field 'id=trackingId'.</msg>
-<arg>${LOGIN_ID_FIELD}</arg>
-<arg>${id}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-08-19T15:10:12.773298" elapsed="0.106119"/>
-</kw>
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-08-19T15:10:12.879914" level="INFO">Typing text '4199' into text field 'id=password'.</msg>
-<arg>${LOGIN_PASS_FIELD}</arg>
-<arg>${password}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-08-19T15:10:12.879637" elapsed="0.093813"/>
-</kw>
-<kw name="Click Button" owner="SeleniumLibrary">
-<msg time="2025-08-19T15:10:12.974155" level="INFO">Clicking button 'xpath=//button[text()='Track']'.</msg>
-<arg>${TRACK_BUTTON}</arg>
-<doc>Clicks the button identified by ``locator``.</doc>
-<status status="PASS" start="2025-08-19T15:10:12.973753" elapsed="0.083684"/>
-</kw>
-<arg>${TRACKING_ID}</arg>
-<arg>${TRACKING_ID}</arg>
-<status status="PASS" start="2025-08-19T15:10:12.772597" elapsed="0.284964"/>
-</kw>
-<kw name="Set Global Variable" owner="BuiltIn">
-<msg time="2025-08-19T15:10:13.058014" level="INFO">${TRACKING_ID} = 4199</msg>
-<arg>${TRACKING_ID}</arg>
-<doc>Makes a variable available globally in all tests and suites.</doc>
-<status status="PASS" start="2025-08-19T15:10:13.057744" elapsed="0.000326"/>
-</kw>
-<status status="PASS" start="2025-08-19T15:10:11.241925" elapsed="1.816241"/>
-</kw>
-<kw name="Get WebElements" owner="SeleniumLibrary">
-<msg time="2025-08-19T15:10:13.068340" level="INFO">@{stages} = [ ]</msg>
-<var>@{stages}</var>
-<arg>${STAGES}</arg>
-<doc>Returns a list of WebElement objects matching the ``locator``.</doc>
-<status status="PASS" start="2025-08-19T15:10:13.058454" elapsed="0.009937"/>
-</kw>
-<kw name="Set Variable" owner="BuiltIn">
-<msg time="2025-08-19T15:10:13.069211" level="INFO">${i} = 1</msg>
-<var>${i}</var>
-<arg>1</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2025-08-19T15:10:13.068881" elapsed="0.000405"/>
-</kw>
-<for flavor="IN">
-<iter>
-<kw name="Click Button" owner="SeleniumLibrary">
-<arg>${ENABLED_DONE}</arg>
-<doc>Clicks the button identified by ``locator``.</doc>
-<status status="NOT RUN" start="2025-08-19T15:10:13.070699" elapsed="0.000071"/>
-</kw>
-<kw name="Assert Stage Marked As Done" owner="stage_keywords">
-<arg>${i}</arg>
-<status status="NOT RUN" start="2025-08-19T15:10:13.071208" elapsed="0.000099"/>
-</kw>
-<kw name="Assert Previous Stages are Disabled" owner="stage_keywords">
-<arg>${i}</arg>
-<status status="NOT RUN" start="2025-08-19T15:10:13.071738" elapsed="0.000073"/>
-</kw>
-<kw name="Assert Next Stages are Disabled" owner="stage_keywords">
-<arg>${i}</arg>
-<status status="NOT RUN" start="2025-08-19T15:10:13.072165" elapsed="0.000065"/>
-</kw>
-<kw name="Evaluate" owner="BuiltIn">
-<var>${i}</var>
-<arg>${i}+1</arg>
-<doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="NOT RUN" start="2025-08-19T15:10:13.072474" elapsed="0.000055"/>
-</kw>
-<var name="${stage}"/>
-<status status="NOT RUN" start="2025-08-19T15:10:13.070442" elapsed="0.002178"/>
-</iter>
-<var>${stage}</var>
-<value>@{stages}</value>
-<status status="NOT RUN" start="2025-08-19T15:10:13.070013" elapsed="0.002705"/>
-</for>
-<kw name="Delete Order" owner="stage_keywords" type="TEARDOWN">
-<kw name="Create Dictionary" owner="BuiltIn">
-<msg time="2025-08-19T15:10:13.073859" level="INFO">${json} = {'trackingId': '4199', 'password': '4199'}</msg>
-<var>${json}</var>
-<arg>${KEY_TRACKING_ID}=${TRACKING_ID}</arg>
-<arg>${KEY_PASSWORD}=${TRACKING_ID}</arg>
-<doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<status status="PASS" start="2025-08-19T15:10:13.073486" elapsed="0.000418"/>
-</kw>
-<kw name="DELETE" owner="RequestsLibrary">
-<msg time="2025-08-19T15:10:13.078163" level="INFO">DELETE Request : url=http://localhost:3000/deleteOrder 
- path_url=/deleteOrder 
- headers={'User-Agent': 'python-requests/2.32.4', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '42', 'Content-Type': 'application/json'} 
- body=b'{"trackingId": "4199", "password": "4199"}' 
- </msg>
-<msg time="2025-08-19T15:10:13.078345" level="INFO">DELETE Response : url=http://localhost:3000/deleteOrder 
- status=200, reason=OK 
- headers={'X-Powered-By': 'Express', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '42', 'ETag': 'W/"2a-73HTL89b4tbDT7yR3vJfTGBT34w"', 'Date': 'Tue, 19 Aug 2025 12:10:13 GMT', 'Connection': 'keep-alive', 'Keep-Alive': 'timeout=5'} 
- body={"success":true,"message":"Order deleted"} 
- </msg>
-<arg>${BASE_URL}${DELETE_ORDER}</arg>
-<arg>json=${json}</arg>
-<arg>expected_status=200</arg>
-<doc>Sends a DELETE request.</doc>
-<status status="PASS" start="2025-08-19T15:10:13.074121" elapsed="0.004308"/>
-</kw>
-<kw name="Close Browser" owner="SeleniumLibrary">
-<doc>Closes the current browser.</doc>
-<status status="PASS" start="2025-08-19T15:10:13.078614" elapsed="2.373650"/>
-</kw>
-<status status="PASS" start="2025-08-19T15:10:13.073175" elapsed="2.379917"/>
-</kw>
-<status status="PASS" start="2025-08-19T15:10:11.238095" elapsed="4.216501"/>
-</test>
-<status status="PASS" start="2025-08-19T15:09:39.410991" elapsed="36.051868"/>
+<status status="PASS" start="2025-08-20T09:20:25.033727" elapsed="17.798377"/>
 </suite>
 <statistics>
 <total>
-<stat pass="8" fail="0" skip="0">All Tests</stat>
+<stat pass="4" fail="0" skip="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat name="Stages Test" id="s1" pass="8" fail="0" skip="0">Stages Test</stat>
+<stat name="Login Test" id="s1" pass="4" fail="0" skip="0">Login Test</stat>
 </suite>
 </statistics>
 <errors>

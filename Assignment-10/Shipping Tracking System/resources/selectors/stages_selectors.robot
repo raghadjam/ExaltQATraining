@@ -1,8 +1,6 @@
 *** Variables ***
 
 # Fields
-${LOGIN_ID_FIELD}        id=trackingId
-${LOGIN_PASS_FIELD}      id=password
 ${REJECTION_REASON}      xpath=//input[@placeholder='Reason for rejection']
 
 # Buttons
@@ -10,7 +8,6 @@ ${DONE_BUTTON}           xpath=//button[text()='Done']
 ${PENDING_BUTTON}        xpath=//button[text()='Pending']
 ${REJECTED_BUTTON}       xpath=//button[text()='Rejected']
 ${SUBMIT_BUTTON}         xpath=//button[text()='Submit']
-${TRACK_BUTTON}          xpath=//button[text()='Track']
 ${ENABLED_REJECT}        xpath=//button[(text()='Rejected') and not(@disabled)]
 ${ENABLED_DONE}          xpath=//button[(text()='Done') and not(@disabled)]
 ${ENABLED_PENDING}       xpath=//button[(text()='Pending') and not(@disabled)]
@@ -25,3 +22,9 @@ ${SUCCESS_MESSAGE}       xpath=//*[@class='message success']
 
 # Stages
 ${STAGES}                xpath=//*[@id='stages']/div[@class='stage']//h3
+
+${STAGE_ANCESTOR}        ancestor::div[@class='stage']//h3
+${STAGE_PARNET}          parent::*
+${STAGE_BUTTONS}         //div[@class='buttons']
+${STAGE_H3_PREFIX}       //h3[contains(., 'Stage 
+${STAGE_H3_SUFFIX}       ')]

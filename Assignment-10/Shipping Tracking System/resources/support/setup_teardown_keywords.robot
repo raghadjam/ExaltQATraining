@@ -1,11 +1,10 @@
 *** Settings ***
 Library    SeleniumLibrary
 Library    RequestsLibrary
-Resource   ../../../resources/variables/variables.robot
-Resource   ../../../resources/keywords/login_keywords/login_keywords.robot
-Resource   ../../../resources/selectors/selectors.robot
-Resource   ../../../resources/keywords/stage_keywords/stage_keywords.robot
-Resource   ../../../resources/keywords/support/utils_keywords.robot
+Resource   ../../resources/variables/variables.robot
+Resource   ../../resources/keywords/login_keywords/login_keywords.robot
+Resource   ../../resources/keywords/stage_keywords/stage_keywords.robot
+Resource   ../../resources/support/utils_keywords.robot
 
 
 *** Keywords ***

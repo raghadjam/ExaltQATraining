@@ -1,12 +1,13 @@
 *** Settings ***
 Library    SeleniumLibrary
 Library    RequestsLibrary
+Library    String
 Resource   ../../../resources/variables/variables.robot
 Resource   ../../../resources/keywords/login_keywords/login_keywords.robot
-Resource   ../../../resources/selectors/selectors.robot
+Resource   ../../../resources/selectors/stages_selectors.robot
 Resource   ../../../resources/keywords/stage_keywords/stage_keywords.robot
-Resource   ../../../resources/keywords/support/utils_keywords.robot
-Resource   ../../../resources/keywords/support/setup_teardown_keywords.robot
+Resource   ../../../resources/support/utils_keywords.robot
+Resource   ../../../resources/support/setup_teardown_keywords.robot
 
 
 
@@ -62,7 +63,7 @@ Assert Stage Marked As Done
 Assert Previous Stages are Disabled
     [Arguments]    ${stage_number}
     FOR    ${i}    IN RANGE    1     ${stage_number}
-        ${buttons_xpath}=    Set Variable    //h3[contains(., 'Stage ${i}')]//div[@class='buttons']
+        ${buttons_xpath}=    Set Variable     ${STAGE_H3_PREFIX}${i}${STAGE_H3_SUFFIX}${STAGE_BUTTONS}
         ${buttons}=    Get WebElements    xpath=${buttons_xpath}
         FOR    ${btn}    IN    @{buttons}
                 Element Should Be Disabled    ${btn}
@@ -74,7 +75,7 @@ Assert Next Stages are Disabled
     ${current}=    Evaluate    int(${stage_number}) + 1
     ${total}=      Evaluate    int(${STAGES_COUNT}) + 1
     FOR    ${i}    IN RANGE    ${current}    ${total}
-        ${buttons_xpath}=    Set Variable    //h3[contains(., 'Stage ${i}')]//div[@class='buttons']
+        ${buttons_xpath}=    Set Variable    ${STAGE_H3_PREFIX}${i}${STAGE_H3_SUFFIX}${STAGE_BUTTONS}
         ${buttons}=    Get WebElements    xpath=${buttons_xpath}
         FOR    ${btn}    IN    @{buttons}
             Element Should Be Disabled    ${btn}
