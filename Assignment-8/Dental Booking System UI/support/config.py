@@ -26,7 +26,7 @@ OVERLAPPING = "Appointment slot already booked or overlaps with another appointm
 
 # Messages - Cancel
 CANCEL_SUCCESS = "Appointment canceled successfully"
-CANCEL_FAIL = "Appointment does not exist"
+CANCEL_FAIL = "No appointment found to cancel"
 
 # Messages - Errors
 EMPTY_FIELD_ERROR = "Please fill out this field."
