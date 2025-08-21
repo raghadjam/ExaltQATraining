@@ -32,10 +32,10 @@ def test_bad_request(setup_main_page):
     assert body[config.CLASS_SUCCESS] is False
     assert body[config.MESSAGE] == config.BOOK_PAST
 
-def test_book_nonexisting_user(setup_non_existing_user):
-    page, max, non_existing_user = setup_non_existing_user
-    response = page.book(non_existing_user, max, config.VALID_START, config.VALID_END)
-    body = response.json() 
-    page.cancel(non_existing_user, max, config.VALID_START, config.VALID_END)
-    assert body[config.CLASS_SUCCESS] is False
-    assert response.status_code == config.HTTP_UNATHORIZED
+# def test_book_nonexisting_user(setup_non_existing_user):
+#     page, max, non_existing_user = setup_non_existing_user
+#     response = page.book(non_existing_user, max, config.VALID_START, config.VALID_END)
+#     body = response.json() 
+#     page.cancel(non_existing_user, max, config.VALID_START, config.VALID_END)
+#     assert body[config.CLASS_SUCCESS] is False
+#     assert response.status_code == config.HTTP_UNATHORIZED

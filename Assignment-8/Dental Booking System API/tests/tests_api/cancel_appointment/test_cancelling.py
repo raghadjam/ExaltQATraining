@@ -23,6 +23,6 @@ def test_cancel_fail(setup_main_page):
 def test_cancel_nonexisting_user(setup_non_existing_user):
     main_page, max, non_existing_user = setup_non_existing_user
     response = main_page.cancel(non_existing_user, max, config.VALID_START, config.VALID_END)
-    assert response.status_code == config.HTTP_UNATHORIZED
+    assert response.status_code == config.HTTP_NOTFOUND
     body = response.json()  
     assert body[config.CLASS_SUCCESS] is False

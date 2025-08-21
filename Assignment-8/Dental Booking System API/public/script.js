@@ -3,12 +3,12 @@ function displayMessage(message, isSuccess) {
     messageDiv.textContent = message;
     messageDiv.className = isSuccess ? 'success' : 'error';
 }
- 
+
 document.getElementById('login-form').addEventListener('submit', function (e) {
     e.preventDefault();
     const username = document.getElementById('login-username').value;
     const password = document.getElementById('login-password').value;
- 
+
     fetch('/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -30,13 +30,13 @@ document.getElementById('login-form').addEventListener('submit', function (e) {
             displayMessage('Internal Server Error', false);
         });
 });
- 
+
 document.getElementById('signup-form').addEventListener('submit', function (e) {
     e.preventDefault();
     const username = document.getElementById('signup-username').value;
     const password = document.getElementById('signup-password').value;
     const phone = document.getElementById('signup-phone').value;
- 
+
     fetch('/signup', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -55,14 +55,14 @@ document.getElementById('signup-form').addEventListener('submit', function (e) {
             displayMessage('Internal Server Error', false);
         });
 });
- 
+
 document.getElementById('booking-form').addEventListener('submit', function (e) {
     e.preventDefault();
     const username = document.getElementById('login-username').value;
     const date = document.getElementById('date').value;
     const startTime = document.getElementById('start-time').value;
     const endTime = document.getElementById('end-time').value;
- 
+
     fetch('/book', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -81,13 +81,13 @@ document.getElementById('booking-form').addEventListener('submit', function (e) 
             displayMessage('Internal Server Error', false);
         });
 });
- 
+
 document.getElementById('cancel-appointment').addEventListener('click', function () {
     const username = document.getElementById('login-username').value;
     const date = document.getElementById('date').value;
     const startTime = document.getElementById('start-time').value;
     const endTime = document.getElementById('end-time').value;
- 
+
     fetch('/cancel', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
