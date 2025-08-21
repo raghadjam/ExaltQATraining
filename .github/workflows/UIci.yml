@@ -33,6 +33,12 @@ jobs:
         run: npm install
         working-directory: "./Assignment-8/Dental Booking System UI"
 
+      - name: Install Chromium & Chromedriver
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y chromium-browser chromium-chromedriver
+        working-directory: "./Assignment-8/Dental Booking System UI"
+
       - name: Run UI tests
         run: npm run test-ui
         working-directory: "./Assignment-8/Dental Booking System UI"
