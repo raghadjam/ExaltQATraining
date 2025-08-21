@@ -2,9 +2,9 @@
   "name": "dental-booking-system",
   "version": "1.0.0",
   "main": "server.js",
-  "scripts": {
+   "scripts": {
     "start": "node server.js",
-    "test-ui": "python -m pytest -v -s"
+    "test-ui": "node server.js & sleep 5 && python -m pytest -v -s"
   },
   "keywords": [],
   "author": "",
