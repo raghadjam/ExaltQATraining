@@ -2,9 +2,10 @@
   "name": "dental-booking-system",
   "version": "1.0.0",
   "main": "server.js",
+  
   "scripts": {
     "test-ui": "start /B node server.js && python -m pytest -v -s"
-  }
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
