@@ -11,24 +11,30 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # 1. Checkout the repo
       - uses: actions/checkout@v4
 
-      # 2. Set up Python
-      - name: Setup Python
+      - name: Set up Python
         uses: actions/setup-python@v4
         with:
-          python-version: '3.11'   
+          python-version: '3.11'
 
-      # 3. Install dependencies
-      - name: Install dependencies
+      - name: Install Python dependencies
         run: |
           python -m pip install --upgrade pip
           pip install pytest requests
-          node server.js & 
         working-directory: "./Assignment-8/Dental Booking System API"
 
-      # 4. Run the tests
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install Node.js dependencies
+        run: | 
+          npm install
+          npm install express
+        working-directory: "./Assignment-8/Dental Booking System API"
+
       - name: Run API tests
-        run: python -m pytest -v -s
+        run: npm run test-api
         working-directory: "./Assignment-8/Dental Booking System API"
