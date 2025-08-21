@@ -8,7 +8,7 @@ on:
 
 jobs:
   run-ui-tests:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
 
     steps:
       - uses: actions/checkout@v4
@@ -32,11 +32,6 @@ jobs:
       - name: Install Node.js dependencies
         run: npm install
         working-directory: "./Assignment-8/Dental Booking System UI"
-
-      - name: Install Chromium & Chromedriver
-        run: |
-          sudo apt update
-          sudo apt install -y chromium-browser chromium-chromedriver
 
       - name: Run UI tests
         run: npm run test-ui
