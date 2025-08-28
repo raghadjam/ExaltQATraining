@@ -1,0 +1,17 @@
+{
+  "container": "Certification information",
+  "texts": [
+    "This mobile device meets guidelines for exposure to radio waves.",
+    "Your mobile device is a radio transmitter and receiver. It is designed not to exceed the limits for exposure to radio waves (radio frequency electromagnetic fields), recommended by international guidelines from the independent scientific organization ICNIRP. These guidelines incorporate substantial safety margins that are intended to assure the protection of all persons regardless of age and health.",
+    "The exposure guidelines are based on the Specific Absorption Rate (SAR), which is an expression of the amount of radio frequency (RF) power deposited in the head or body when the device is transmitting. The ICNIRP SAR limit for mobile devices is 2.0 W/kg averaged over 10 grams of tissue.",
+    "SAR tests are carried out with the device in standard operating positions, transmitting at its highest certified power level, in all its frequency bands.",
+    "This device meets RF exposure guidelines when used against the head or when positioned at least 5/8 inch (1.5 centimetres) away from the body. When a carry case, belt clip or other form of device holder is used for body-worn operation, it should not contain metal and should provide at least the above stated separation distance from the body.",
+    "To send data or messages, a good connection to the network is needed. Sending may be delayed until such a connection is available. Follow the separation distance instructions until the sending is finished.",
+    "During general use, the SAR values are usually well below the values stated above. This is because, for purposes of system efficiency and to minimize interference on the network, the operating power of your mobile device is automatically decreased when full power is not needed for the call. The lower the power output, the lower the SAR value.",
+    "Device models may have different versions and more than one value. Component and design changes may occur over time and some changes could affect SAR values.",
+    "For more info, go to www.sar-tick.com. Note that mobile devices may be transmitting even if you are not making a voice call.",
+    "The World Health Organization (WHO) has stated that current scientific information does not indicate the need for any special precautions when using mobile devices. If you are interested in reducing your exposure, they recommend you limit your usage or use a hands-free kit to keep the device away from your head and body. For more information and explanations and discussions on RF exposure, go to the WHO website at www.who.int/health-topics/electromagnetic-fields#tab=tab_1.",
+    "Please refer to www.hmd.com/sar for the maximum SAR value of the device."
+  ],
+  "images": []
+}

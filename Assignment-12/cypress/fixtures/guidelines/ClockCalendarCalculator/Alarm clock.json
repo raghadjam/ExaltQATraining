@@ -1,0 +1,11 @@
+{
+  "container": "Alarm clock",
+  "texts": [
+    "Set an alarm",
+    "Select Menu > Alarm.",
+    "Select +New alarm and enter the alarm time and other details.",
+    "If you want the alarm to repeat on certain days, select the alarm, then select menu > Edit > Repeat, select each day you want the alarm to sound on.",
+    "Then select arrow_back and select Save."
+  ],
+  "images": []
+}

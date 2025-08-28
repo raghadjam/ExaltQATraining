@@ -1,0 +1,21 @@
+{
+  "container": "Battery and charger information",
+  "texts": [
+    "To check if your device has a removable, non-removable, or user-replaceable battery, see the printed guide.",
+    "Devices with a removable battery Use your device only with an original rechargeable battery. The battery can be charged and discharged hundreds of times, but it will eventually wear out. When the talk and standby times are noticeably shorter than normal, replace the battery.",
+    "Devices with a non-removable battery Do not attempt to remove the battery, as you may damage the device. The battery can be charged and discharged hundreds of times, but it will eventually wear out. When the talk and standby times are noticeably shorter than normal, to replace the battery, take the device to the nearest authorized service facility.",
+    "Devices with a user-replaceable battery To replace the battery, follow HMD’s self-repair instructions or take the device to the nearest authorized service facility. For more information about self-repair, visit www.hmd.com/self-repair.",
+    "Charge your device with a compatible charger. Charger plug type may vary. Charging time can vary depending on device capability.",
+    "Battery and charger safety info",
+    "Once charging of your device is complete, unplug the charger from the device and electrical outlet. Please note that continuous charging should not exceed 12 hours. If left unused, a fully charged battery will lose its charge over time.",
+    "Extreme temperatures reduce the capacity and lifetime of the battery. Always keep the battery between 15°C and 25°C (59°F and 77°F) for optimal performance. A device with a hot or cold battery may not work temporarily. Note that the battery may drain quickly in cold temperatures and lose enough power to switch off the device within minutes. When you are outdoors in cold temperatures, keep your device warm.",
+    "Obey local regulations. Recycle when possible. Do not dispose as household waste.",
+    "Do not expose the battery to extremely low air pressure or leave it to extremely high temperature, for example dispose it in a fire, as that may cause the battery to explode or leak flammable liquid or gas.",
+    "Do not dismantle, cut, crush, bend, puncture, or otherwise damage the battery in any way. If a battery leaks, do not let liquid touch skin or eyes. If this happens, immediately flush the affected areas with water, or seek medical help. Do not modify, attempt to insert foreign objects into the battery, or immerse or expose it to water or other liquids. Batteries may explode if damaged.",
+    "To unplug a charger or an accessory, hold and pull the plug, not the cord.",
+    "Additionally, the following applies if your device has a removable or user-replaceable battery:",
+    "Always switch the device off and unplug the charger before removing any covers or the battery.",
+    "Accidental short-circuiting can happen when a metallic object touches the metal strips on the battery. This may damage the battery or the other object."
+  ],
+  "images": []
+}

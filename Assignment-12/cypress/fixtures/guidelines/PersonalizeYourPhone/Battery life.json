@@ -1,0 +1,12 @@
+{
+  "container": "Battery life",
+  "texts": [
+    "Save power",
+    "If applicable:",
+    "Use network connections selectively for power saving: Switch Bluetooth on only when needed.",
+    "Use a Wi-Fi connection to connect to the internet, rather than a mobile data connection.",
+    "If you don’t want to make or receive calls, switch the airplane mode on.",
+    "Airplane mode closes connections to the mobile network and switches your device’s wireless features off."
+  ],
+  "images": []
+}

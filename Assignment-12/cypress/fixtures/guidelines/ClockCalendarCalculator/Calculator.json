@@ -1,0 +1,11 @@
+{
+  "container": "Calculator",
+  "texts": [
+    "Use the calculator",
+    "Select Menu > Extras > Calculator.",
+    "Enter the first factor of your calculation, use the scroll key to select the operation, and enter the second factor.",
+    "Press the scroll key to get the result of the calculation.",
+    "Select to empty the number fields."
+  ],
+  "images": []
+}

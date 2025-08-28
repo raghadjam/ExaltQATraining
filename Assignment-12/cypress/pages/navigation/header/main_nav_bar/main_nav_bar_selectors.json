@@ -1,0 +1,11 @@
+{
+    "logo": "navigation-logo",
+    "smartphones": "smartphones",
+    "feature": "feature-phones",
+    "tablets": "tablets",
+    "accessories": "accessories",
+    "offgrid": "hmd-offgrid?sku=8P00000336",
+    "business": "for-business",
+    "parent": "main-nav-menu",
+    "offgridSel": "hmd-offgrid"
+}

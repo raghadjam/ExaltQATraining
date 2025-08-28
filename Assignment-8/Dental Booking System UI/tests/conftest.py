@@ -26,7 +26,7 @@ def setup_create_teardown_delete():
     username = utils.create_user(page)
     yield page, username
     utils.delete_user(username)
-    driver.quit() 
+    driver.quit()
 
 @pytest.fixture
 def setup_get_driver():

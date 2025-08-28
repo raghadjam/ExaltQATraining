@@ -1,0 +1,85 @@
+{
+    "getStarted": {
+        "links": {
+        "Keys and parts": "keys-and-parts",
+        "Set up and switch on your phone": "switch-on-your-phone",
+        "Charge your device": "charge-your-device",
+        "Keypad": "keypad"},
+        "parent": "#25COOgj4aEeqUtYM4L12nT"
+    },
+
+    "CallsContactsMessages": {
+        "links": {
+        "Calls": "calls",
+        "Contacts": "contacts",
+        "Send messages": "messages" },
+        "parent": "#5eecsik1CnLT0gmp5pXmmQ"
+    },
+
+    "PersonalizeYourPhone": {
+        "links": {
+        "Change tones": "change-tones",
+        "Change the look of your home screen": "home-screen",
+        "Profiles": "profiles",
+        "Battery life":"battery-life",
+        "Accessibility":"accessibility",
+        "Repairability": "repairability"
+    },
+        "parent": "#4elBADlSinZrlRAfH0d3zJ"
+    },
+    "Camera": {
+        "links":{
+        "Photos and videos": "photos-and-videos"
+    },
+         "parent": "#6Z4nZKywBuqNs8mzLwTKVy" },
+    "Bluetooth": {
+        "links":{
+        "connections": "bluetooth"
+    },
+         "parent": "#71iN3IuAIdPvVvdfmMKW67" },
+
+    "ClockCalendarCalculator": {
+        "links": {
+        "Set the time and date manually": "set-the-time",
+        "Alarm clock": "alarm-clock",
+        "Calendar": "calendar",
+        "Calculator":"calculator"
+    },
+        "parent": "#5Yzi6jOqbeUv3u1bcOnmya"
+    },
+
+    "Music": {
+        "links":{
+        "Music player": "music-player"
+    },
+    "parent": "#3PuQ7zA6Zcn1JSrZDdCmxl" },
+    
+    "Empty your phone": {
+        "links":{
+        "Restore factory settings": "restore-factory-settings"
+    },
+    "parent": "#5z2KBG0zgl3lTirMbgY4jU" },
+        
+    "Product and safety information": {
+        "links": {
+        "For your safety": "for-your-safety",
+        "Emergency calls": "emergency-calls",
+        "Take care of your device": "take-care-of-your-device",
+        "Recycle":"recycle",
+        "Crossed-out wheelie bin symbol": "crossed-out-wheelie-bin-symbol",
+        "Battery and charger information": "battery-and-charger-information",
+        "Small children": "small-children",
+        "Nickel":"nickel",
+        "Medical devices":"medical-devices",
+        "Implanted medical devices":"implanted-medical-devices",
+        "Hearing":"hearing",
+        "Protect your device from harmful content":"protect-your-device-from-harmful-content",
+        "Vehicles":"vehicles",
+        "Potentially explosive environments":"potentially-explosive-environments",
+        "Certification information":"certification-information-sar",
+        "About Digital Rights Management":"about-digital-rights-management",
+        "Copyrights and other notices":"copyrights-and-other-notices"
+    },
+        "parent": "#1fv7peIb6a3K2yNMvlB6BG"
+    }
+}

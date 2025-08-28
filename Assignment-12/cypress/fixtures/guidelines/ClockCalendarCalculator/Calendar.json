@@ -1,0 +1,10 @@
+{
+  "container": "Calendar",
+  "texts": [
+    "Add a calendar event",
+    "Select Menu > Calendar.",
+    "Scroll to a date, and select menu > Add new event.",
+    "Enter the event details and select Save."
+  ],
+  "images": []
+}

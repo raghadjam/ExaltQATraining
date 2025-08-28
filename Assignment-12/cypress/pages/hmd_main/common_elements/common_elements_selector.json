@@ -1,0 +1,12 @@
+{
+    "download": "[href=\"/en_int/support/api/pdf/hmd-barca-3210-user-guide\"]",
+    "downloadLink": "support/api/pdf/hmd-barca-3210-user-guide",
+    "allDevices": "[href=\"/en_int/support/user-guides\"]",
+    "allDevicesLink": "support/user-guides?filter-by=",
+    "text": "HMD Barça 3210",
+    "parent": ".col.col-xxs-12.col-block",
+    "url": "HMD_Barça_3210-User_Guide-Hero.png",
+    "helpful": "answer_helpful_yes",
+    "helpfulNo": "answer_helpful_no",
+    "helpfulText": "Did you find this helpful?"
+}

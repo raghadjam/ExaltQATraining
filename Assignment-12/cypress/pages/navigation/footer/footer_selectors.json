@@ -1,0 +1,86 @@
+{
+    "International": {
+        "links": {
+            "International": "choose-your-language"
+        }
+    },
+    "Social": {
+        "links": {
+            "Facebook": "https://www.facebook.com/hmd",
+            "Instagram": "https://www.instagram.com/hmddevices/#",
+            "Tiktok": "https://www.tiktok.com/@hmd",
+            "Linkedin": "https://www.linkedin.com/company/hmd-global/?originalSubdomain=fi",
+            "Discord": "https://discord.com/invite/PtPuyc2P56",
+            "Youtube": "https://www.youtube.com/@hmddevices"
+        }
+    },
+    "About": {
+        "links": {
+            "Our story": "about",
+            "Newsroom": "press",
+            "Blog": "blog",
+            "Press contact": "press-contact",
+            "Brand collaborations": "press-contact",
+            "Enterprise solutions": "https://solutions.hmd.com/"
+        }
+    },
+    "Privacy": {
+        "links": {
+            "Privacy": "privacy"
+        }
+    },
+    "Cookie settings": {
+        "links": {
+            "Cookie settings": "cookie-settings"
+        }
+    },
+    "Speak Up channel": {
+        "links": {
+            "Speak Up channel": "https://secure.ethicspoint.eu/domain/media/en/gui/104743/index.html"
+        }
+    },
+    "Ethics": {
+        "links": {
+            "Ethics": "ethics"
+        }
+    },
+    "Terms": {
+        "links": {
+            "Terms": "terms"
+        }
+    },
+    "Planet and people": {
+        "links": {
+            "The Better Phone Project": "better-phone-project",
+            "Sustainability": "sustainability",
+            "Self-repair": "self-repair",
+            "Device recycling": "device-recycling",
+            "Security, privacy and compliance": "compliance"
+        }
+    },
+    "Support": {
+        "links": {
+            "Support center": "support",
+            "FAQ": "support/topics",
+            "User guides": "user-guides?filter-by=",
+            "Software updates": "security-updates",
+            "Service and repairs": "support/topics/imei-checker",
+            "Accessibility": "accessibility"
+        }
+    },
+    "Explore": {
+        "links": {
+            "Smartphones": "smartphones",
+            "Feature": "feature-phones",
+            "Tablets": "tablets",
+            "Accessories": "accessories",
+            "business": "for-business",
+            "Nokia smartphones and tablets": "nokia-smartphones-and-tablets"
+        }
+    },
+    "parent": ".css-rwu7gl.ey131wu8",
+    "CookiesBtn": "[href=\"#cookie-settings\"]",
+    "Cookiesettings": "#gravitoCMP-modal-layer2",
+    "logo": "use[href=\"#logo-hmd-outline\"]",
+    "footer_paragraph": "TM and © 2025 HMD Global. All rights reserved. Bertel Jungin aukio 9, 02600 Espoo, Finland. Business ID 2724044-2. HMD Global Oy is a licensee of the Nokia brand for phones. Nokia is a registered trademark of Nokia Corporation."
+}

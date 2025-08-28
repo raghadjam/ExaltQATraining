@@ -1,0 +1,11 @@
+{
+  "container": "Bluetooth® connections",
+  "texts": [
+    "Switch on Bluetooth",
+    "Select Menu > Settings > Connectivity > Bluetooth.",
+    "Switch Bluetooth on.",
+    "Select Devices found > Add new device.",
+    "Scroll to the found device and select Pair. If asked, confirm the passcode."
+  ],
+  "images": []
+}

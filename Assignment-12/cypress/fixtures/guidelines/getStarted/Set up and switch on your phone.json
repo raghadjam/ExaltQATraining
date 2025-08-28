@@ -1,0 +1,33 @@
+{
+  "container": "Set up and switch on your phone",
+  "texts": [
+    "Set up and switch on your phone",
+    "Nano-SIM",
+    "Important: This device is designed to be used with a nano-SIM card only. Use of incompatible SIM cards may damage the card or the device, and may corrupt data stored on the card.",
+    "Open the back cover",
+    "Put your fingernail in the small slot at the bottom of the phone, lift and remove the cover.",
+    "If the battery is in the phone, lift it out.",
+    "Insert the SIM cards",
+    "Slide the SIM card in the SIM card slot.",
+    "If you have a dual-SIM phone, slide the second SIM in the SIM2 slot.",
+    "Both SIM cards are available at the same time when the device is not being used, but while one SIM card is active, for example, making a call, the other may be unavailable.",
+    "Insert the memory card",
+    "Slide the memory card in the memory card slot.",
+    "Put back the battery.",
+    "Put back the back cover.",
+    "Use only compatible memory cards approved for use with this device. Incompatible cards may damage the card and the device and corrupt data stored on the card.",
+    "Switch on your phone",
+    "Press and hold",
+    "Note: Switch the device off and disconnect the charger and any other device before removing any covers. Avoid touching electronic components while changing any covers. Always store and use the device with any covers attached.",
+    "Important: Do not remove the memory card when an app is using it. Doing so may damage the memory card and the device and corrupt data stored on the card.",
+    "Tip: To find out if your phone can use 2 SIM cards, see the label on the sales box. If there are 2 IMEI codes on the label, you have a dual-SIM phone.",
+    "Tip: Use a fast, up to 32 GB microSD memory card from a well-known manufacturer.",
+    "Note: Pre-installed system software and apps use a significant part of memory space."
+  ],
+  "images": [
+    "https://images.ctfassets.net/0weg701w29lb/5reGNUoKBxZqQUEgkFNh7N/974fb00e61c1bc61cd8be68a5d7aa260/icon_sim_card_4ff_hmd.jpg?h=400&fm=png&fl=png8",
+    "https://images.ctfassets.net/0weg701w29lb/5ooxd3ajSvfpo0GKczj8VJ/c69b86f49f84612c00802e4fb1a30ab1/HMD_Barça_3210_remove_back.jpg?h=400&fm=png&fl=png8",
+    "https://images.ctfassets.net/0weg701w29lb/6v1TIHFCORKjgH0pMfjJ7d/dc9d10176b64823f88619cc600450429/HMD_Barça_3210_add_sim_dual.jpg?h=400&fm=png&fl=png8",
+    "https://images.ctfassets.net/0weg701w29lb/5GmiJaWu65PKjlwYEmTOZu/3c001f521af4785092c1613dbd07f7ff/HMD_Barça_3210_add_micro_sd.jpg?h=400&fm=png&fl=png8"
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "container": "Set the time and date manually",
+  "texts": [
+    "Change the time and date",
+    "Select Menu > Settings > Time & language > Date and time.",
+    "Select Auto-update > Change.",
+    "Select Time zone and enter the time zone.",
+    "Select Time and enter the time.",
+    "Select Date and enter the date.",
+    "Select Save."
+  ],
+  "images": []
+}

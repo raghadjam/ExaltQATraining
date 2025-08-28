@@ -1,0 +1,24 @@
+{
+  "container": "Accessibility",
+  "texts": [
+    "Make the text bigger",
+    "You can adjust the text size to be smaller or larger.",
+    "Depending on your device model, go to the system or display settings to adjust.",
+    "Learn more about accessibility features",
+    "To learn more about this device's accessibility features, please visit the Global Accessibility Reporting Initiative: https://www.gari.info/findphones.cfm",
+    "Note for audio online guide",
+    "To access the online user guide, please visit www.hmd.com/support. Find your product model and access the relevant online user guide.",
+    "Enable the text-to-speech feature on your browser or device to have on-screen text read aloud.",
+    "How to activate the text-to-speech feature",
+    "Windows PCs (Windows 10, 11, or newer):",
+    "Go to Settings > Ease of Access (Windows 10) or Accessibility (Windows 11).",
+    "Select Narrator and toggle it on to activate the built-in screen reader.",
+    "On earlier Windows versions:",
+    "Install a browser extension like Speechify to read web content aloud.",
+    "Mac®/macOS®:",
+    "In Safari, go to Edit > Speech > Start Speaking to have your Mac read the text aloud.",
+    "To stop, go to Edit > Speech > Stop Speaking.",
+    "For detailed instructions on enabling text-to-speech for your device or browser, please refer to your device’s user guide."
+  ],
+  "images": []
+}

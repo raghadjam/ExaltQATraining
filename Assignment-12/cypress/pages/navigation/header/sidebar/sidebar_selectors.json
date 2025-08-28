@@ -1,0 +1,22 @@
+{
+    "smartphones": "smartphones",
+    "feature": "feature-phones",
+    "tablets": "tablets",
+    "accessories": "accessories",
+    "offgrid": "hmd-offgrid?sku=8P00000336",
+    "business": "for-business",
+    "parent": "drawer-nav-menu",
+    "sideBtn": "hamburger",
+    "subLinks": "#navigation-secondary-menu-drawer",
+    
+    "second_links": {
+        "Who we are": "about",
+        "Newsroom": "press",
+        "Blog": "blog",
+        "Self-repair": "self-repair",
+        "Device recycling": "device-recycling",
+        "Sustainability": "sustainability",
+        "Support": "support",
+        "International": "choose-your-language" 
+    }
+}

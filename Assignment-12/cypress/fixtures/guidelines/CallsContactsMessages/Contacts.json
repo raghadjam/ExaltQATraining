@@ -1,0 +1,19 @@
+{
+  "container": "Contacts",
+  "texts": [
+    "Add a contact",
+    "Select Menu > Contacts > menu > Add new contact.",
+    "Select where to save the contact.",
+    "Write the name, and type in the number.",
+    "Select menu > Save contact.",
+    "Save a contact from the call logs",
+    "Select Menu > Call logs, and select the call type.",
+    "Scroll to the number you want to save and select menu > Add to contacts > New contact.",
+    "Select where to save the contact.",
+    "Add the contact details and select menu > Save contact.",
+    "Call a contact",
+    "You can call a contact directly from the contacts list.",
+    "Select Menu > Contacts, scroll to the contact you want to call, and press the call key."
+  ],
+  "images": []
+}

@@ -1,0 +1,11 @@
+{
+  "container": "Vehicles",
+  "texts": [
+    "Radio signals may affect improperly installed or inadequately shielded electronic systems in vehicles. For more info, check with the manufacturer of your vehicle or its equipment.",
+    "Only authorized personnel should install the device in a vehicle. Faulty installation may be dangerous and invalidate your warranty.",
+    "Check regularly that all wireless device equipment in your vehicle is mounted and operating properly.",
+    "Do not store or carry flammable or explosive materials in the same compartment as the device, its parts, or accessories.",
+    "Do not place your device or accessories in the air bag deployment area."
+  ],
+  "images": []
+}

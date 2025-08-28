@@ -1,0 +1,21 @@
+{
+  "BASE_URL": "https://www.nokia.com/support/licensed-products/",
+  "SUPPORT_URL": "https://www.hmd.com/en_int",
+  "GUIDE_URL": "support/hmd-barca-3210-user-guide",
+  "YOUTUBE_COOKIES": "span.VfPpkd-vQzf8d",
+
+  "mainPage": {
+    "ACCEPT_ALL": "#onetrust-accept-btn-handler",
+    "PHONES": "a.title-arrow[data-once='data-layer-event']"
+  },
+
+  "support": {
+    "ACCEPT_ALL_BTN": "#modalAcceptAllBtn",
+    "LANGUAGE_SELECTOR": "user-guide-language-selector",
+    "LANGUAGE_PARENT": "SupportUserGuideOnline::0",
+    "ENGLISH": "English (International)",
+    "BROWSE": "browse-all-products",
+    "BROWSE_PARENT": "SupportDtcProductPicker::1",
+    "PHONE_NAME": "HMD Barça 3210"
+  }
+}

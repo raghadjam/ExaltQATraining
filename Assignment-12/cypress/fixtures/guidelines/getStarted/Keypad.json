@@ -1,0 +1,19 @@
+{
+  "container": "Keypad",
+  "texts": [
+    "Keypad",
+    "Use the phone keys",
+    "To see the apps and features of your phone, on the home screen, select Menu.",
+    "To go to an app or feature, press the scroll key up, down, left, or right. To open the app or feature, press the scroll key.",
+    "If you have selected the zoomed menu view, press the scroll key up or down to go to an app or feature. To open the app or feature, press the scroll key.",
+    "Lock the keypad",
+    "To lock the keys, select reply > Lock keypad. To unlock the keys, select Unlock, and press *.",
+    "Write with the keypad",
+    "Press a key repeatedly until the letter is shown.",
+    "To type in a space press 0.",
+    "To type in a special character or punctuation mark, press the asterisk key, or if you are using predictive text, press and hold the # key.",
+    "To switch between character cases, press # repeatedly.",
+    "To type in a number, press and hold a number key."
+  ],
+  "images": []
+}

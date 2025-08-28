@@ -1,0 +1,21 @@
+{
+  "container": "Charge your device",
+  "texts": [
+    "Charge your device",
+    "Your battery has been partially charged at the factory, but you may need to recharge it before you can use your device.",
+    "Charge the battery",
+    "Plug the charger into a wall outlet.",
+    "Connect the charger to the device.",
+    "Do not overcharge the battery: once charging of your device is complete, first unplug the charger from the device and then from the electrical outlet.",
+    "Do not overuse the battery: avoid letting the battery charge drop below 20% or using it until it runs out of power and shuts down.",
+    "If the battery is completely discharged, it may take several minutes before the charging indicator is displayed.",
+    "Tip: You can use USB charging when a wall outlet is not available. The efficiency of USB charging power varies significantly, and it may take a long time for charging to start and the device to start functioning.",
+    "Charger model",
+    "For EU countries: Use your device only with an original BL-25AA rechargeable battery. Charge your device with the HAC-18 charger. Charger plug type may vary. HMD Global may make additional battery or charger models available for this device.",
+    "For environmental reasons this package does not include a charger. This device can be powered with most USB power adapters and a cable with USB Type-C plug. Use only chargers and cables that are compliant with applicable country regulations, and international and regional safety standards to avoid any risk of property loss or personal injury. The power delivered by the charger must be between min 2 Watts required by the radio equipment, and max 5 Watts in order to achieve the maximum charging speed.",
+    "Your device supports the USB-C cable. You can also charge your device from a computer with a USB cable, but it may take a longer time.",
+    "For other countries: Charge your device with the HAD-005 charger. HMD Global may make additional battery or charger models available for this device. Charging time can vary depending on device capability. Some of the accessories mentioned in this user guide, such as charger, headset, or data cable, may be sold separately.",
+    "When charger is not included in the sales box, charge your device using the data cable (included) and a USB power adaptor (may be sold separately). You can charge your device with third-party cables and power adaptors that are compliant with USB 2.0 or later and with applicable country regulations and international and regional safety standards. Other adaptors may not meet applicable safety standards, and charging with such adaptors could pose a risk of property loss or personal injury. It is recommended to use a power adaptor with an input of 100-240V~50/60Hz 0.1A and output of 5V/1A to optimise the charging of your device."
+  ],
+  "images": []
+}

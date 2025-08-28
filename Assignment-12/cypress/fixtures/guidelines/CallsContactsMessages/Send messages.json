@@ -1,0 +1,13 @@
+{
+  "container": "Send messages",
+  "texts": [
+    "Write and send messages",
+    "Select Menu > Messages > + New message.",
+    "Type in a phone number, or press groups and select a recipient from your contacts list.",
+    "Write your message.",
+    "To insert symbols to the message, press *.",
+    "Select Send. If asked, select which SIM to use.",
+    "You can send text messages that are longer than the character limit for a single message. Longer messages are sent as two or more messages. Your service provider may charge accordingly. Characters with accents, other marks, or some language options, take more space, and limit the number of characters that can be sent in a single message."
+  ],
+  "images": []
+}

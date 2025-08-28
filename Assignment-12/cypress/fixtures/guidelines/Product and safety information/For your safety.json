@@ -1,0 +1,32 @@
+{
+  "container": "For your safety",
+  "texts": [
+    "Read these simple guidelines. Not following them may be dangerous or against local laws and regulations. For further info, read the complete user guide.",
+    "SWITCH OFF IN RESTRICTED AREAS",
+    "Switch the device off when mobile device use is not allowed or when it may cause interference or danger, for example, in aircraft, in hospitals or near medical equipment, fuel, chemicals, or blasting areas. Obey all instructions in restricted areas.",
+    "ROAD SAFETY COMES FIRST",
+    "Obey all local laws. Always keep your hands free to operate the vehicle while driving. Your first consideration while driving should be road safety.",
+    "INTERFERENCE",
+    "All wireless devices may be susceptible to interference, which could affect performance.",
+    "AUTHORIZED SERVICE",
+    "Only authorized personnel may install or repair this product unless self-repair support is available. See more info at www.hmd.com/self-repair.",
+    "BATTERIES, CHARGERS, AND OTHER ACCESSORIES",
+    "Use only batteries, chargers, and other accessories approved by HMD Global Oy for use with this device. Do not connect incompatible products.",
+    "KEEP YOUR DEVICE DRY",
+    "If your device is water-resistant, see its IP rating in the device’s technical specifications for more detailed guidance.",
+    "GLASS PARTS",
+    "The device and/or its screen is made of glass. This glass can break if the device is dropped on a hard surface or receives a substantial impact. Stop using the device until the glass is replaced.",
+    "PROTECT YOUR HEARING",
+    "To prevent possible hearing damage, do not listen at high volume levels for long periods. Exercise caution when holding your device near your ear while the loudspeaker is in use."
+  ],
+  "images": [
+    "https://images.ctfassets.net/0weg701w29lb/1oy24RqpZaGyuiU80OGGo2/eaa2e0f53d157fd74ac8d295dfd4a55c/icon_safety_switch_off.jpg?h=400&fm=png&fl=png8",
+    "https://images.ctfassets.net/0weg701w29lb/7Stu2RCjmwUGaQWGMcmoK/918e60120c33c7713838ef6675fdd635/icon_safety_road.jpg?h=400&fm=png&fl=png8",
+    "https://images.ctfassets.net/0weg701w29lb/7JaP7PvzcQWYEaYq02o8yK/6f6510cb1ddfca181cc164ac03e13912/icon_safety_interference.jpg?h=400&fm=png&fl=png8",
+    "https://images.ctfassets.net/0weg701w29lb/4KNTnbzvnyioICE2QkMq2E/c2226e5731819732c140cd32a3ee0bdd/icon_safety_service.jpg?h=400&fm=png&fl=png8",
+    "https://images.ctfassets.net/0weg701w29lb/4y21V9YXYQSaso606M2yyg/c98f9176593d75cba35aaf5d50a714ab/icon_safety_accessories.jpg?h=400&fm=png&fl=png8",
+    "https://images.ctfassets.net/0weg701w29lb/2hxFJCwZsQucKy6q84kI4O/a847c49526791459914c4aec0416e01b/icon_safety_dry_device.jpg?h=400&fm=png&fl=png8",
+    "https://images.ctfassets.net/0weg701w29lb/6oXp3usrdYuK6Os0a0ygks/8a52d4edf175ec18a00a50fe4ea0ed95/icon_safety_glass_parts4.jpg?h=400&fm=png&fl=png8",
+    "https://images.ctfassets.net/0weg701w29lb/3rUH1yEPYAK2Q2OGSIUskE/f33e604864cf8df2e23111a99928a627/icon_safety_protect_hearing.jpg?h=400&fm=png&fl=png8"
+  ]
+}
