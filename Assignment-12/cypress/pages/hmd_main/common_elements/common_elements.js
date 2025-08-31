@@ -1,4 +1,5 @@
 import selectors from '../../hmd_main/common_elements/common_elements_selector.json'
+import constants from '../../../fixtures/constants.json';
 
 class Common {
 
@@ -21,6 +22,10 @@ class Common {
     
     getNoBtn(){
         return cy.getDataTest(selectors.helpfulNo)
+    }
+
+    getLangBtn(){
+        return cy.getDataTest(constants.support.LANGUAGE_SELECTOR, constants.support.LANGUAGE_PARENT).eq(0)
     }
 
 }

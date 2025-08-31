@@ -1,4 +1,6 @@
 import constants from '../fixtures/constants';
+import { handleNavigation, handleCookies, handleAssertions, handleBack } from './utils';
+
 
 Cypress.Commands.add('getDataTest', (selector, parent) => {
   if (parent) {
@@ -9,24 +11,32 @@ Cypress.Commands.add('getDataTest', (selector, parent) => {
 })
 
 Cypress.Commands.add('acceptMainCookies', () => {
-  cy.get(constants.mainPage.ACCEPT_ALL).click({ force: true });
+  cy.get('body').then(($body) => {
+    if ($body.find(constants.mainPage.ACCEPT_ALL).length) {
+      return cy.get(constants.mainPage.ACCEPT_ALL).click({ force: true });
+    }
+  });
 });
 
+
 Cypress.Commands.add('goToPhones', () => {
-  cy.contains(constants.mainPage.PHONES, 'Phones').invoke('removeAttr', 'target').click();
+  return cy.contains(constants.mainPage.PHONES, 'Phones').invoke('removeAttr', 'target').click({ force: true }).acceptSupportCookies()
 });
 
 Cypress.Commands.add('acceptSupportCookies', () => {
   cy.get('body').then(($body) => {
     if ($body.find(constants.support.ACCEPT_ALL_BTN).length) {
-      cy.get(constants.support.ACCEPT_ALL_BTN).click({ force: true });
+      return cy.get(constants.support.ACCEPT_ALL_BTN).click({ force: true });
     }
   });
 });
 
 Cypress.Commands.add('selectFirstProduct', () => {
+  cy.acceptSupportCookies()
   cy.getDataTest(constants.support.BROWSE, constants.support.BROWSE_PARENT).eq(0).click();
+  cy.acceptSupportCookies()
   cy.contains('p', constants.support.PHONE_NAME).closest('a').click({ force: true });
+
 });
 
 Cypress.Commands.add('changeLanguageToEnglish', () => {
@@ -35,64 +45,46 @@ Cypress.Commands.add('changeLanguageToEnglish', () => {
   cy.acceptSupportCookies();
 });
 
-
-
 Cypress.Commands.add('preparePage', () => {
-  cy.viewport(1280, 720);
-  cy.acceptMainCookies();
-  cy.goToPhones();
-  cy.acceptSupportCookies();
-  cy.selectFirstProduct();
+  cy.viewport(1280, 720).acceptMainCookies().goToPhones();
+  cy.acceptSupportCookies().selectFirstProduct();
   cy.changeLanguageToEnglish();
 });
 
-Cypress.Commands.add('assertHeaderUrl', (key, header_selectors, userGuide) => {
+Cypress.Commands.add('assertHeaderUrl', (key, header_selectors, userGuide, lang = 0) => {
+  let expectedUrl = ""
   const base = constants.SUPPORT_URL;
   const guideLink = userGuide ? `/${constants.GUIDE_URL}` : '';
   const path = header_selectors[key] ? `/${header_selectors[key]}` : '';
-  let expectedUrl = ""
+
+  if (lang) {
+    expectedUrl = `${constants.MAIN_URL}/${header_selectors[key]}${constants.BASE_LANG}`
+    return cy.url().should('eq', expectedUrl);
+  }
+
   if (path.includes('https')) {
     expectedUrl = `${header_selectors[key]}`;
+  }
+  else if (path.includes('hmd-offgrid')) {
+    expectedUrl = `${base}${constants.OFF_GRID}`;
   }
   else {
     expectedUrl = `${base}${guideLink}${path}`;
   }
-  return cy.url().should('eq', expectedUrl);
+  return cy.url({ timeout: 10000 }).should('eq', expectedUrl);
 });
 
+
 Cypress.Commands.add('clickHeaderElements', (elements, header_selectors, page, back = 0, keySel) => {
-  let userGuide = 0;
-
   Object.entries(elements).forEach(([key, element]) => {
+    const userGuide = handleNavigation(page, element, keySel);
 
-    if (page && keySel) {
-      page.getParent(keySel).click({ force: true });
-      userGuide = 1;
-      element().click({ force: true });
-
-    } else if (page) {
-      page.getParent().click({ force: true });
-      element().click({ force: true });
-
-    } else {
-      element().invoke('removeAttr', 'target').click({ force: true });
-    }
-
-    cy.acceptSupportCookies();
-
-    if (key.toLowerCase() === 'youtube') {
-      cy.acceptYoutubeCookies();
-    }
-
-    if (page && keySel) {
-      cy.checkPageContent(keySel, key);
-    }
-    cy.assertHeaderUrl(key, header_selectors, userGuide);
-
-    if (back) {
-      cy.go('back');
-      cy.acceptSupportCookies();   
-    }
+    handleCookies(key);
+    cy.then(() => {
+      handleAssertions(key, keySel, page, header_selectors, userGuide);
+    }).then(() => {
+      handleBack(back);
+    });
   });
 });
 

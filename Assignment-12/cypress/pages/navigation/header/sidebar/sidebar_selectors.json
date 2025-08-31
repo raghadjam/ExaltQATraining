@@ -3,7 +3,7 @@
     "feature": "feature-phones",
     "tablets": "tablets",
     "accessories": "accessories",
-    "offgrid": "hmd-offgrid?sku=8P00000336",
+    "offgrid": "hmd-offgrid",
     "business": "for-business",
     "parent": "drawer-nav-menu",
     "sideBtn": "hamburger",

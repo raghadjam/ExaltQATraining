@@ -1,6 +1,7 @@
 import common from '../pages/hmd_main/common_elements/common_elements'
 import selectors from '../pages/hmd_main/common_elements/common_elements_selector.json'
 import constants from '../fixtures/constants';
+import {handleCookies} from '../support/utils'
 
 
 describe('Verify Common elements', () => {
@@ -44,5 +45,16 @@ describe('Verify Common elements', () => {
                 .and('contain.text', 'No');
         });
     });
+
+     it.only('should navigate correctly for each language link', () => {
+    cy.fixture('languages.json').then((langs) => {
+      Object.entries(langs).forEach(([lang]) => {
+        common.getLangBtn().click()
+        cy.contains('span', lang).click();
+        cy.assertHeaderUrl(lang, langs, 0,1);
+        handleCookies()
+      });
+    });
+  });
 
 })

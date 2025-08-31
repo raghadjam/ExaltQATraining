@@ -11,10 +11,6 @@ describe('Verify HMD elements', () => {
         cy.preparePage()
     })
 
-    it('Checks that pages are loaded successfully from useful links', () => {
-        cy.clickHeaderElements(usefulLinks.getSubElements(), useful_links.links, null, 1, null);
-    })
-
     Object.entries(guidelines_selectors).forEach(([key]) => {
         it(`Checks that pages are loaded successfully from ${key}`, () => {
             cy.clickHeaderElements(
@@ -26,4 +22,8 @@ describe('Verify HMD elements', () => {
             );
         });
     }); 
+    
+    it('Checks that pages are loaded successfully from useful links', () => {
+        cy.clickHeaderElements(usefulLinks.getSubElements(), useful_links.links, null, 1, null);
+    })
 })

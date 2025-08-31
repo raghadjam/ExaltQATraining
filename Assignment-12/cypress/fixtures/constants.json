@@ -1,8 +1,13 @@
 {
   "BASE_URL": "https://www.nokia.com/support/licensed-products/",
   "SUPPORT_URL": "https://www.hmd.com/en_int",
+  "MAIN_URL": "https://www.hmd.com",
   "GUIDE_URL": "support/hmd-barca-3210-user-guide",
+  "OFF_GRID": "/hmd-offgrid?sku=8P00000336",
   "YOUTUBE_COOKIES": "span.VfPpkd-vQzf8d",
+  "BASE_LANG" : "/support/hmd-barca-3210-user-guide/keys-and-parts",
+  "OPEN_CLASS": "details.bold.elbozha1",
+
 
   "mainPage": {
     "ACCEPT_ALL": "#onetrust-accept-btn-handler",
