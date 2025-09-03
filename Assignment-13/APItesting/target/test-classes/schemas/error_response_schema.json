@@ -1,0 +1,32 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "message": {
+      "type": "string"
+    },
+    "errors": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "resource": { "type": "string" },
+          "field": { "type": "string" },
+          "code": { "type": "string" }
+        },
+        "required": ["resource", "field", "code"]
+      }
+    },
+    "documentation_url": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "message",
+    "documentation_url",
+    "status"
+  ]
+}
