@@ -1,0 +1,1 @@
+{"uuid":"5aaa6c54-333e-44ae-85f5-2bf1fefe2a83","name":"Valid query test: 64778136 name:bug","children":["725587b5-210e-4dad-921a-c080a7f757e5"],"befores":[{"name":"setup","status":"passed","stage":"finished","steps":[],"attachments":[],"parameters":[],"start":1757421916539,"stop":1757421916539}],"afters":[],"start":1757421916536,"stop":1757421916977}

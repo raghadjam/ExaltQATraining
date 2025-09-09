@@ -1,0 +1,1 @@
+{"uuid":"2933a7a7-9b84-45ec-a355-d0f4f0064a51","name":"Valid query test: stars:50","children":["2971d25a-5987-4ad3-9dc9-413810212215"],"befores":[{"name":"setup","status":"passed","stage":"finished","steps":[],"attachments":[],"parameters":[],"start":1757421925105,"stop":1757421925106}],"afters":[],"start":1757421925104,"stop":1757421926605}

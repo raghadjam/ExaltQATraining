@@ -60,27 +60,14 @@ public class Utils {
 
             response = spec.when().get(endpoint);
         } else {
-            // handle other endpoints
             String q = query;
-            String per_page = null, sort = null, order = null;
+            String per_page = extractParam(query, "per_page");
+            String sort = extractParam(query, "sort");
+            String order = extractParam(query, "order");
 
-            if (q.contains("per_page=")) {
-                String[] parts = q.split("per_page=");
-                per_page = parts[1].split("\\s|\\+")[0].trim();
-                q = q.replace("per_page=" + per_page, "").trim();
-            }
-
-            if (q.contains("sort=")) {
-                String[] parts = q.split("sort=");
-                sort = parts[1].split("\\s|\\+")[0].trim();
-                q = q.replace("sort=" + sort, "").trim();
-            }
-
-            if (q.contains("order=")) {
-                String[] parts = q.split("order=");
-                order = parts[1].split("\\s|\\+")[0].trim();
-                q = q.replace("order=" + order, "").trim();
-            }
+            if (per_page != null) q = q.replace("per_page=" + per_page, "").trim();
+            if (sort != null) q = q.replace("sort=" + sort, "").trim();
+            if (order != null) q = q.replace("order=" + order, "").trim();
 
             RequestSpecification spec = requestSpec.queryParam("q", q);
             if (per_page != null)
@@ -99,12 +86,12 @@ public class Utils {
     public void assertInvalidQuery(Response response) {
         response.then()
                 .statusCode(Constants.STATUS_VALIDATION_FAILED)
-                .body(matchesJsonSchemaInClasspath("schemas/error_response_schema.json"));
-        anyOf(
-                containsString(Constants.ERROR_VALIDATION_FAILED),
-                containsString(Constants.ERROR_INVALID_INPUT),
-                containsString((Constants.ERROR_INVALID_ISSUE_PR)),
-                containsString((Constants.ERROR_LANGUAGE)));
+                .body(matchesJsonSchemaInClasspath("schemas/error_response_schema.json"))
+                .body("message", anyOf(
+                    containsString(Constants.ERROR_VALIDATION_FAILED),
+                    containsString(Constants.ERROR_INVALID_INPUT),
+                    containsString(Constants.ERROR_INVALID_ISSUE_PR),
+                    containsString(Constants.ERROR_LANGUAGE)));
     }
 
     public void assertValidQuery(Response response, String query, String schema) {
@@ -257,4 +244,12 @@ public class Utils {
             }
         }
     }
+    
+    private String extractParam(String query, String key) {
+    if (query.contains(key + "=")) {
+        String value = query.split(key + "=")[1].split("\\s|\\+")[0].trim();
+        return value;
+    }
+    return null;
+}
 }
