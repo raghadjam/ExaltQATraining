@@ -1,5 +1,4 @@
 package com.example.search_api.support;
-
 import io.github.cdimascio.dotenv.Dotenv;
 
 public class Constants {
@@ -27,87 +26,121 @@ public class Constants {
     public static final String ERROR_VALIDATION_FAILED = "Validation Failed";
     public static final String ERROR_INVALID_INPUT = "ERROR_TYPE_QUERY_PARSING_FATAL unable to parse query!";
     public static final String ERROR_INVALID_ISSUE_PR = "Query must include 'is:issue' or 'is:pull-request'";
+    public static final String ERROR_LANGUAGE =  "ERROR_TYPE_QUERY_PARSING_FATAL Unknown language:";
 
     public static final String[] INVALID_QUERIES = {
             "repo: A B C D E F G H I J K L M N O P",
             "",
+            "a".repeat(257),
     };
 
+    public static final String[] REPO_INVALID_QUEIRES = {
+            "language:py"
+    };
+
+    public static final String[] CODE_INVALID_QUERIES = {
+            "repo: A B C D E F G H I J K L M N O P",
+            "",
+            "language:py",
+    };
+    
     // Code search queries
     public static final String[] CODE_QUERIES = {
+            "language:java per_page=0",
+            "language:java per_page=20",
+            "language:java per_page=-200",
+            "language:java per_page=200",
             "filename:README.md",
             "filename:index.html repo:raghadjam/Exalt-QA-Training-2025-raghad-jamhour",
             "path:Assignment-5 repo:raghadjam/Exalt-QA-Training-2025-raghad-jamhour",
             "requests repo:raghadjam/Exalt-QA-Training-2025-raghad-jamhour",
-            "language:python repo:raghadjam/Exalt-QA-Training-2025-raghad-jamhour",
             "filename:index.html path:Assignment-10 language:html",
+            "language:java",
     };
 
     // Commit search queries
     public static final String[] COMMIT_QUERIES = {
             "12 repo:raghadjam/Exalt-QA-Training-2025-raghad-jamhour",
+            "12 repo:raghadjam/Exalt-QA-Training-2025-raghad-jamhour sort=committer-date order=desc",
             "author:raghadjam",
-            "committer-date:>2025-01-01",
-            "committer-email:raghadjamhour@gmail.com"
+            "committer-date:2025-01-01",
+            "committer-email:raghadjamhour@gmail.com",
+            "12 per_page=200",
+            "12 per_page=-200",
+            "12 per_page=0",
+            "12 per_page=20",
     };
 
     public static final String[] ISSUE_INVALID_QUERIES = {
-            "label:enhancement",
+            "label:enhancement",  // Missing is:type
     };
 
     // Issues and PR search queries
     public static final String[] ISSUE_QUERIES = {
-            "cats and dogs is:pr",
-            "is:open is:pr",
-            "label:enhancement is:pr",
-            "comments:500 is:pr",
-            "updated_at:2014-03-03T18:58:10Z is:pr",
-            "closed_at:>2013-02-12T13:22:01Z is:pr",
-            "due_on:>2012-10-09T23:39:01Z is:pr"
+            "cats is:issue",
+            "apple is:issue sort=comment order=asc",
+            "label:enhancement is:issue",
+            "is:issue updated:2019-04-30",
+            "created:2019-04-30 is:issue",
+            "per_page=200 is:issue state:open",
+            "per_page=-200 is:issue state:open",
+            "per_page=0 is:issue state:open",
+            "per_page=20 is:issue state:open",
     };
 
     // Invalid queries for Search Labels
     public static final String[] LABEL_INVALID_QUERIES = {
-            "64778136 ", // missing 'q'
-            " bug", // missing 'repository_id'
-            "0 " // invalid repo ID
+            "64778136  ", // missing 'q'
+            "  bug", // missing 'repository_id'
+            "0  ", // invalid repo ID
     };
 
     // Label search queries
     public static final String[] LABEL_QUERIES = {
-            "64778136 bug",
+            "64778136 name:bug",
+            "64778136 name:bug per_page=200",
+            "64778136 name:bug per_page=-200",
+            "64778136 name:bug per_page=0",
+            "64778136 name:bug per_page=20",
     };
 
     // Repo search queries
     public static final String[] REPO_QUERIES = {
-            "language:java", // search by language
+            "lang:java", // search by language
             "topic:api", // search by topic
             "user:raghadjam", // search repos of user
-            "stars:>50", // search repos with stars > 50
-            "language:python stars:>100", // combine qualifiers
+            "stars:50", // search repos with stars > 50
             "test", // simple keyword search
-            "watchers_count:>15",
-            "forks_count:>5",
-            "open_issues_count:>5",
+            "forks:5",
+            "test sort=stars",
+            "test per_page=200",
+            "test per_page=-200",
+            "test per_page=0",
+            "test per_page=20",
     };
 
     public static final String[] TOPIC_INVALID_QUERIES = {
-            ""
+            "",
+            "a".repeat(257)
     };
 
     // Topic search queries
     public static final String[] TOPIC_QUERIES = {
             "Q",
-            "created:>2016-01-01"
+            "created:2020-01-01",
+            "Q per_page=200",
+            "Q per_page=-200",
+            "Q per_page=0",
+            "Q per_page=20",
+            
     };
 
     public static final String[] USER_QUERIES = {
-            "john", // username or name contains 'john'
-            "location:Berlin", // users in Berlin
-            "followers:>100", // users with more than 100 followers
-            "repos:>50", // users with more than 50 repos
+            "Ahmad", // username or name contains 'john'
             "type:org", // organizations only
-            "created:>2022-01-01", // created after Jan 1, 2022
-            "in:login jane" // search 'jane' in username
+            "Ahmad per_page=200",
+            "Ahmad per_page=-200",
+            "Ahmad per_page=20",
+            "Ahmad per_page=0",
     };
 }

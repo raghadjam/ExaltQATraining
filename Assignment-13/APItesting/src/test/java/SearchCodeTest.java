@@ -7,6 +7,7 @@ import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import static io.restassured.RestAssured.*;
 
+
 public class SearchCodeTest {
 
     private RequestSpecification requestSpec;
@@ -31,14 +32,14 @@ public class SearchCodeTest {
     @ParameterizedTest(name = "Invalid query test: {0}")
     @MethodSource("invalidCodQueries")
     void testInvalidQueries(String query) {
-        Response response = api.search(Constants.SEARCH_CODE_ENDPOINT, query);
+        Response response = api.searchWithRetry(Constants.SEARCH_CODE_ENDPOINT, query);
         api.assertInvalidQuery(response);
     }
 
     @ParameterizedTest(name = "Valid query test: {0}")
     @MethodSource("codeQueryProvider")
     void testValidQueries(String query) {
-        Response response = api.search(Constants.SEARCH_CODE_ENDPOINT, query);
+        Response response = api.searchWithRetry(Constants.SEARCH_CODE_ENDPOINT, query);
         api.assertValidQuery(response, query, "schemas/search_code_schema.json");
     }
 }

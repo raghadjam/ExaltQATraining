@@ -10,6 +10,7 @@ import com.example.search_api.support.Utils;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 
+
 public class SearchLabelTest {
     
     private RequestSpecification requestSpec;
@@ -17,6 +18,7 @@ public class SearchLabelTest {
 
     @BeforeEach
     void setup() {
+        
         requestSpec = given()
                 .baseUri(Constants.BASE_URL)
                 .auth().oauth2(Constants.TOKEN);
@@ -34,14 +36,14 @@ public class SearchLabelTest {
     @ParameterizedTest(name = "Invalid query test: {0}")
     @MethodSource("invalidLabelQueries")
     void testInvalidQueries(String query) {
-        Response response = api.search(Constants.SEARCH_LABEL_ENDPOINT, query);
+        Response response = api.searchWithRetry(Constants.SEARCH_LABEL_ENDPOINT, query);
         api.assertInvalidQuery(response);
     }
 
     @ParameterizedTest(name = "Valid query test: {0}")
     @MethodSource("LabelQueryProvider")
     void testValidQueries(String query) {
-        Response response = api.search(Constants.SEARCH_LABEL_ENDPOINT, query);
+        Response response = api.searchWithRetry(Constants.SEARCH_LABEL_ENDPOINT, query);
         api.assertValidQuery(response, query,"schemas/search_label_schema.json");
     }
 }

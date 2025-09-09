@@ -8,6 +8,7 @@ import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import static io.restassured.RestAssured.*;
 
+
 public class SearchIssuesPR {
 
     private RequestSpecification requestSpec;
@@ -15,6 +16,7 @@ public class SearchIssuesPR {
 
     @BeforeEach
     void setup() {
+        
         requestSpec = given()
                 .baseUri(Constants.BASE_URL)
                 .auth().oauth2(Constants.TOKEN);
@@ -23,7 +25,7 @@ public class SearchIssuesPR {
     }
     
     static String[] invalidIssueQueries() {
-        return Utils.invalidQueryProvider("issues");
+        return Utils.invalidQueryProvider("issue");
     }
         static String[] issuesQueryProvider() {
     return Constants.ISSUE_QUERIES;
@@ -32,14 +34,14 @@ public class SearchIssuesPR {
     @ParameterizedTest(name = "Invalid query test: {0}")
     @MethodSource("invalidIssueQueries")
     void testInvalidQueries(String query) {
-        Response response = api.search(Constants.SEARCH_ISSUE_ENDPOINT, query);
+        Response response = api.searchWithRetry(Constants.SEARCH_ISSUE_ENDPOINT, query);
         api.assertInvalidQuery(response);
     }
 
     @ParameterizedTest(name = "Valid query test: {0}")
     @MethodSource("issuesQueryProvider")
     void testValidQueries(String query) {
-        Response response = api.search(Constants.SEARCH_ISSUE_ENDPOINT, query);
+        Response response = api.searchWithRetry(Constants.SEARCH_ISSUE_ENDPOINT, query);
         api.assertValidQuery(response, query,"schemas/search_issues_schema.json");
     }
 }

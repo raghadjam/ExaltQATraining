@@ -10,6 +10,7 @@ import com.example.search_api.support.Utils;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 
+
 public class SearchTopicsTest {
     
     private RequestSpecification requestSpec;
@@ -17,6 +18,7 @@ public class SearchTopicsTest {
 
     @BeforeEach
     void setup() {
+        
         requestSpec = given()
                 .baseUri(Constants.BASE_URL)
                 .auth().oauth2(Constants.TOKEN);
@@ -34,14 +36,14 @@ public class SearchTopicsTest {
     @ParameterizedTest(name = "Invalid query test: {0}")
     @MethodSource("invalidRepoQueries")
     void testInvalidQueries(String query) {
-        Response response = api.search(Constants.SEARCH_TOPIC_ENDPOINT, query);
+        Response response = api.searchWithRetry(Constants.SEARCH_TOPIC_ENDPOINT, query);
         api.assertInvalidQuery(response);
     }
 
     @ParameterizedTest(name = "Valid query test: {0}")
     @MethodSource("TopicQueryProvider")
     void testValidQueries(String query) {
-        Response response = api.search(Constants.SEARCH_TOPIC_ENDPOINT, query);
+        Response response = api.searchWithRetry(Constants.SEARCH_TOPIC_ENDPOINT, query);
         api.assertValidQuery(response, query,"schemas/search_topic_schema.json");
     }    
 }

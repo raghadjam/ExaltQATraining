@@ -1,0 +1,23 @@
+{
+  "repo": "repository.full_name",
+  "filename": "name",
+  "language": "name",
+  "author": "author.login",
+  "path": "path",
+  "committer-date": "commit.committer.date",
+  "committer-email": "commit.committer.email",
+  "is": "url",
+  "state": "state",
+  "label": "labels.name",
+  "comment": "comment",
+  "updated": "updated_at",
+  "created": "created_at",
+  "name": "name",
+  "topic": "topics",
+  "user": "owner.login",
+  "stars":"stargazers_count",
+  "forks": "forks_count",
+  "lang": "language",
+  "type": "type",
+  "user_view_type": "author.user_view_type"
+}

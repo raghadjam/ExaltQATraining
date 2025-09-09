@@ -17,6 +17,7 @@ public class SearchRepoTest {
 
     @BeforeEach
     void setup() {
+        
         requestSpec = given()
                 .baseUri(Constants.BASE_URL)
                 .auth().oauth2(Constants.TOKEN);
@@ -34,14 +35,14 @@ public class SearchRepoTest {
     @ParameterizedTest(name = "Invalid query test: {0}")
     @MethodSource("invalidRepoQueries")
     void testInvalidQueries(String query) {
-        Response response = api.search(Constants.SEARCH_REPO_ENDPOINT, query);
+        Response response = api.searchWithRetry(Constants.SEARCH_REPO_ENDPOINT, query);
         api.assertInvalidQuery(response);
     }
 
     @ParameterizedTest(name = "Valid query test: {0}")
     @MethodSource("RepoQueryProvider")
     void testValidQueries(String query) {
-        Response response = api.search(Constants.SEARCH_REPO_ENDPOINT, query);
+        Response response = api.searchWithRetry(Constants.SEARCH_REPO_ENDPOINT, query);
         api.assertValidQuery(response, query,"schemas/search_repo_schema.json");
     }
 }
