@@ -46,14 +46,14 @@ describe('Verify Common elements', () => {
         });
     });
 
-     it.only('should navigate correctly for each language link', () => {
-    cy.fixture('languages.json').then((langs) => {
-      Object.entries(langs).forEach(([lang]) => {
-        common.getLangBtn().click()
-        cy.contains('span', lang).click();
-        cy.assertHeaderUrl(lang, langs, 0,1);
-        handleCookies()
-      });
+     it('should navigate correctly for each language link', () => {
+        cy.fixture('languages.json').then((langs) => {
+        Object.entries(langs).forEach(([lang]) => {
+            common.getLangBtn().click()
+            cy.contains('span', lang).click();
+            cy.assertHeaderUrl(lang, langs, 0,1);
+            handleCookies()
+        });
     });
   });
 

@@ -9,24 +9,21 @@
             "Enterprise solutions": "https://solutions.hmd.com/"
         }
     },
-
-
-            "International": {
+    "International": {
         "links": {
             "International": "choose-your-language"
         }
     },
         "Social": {
         "links": {
-            "Facebook": "https://www.facebook.com/hmd",
             "Instagram": "https://www.instagram.com/accounts/login/?next=https%3A%2F%2Fwww.instagram.com%2Fhmddevices%2F&is_from_rle",
+            "Facebook": "https://www.facebook.com/hmd",
             "Tiktok": "https://www.tiktok.com/@hmd",
             "Linkedin": "https://www.linkedin.com/company/hmd-global/?originalSubdomain=fi",
             "Discord": "https://discord.com/invite/PtPuyc2P56",
             "Youtube": "https://www.youtube.com/@hmddevices"
         }
     },
-
     "Planet and people": {
         "links": {
             "The Better Phone Project": "better-phone-project",
@@ -36,8 +33,6 @@
             "Security, privacy and compliance": "compliance"
         }
     },
-
-
     "Support": {
         "links": {
             "Support center": "support",
@@ -48,25 +43,21 @@
             "Accessibility": "accessibility"
         }
     },
-                "Speak Up channel": {
+    "Speak Up channel": {
         "links": {
             "Speak Up channel": "https://secure.ethicspoint.eu/domain/media/en/gui/104743/index.html"
         }
     },
-
-         "Privacy": {
+    "Privacy": {
         "links": {
             "Privacy": "privacy"
         }
     },
-
     "Terms": {
         "links": {
             "Terms": "terms"
         }
     },
-
-
     "Explore": {
         "links": {
             "Smartphones": "smartphones",
@@ -77,13 +68,11 @@
             "Nokia smartphones and tablets": "nokia-smartphones-and-tablets"
         }
     },
-        
     "Ethics": {
         "links": {
             "Ethics": "ethics"
         }
     },
-
     "parent": ".css-rwu7gl.ey131wu8",
     "CookiesBtn": "[href=\"#cookie-settings\"]",
     "Cookiesettings": "#gravitoCMP-modal-layer2",

@@ -1,0 +1,182 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 5,
+    "passes": 5,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-09-10T12:37:34.991Z",
+    "end": "2025-09-10T12:38:51.572Z",
+    "duration": 76581,
+    "testsRegistered": 5,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "ca18549d-bcf7-419d-a5ad-ff2ad56fe8d2",
+      "title": "",
+      "fullFile": "cypress\\e2e\\common.cy.js",
+      "file": "cypress\\e2e\\common.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "6e946a6c-f40e-4905-922d-9c658316ec70",
+          "title": "Verify Common elements",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Checks the Download Button",
+              "fullTitle": "Verify Common elements Checks the Download Button",
+              "timedOut": null,
+              "duration": 10509,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "_common_elements.default.clickDownload();\ncy.assertHeaderUrl('downloadLink', _common_elements_selector.default);",
+              "err": {},
+              "uuid": "5e778c72-fa3e-41d3-b19e-dc35453951ad",
+              "parentUUID": "6e946a6c-f40e-4905-922d-9c658316ec70",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Checks All Devices Button",
+              "fullTitle": "Verify Common elements Checks All Devices Button",
+              "timedOut": null,
+              "duration": 4872,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "_common_elements.default.clickAllDevices();\ncy.assertHeaderUrl('allDevicesLink', _common_elements_selector.default);",
+              "err": {},
+              "uuid": "2beb9fd2-75a0-4547-afb0-a7cfc333ef06",
+              "parentUUID": "6e946a6c-f40e-4905-922d-9c658316ec70",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should show heading text and product picture",
+              "fullTitle": "Verify Common elements should show heading text and product picture",
+              "timedOut": null,
+              "duration": 4473,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get(_common_elements_selector.default.parent).first().within(() => {\n  cy.contains(_common_elements_selector.default.text);\n  cy.get('img').should('have.attr', 'srcset').and('include', _common_elements_selector.default.url);\n});",
+              "err": {},
+              "uuid": "a5f47a85-dcdb-4a0b-94fb-31ab4652c890",
+              "parentUUID": "6e946a6c-f40e-4905-922d-9c658316ec70",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should show helpfulness question with Yes/No buttons",
+              "fullTitle": "Verify Common elements should show helpfulness question with Yes/No buttons",
+              "timedOut": null,
+              "duration": 4515,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "_common_elements.default.getIsThisHelpful().within(() => {\n  cy.contains(_common_elements_selector.default.helpfulText);\n  _common_elements.default.getYesBtn().should('exist').and('contain.text', 'Yes');\n  _common_elements.default.getNoBtn().should('exist').and('contain.text', 'No');\n});",
+              "err": {},
+              "uuid": "21693964-4958-41b4-a0aa-e0d59bfe316b",
+              "parentUUID": "6e946a6c-f40e-4905-922d-9c658316ec70",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should navigate correctly for each language link",
+              "fullTitle": "Verify Common elements should navigate correctly for each language link",
+              "timedOut": null,
+              "duration": 48963,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.fixture('languages.json').then(langs => {\n  Object.entries(langs).forEach(([lang]) => {\n    _common_elements.default.getLangBtn().click();\n    cy.contains('span', lang).click();\n    cy.assertHeaderUrl(lang, langs, 0, 1);\n    (0, _utils.handleCookies)();\n  });\n});",
+              "err": {},
+              "uuid": "5eee3448-b067-4da0-b985-3f999693a3fe",
+              "parentUUID": "6e946a6c-f40e-4905-922d-9c658316ec70",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "5e778c72-fa3e-41d3-b19e-dc35453951ad",
+            "2beb9fd2-75a0-4547-afb0-a7cfc333ef06",
+            "a5f47a85-dcdb-4a0b-94fb-31ab4652c890",
+            "21693964-4958-41b4-a0aa-e0d59bfe316b",
+            "5eee3448-b067-4da0-b985-3f999693a3fe"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 73332,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": true,
+        "json": true,
+        "charts": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

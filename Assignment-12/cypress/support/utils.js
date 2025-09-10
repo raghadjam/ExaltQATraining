@@ -12,6 +12,7 @@ function getElements(links, link_parent, element_parent, id = 0, span = 0) {
                 cy.getDataTest(element_parent).click({ force: true })
             }
             if (span == 1) {
+             handleCookies()
              return cy.get(link_parent).find('a').filter(`:contains(${key})`);
             }
             return cy.get(link_parent).find('span').contains(key)

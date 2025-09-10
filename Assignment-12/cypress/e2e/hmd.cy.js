@@ -11,7 +11,14 @@ describe('Verify HMD elements', () => {
         cy.preparePage()
     })
 
+    const ONLY_RUN = Cypress.env("GUIDELINE_KEY") || null;
+
     Object.entries(guidelines_selectors).forEach(([key]) => {
+        // Skip if this is not the key we want (when ONLY_RUN is set)
+        if (ONLY_RUN && key !== ONLY_RUN) {
+            return;
+        }
+
         it(`Checks that pages are loaded successfully from ${key}`, () => {
             cy.clickHeaderElements(
                 guidelines.getSubElements(key),
@@ -21,8 +28,9 @@ describe('Verify HMD elements', () => {
                 key
             );
         });
-    }); 
-    
+    });
+
+
     it('Checks that pages are loaded successfully from useful links', () => {
         cy.clickHeaderElements(usefulLinks.getSubElements(), useful_links.links, null, 1, null);
     })

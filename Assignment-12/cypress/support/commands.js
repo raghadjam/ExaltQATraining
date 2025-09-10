@@ -33,7 +33,7 @@ Cypress.Commands.add('acceptSupportCookies', () => {
 
 Cypress.Commands.add('selectFirstProduct', () => {
   cy.acceptSupportCookies()
-  cy.getDataTest(constants.support.BROWSE, constants.support.BROWSE_PARENT).eq(0).click();
+  cy.getDataTest(constants.support.BROWSE, constants.support.BROWSE_PARENT).eq(0).click({ force: true });
   cy.acceptSupportCookies()
   cy.contains('p', constants.support.PHONE_NAME).closest('a').click({ force: true });
 
