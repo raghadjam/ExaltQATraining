@@ -1,1 +1,0 @@
-{"uuid":"23978917-20fe-4363-9ef6-f91fd5659e7c","name":"Invalid query test:   bug","children":["4a67cd9e-8d7d-4c6e-adc8-ed9c8d4df5e7"],"befores":[{"name":"setup","status":"passed","stage":"finished","steps":[],"attachments":[],"parameters":[],"start":1757421915866,"stop":1757421915866}],"afters":[],"start":1757421915864,"stop":1757421916198}
