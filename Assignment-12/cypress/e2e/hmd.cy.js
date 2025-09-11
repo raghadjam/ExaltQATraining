@@ -14,7 +14,6 @@ describe('Verify HMD elements', () => {
     const ONLY_RUN = Cypress.env("GUIDELINE_KEY") || null;
 
     Object.entries(guidelines_selectors).forEach(([key]) => {
-        // Skip if this is not the key we want (when ONLY_RUN is set)
         if (ONLY_RUN && key !== ONLY_RUN) {
             return;
         }

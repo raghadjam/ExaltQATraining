@@ -20,7 +20,7 @@ Cypress.Commands.add('acceptMainCookies', () => {
 
 
 Cypress.Commands.add('goToPhones', () => {
-  return cy.contains(constants.mainPage.PHONES, 'Phones').invoke('removeAttr', 'target').click({ force: true }).acceptSupportCookies()
+  return cy.contains(constants.mainPage.PHONES, constants.PHONES_BTN).invoke('removeAttr', 'target').click({ force: true }).acceptSupportCookies()
 });
 
 Cypress.Commands.add('acceptSupportCookies', () => {

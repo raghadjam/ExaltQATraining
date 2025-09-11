@@ -38,11 +38,11 @@ describe('Verify Common elements', () => {
 
             common.getYesBtn()
                 .should('exist')
-                .and('contain.text', 'Yes');
+                .and('contain.text', constants.YES);
 
             common.getNoBtn()
                 .should('exist')
-                .and('contain.text', 'No');
+                .and('contain.text', constants.NO);
         });
     });
 
