@@ -1,7 +1,10 @@
 package com.example.search_api.support;
 
 import java.time.Instant;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
 import io.restassured.response.Response;
 import org.json.simple.JSONObject;
 import io.restassured.specification.RequestSpecification;
@@ -65,9 +68,12 @@ public class Utils {
             String sort = extractParam(query, "sort");
             String order = extractParam(query, "order");
 
-            if (per_page != null) q = q.replace("per_page=" + per_page, "").trim();
-            if (sort != null) q = q.replace("sort=" + sort, "").trim();
-            if (order != null) q = q.replace("order=" + order, "").trim();
+            if (per_page != null)
+                q = q.replace("per_page=" + per_page, "").trim();
+            if (sort != null)
+                q = q.replace("sort=" + sort, "").trim();
+            if (order != null)
+                q = q.replace("order=" + order, "").trim();
 
             RequestSpecification spec = requestSpec.queryParam("q", q);
             if (per_page != null)
@@ -88,10 +94,10 @@ public class Utils {
                 .statusCode(Constants.STATUS_VALIDATION_FAILED)
                 .body(matchesJsonSchemaInClasspath("schemas/error_response_schema.json"))
                 .body("message", anyOf(
-                    containsString(Constants.ERROR_VALIDATION_FAILED),
-                    containsString(Constants.ERROR_INVALID_INPUT),
-                    containsString(Constants.ERROR_INVALID_ISSUE_PR),
-                    containsString(Constants.ERROR_LANGUAGE)));
+                        containsString(Constants.ERROR_VALIDATION_FAILED),
+                        containsString(Constants.ERROR_INVALID_INPUT),
+                        containsString(Constants.ERROR_INVALID_ISSUE_PR),
+                        containsString(Constants.ERROR_LANGUAGE)));
     }
 
     public void assertValidQuery(Response response, String query, String schema) {
@@ -156,33 +162,43 @@ public class Utils {
         JsonPath json = response.jsonPath();
         String[] selectors = query.split("\\s+|\\+");
 
+        Map<String, String> criteria = new HashMap<>();
         for (String selector : selectors) {
-            if (!selector.contains(":") || selector.contains("=")) {
-                continue;
+            if (selector.contains(":") && !selector.contains("=")) {
+                String[] kv = selector.split(":", 2);
+                criteria.put(Utils.getMappedKey(kv[0].trim()), kv[1].trim());
+            }
+        }
+
+        List<Map<String, Object>> items = json.getList("items");
+
+        for (Map<String, Object> item : items) {
+            boolean allMatch = true;
+
+            for (Map.Entry<String, String> entry : criteria.entrySet()) {
+                Object value = getNestedValue(item, entry.getKey());
+                if (value == null || !value.toString().toLowerCase().contains(entry.getValue().toLowerCase())) {
+                    allMatch = false;
+                    System.out.println("Failed key: " + entry.getKey() +
+                            ", expected: " + entry.getValue() +
+                            ", actual: " + value);
+                    break;
+                }
             }
 
-            String[] kv = selector.split(":", 2);
-            String key = kv[0].trim();
-            String expected = kv[1].trim();
-
-            key = Utils.getMappedKey(key);
-
-            List<Object> values = json.getList("items." + key);
-
-            boolean found = values.stream().allMatch(item -> containsValue(item, expected));
-
-            assertThat("Selector not found: " + selector, found, is(true));
+            assertThat("Item does not match all criteria: " + item, allMatch, is(true));
         }
     }
 
-    private boolean containsValue(Object obj, String expected) {
-        if (obj instanceof List) {
-            return ((List<?>) obj).stream()
-                    .anyMatch(v -> v != null && v.toString().toLowerCase().contains(expected.toLowerCase()));
-        } else if (obj != null) {
-            return obj.toString().toLowerCase().contains(expected.toLowerCase());
+    private Object getNestedValue(Map<String, Object> item, String keyPath) {
+        String[] keys = keyPath.split("\\.");
+        Object current = item;
+
+        for (String key : keys) {
+            current = ((Map<String, Object>) current).get(key);
         }
-        return false;
+
+        return current;
     }
 
     private void checkSortOrder(Response response, String query) {
@@ -244,12 +260,12 @@ public class Utils {
             }
         }
     }
-    
+
     private String extractParam(String query, String key) {
-    if (query.contains(key + "=")) {
-        String value = query.split(key + "=")[1].split("\\s|\\+")[0].trim();
-        return value;
+        if (query.contains(key + "=")) {
+            String value = query.split(key + "=")[1].split("\\s|\\+")[0].trim();
+            return value;
+        }
+        return null;
     }
-    return null;
-}
 }

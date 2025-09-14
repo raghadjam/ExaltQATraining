@@ -1,0 +1,1 @@
+{"uuid":"c06c956a-f37b-4aef-842e-391a2ad83909","name":"Valid query test: language:java","children":["ec94bab5-13d4-4194-821a-0c91695cba2e"],"befores":[{"name":"setup","status":"passed","stage":"finished","steps":[],"attachments":[],"parameters":[],"start":1757827182122,"stop":1757827182122}],"afters":[],"start":1757827182120,"stop":1757827182889}

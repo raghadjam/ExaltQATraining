@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: SearchUserTest
 -------------------------------------------------------------------------------
-Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.67 s - in SearchUserTest
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.812 s - in SearchUserTest
