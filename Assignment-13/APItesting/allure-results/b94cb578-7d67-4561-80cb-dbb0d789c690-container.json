@@ -1,0 +1,1 @@
+{"uuid":"b94cb578-7d67-4561-80cb-dbb0d789c690","name":"Valid query test: committer-email:raghadjamhour@gmail.com","children":["f816d96f-aadf-435d-9b46-e6f6ca2b528f"],"befores":[{"name":"setup","status":"passed","stage":"finished","steps":[],"attachments":[],"parameters":[],"start":1758017043942,"stop":1758017043942}],"afters":[],"start":1758017043940,"stop":1758017045188}
