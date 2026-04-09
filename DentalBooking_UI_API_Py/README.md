@@ -1,4 +1,4 @@
-# Assignment 8 — Selenium + Requests: Dental Booking System (UI & API Testing)
+# Assignment 7 — Selenium + Requests: Dental Booking System (UI & API Testing)
 
 ## Overview
 
