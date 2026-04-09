@@ -1,5 +1,4 @@
 
-```markdown
 # Exalt QA Training 2025 — Raghad Jamhour 
 
 ## Overview
