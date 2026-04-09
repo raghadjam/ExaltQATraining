@@ -1,4 +1,4 @@
-# Assignment 7 — Selenium + Python UI & API Testing: Civil Registration System V2
+# Assignment 6 — Selenium + Python UI & API Testing: Civil Registration System V2
 
 ## Overview
 
