@@ -1,4 +1,4 @@
-# Assignment 3 — JavaScript Async/Await & Promises
+# Assignment 2 — JavaScript Async/Await & Promises
 
 ## Overview
 
