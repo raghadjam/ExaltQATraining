@@ -1,4 +1,4 @@
-# Assignment 12 — REST Assured API Testing: GitHub Search API
+# Assignment 11 — REST Assured API Testing: GitHub Search API
 
 ## Overview
 
