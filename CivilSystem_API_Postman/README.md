@@ -1,4 +1,4 @@
-# Assignment 6 — Postman API Collection: Civil Registration System
+# Assignment 5 — Postman API Collection: Civil Registration System
 
 ## Overview
 
