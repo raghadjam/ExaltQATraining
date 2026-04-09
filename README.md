@@ -3,7 +3,7 @@
 
 ## Overview
 
-This repository contains **12 assignments** completed as part of the Exalt QA Training Program 2025. The assignments progress from foundational QA planning and JavaScript fundamentals through to advanced automation frameworks, performance testing, and API testing — covering the full spectrum of modern quality assurance engineering.
+This repository contains **11 assignments** completed as part of the Exalt QA Training Program 2025. The assignments progress from foundational QA planning and JavaScript fundamentals through to advanced automation frameworks, performance testing, and API testing — covering the full spectrum of modern quality assurance engineering.
 
 ---
 
