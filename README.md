@@ -15,11 +15,11 @@ This repository contains **11 assignments** completed as part of the Exalt QA Tr
 | [2](#assignment-2) | JavaScript Async/Await & Promises | JavaScript, Node.js | Programming Fundamentals |
 | [3](#assignment-3) | Cypress UI Automation — Civil Registration System | Cypress, Node.js | UI Test Automation |
 | [4](#assignment-4) | Bash Scripting | Bash | Shell Scripting |
-| [5](#assignment-5) | Postman API Collection — Civil Registration System | Postman | API Testing (Manual) |
+| [5](#assignment-5) | Postman API Collection — Civil Registration System | Postman | API Testing |
 | [6](#assignment-6) | Selenium + Python — Civil Registration System V2 | Python, Selenium, pytest | UI + API Automation |
 | [7](#assignment-7) | Selenium + Requests — Dental Booking System | Python, Selenium, pytest, GitHub Actions | UI + API + CI/CD |
 | [8](#assignment-8) | JMeter Performance Testing — Civil Registration System | Apache JMeter | Performance Testing |
-| [9](#assignment-9) | Robot Framework — Shipping Tracking System | Robot Framework, SeleniumLibrary | UI Automation (Keyword-Driven) |
+| [9](#assignment-9) | Robot Framework — Shipping Tracking System | Robot Framework, SeleniumLibrary | UI Automation |
 | [10](#assignment-10) | Cypress E2E — Nokia/HMD User Guide Website | Cypress, Mochawesome | E2E Web Testing |
 | [11](#assignment-11) | REST Assured — GitHub Search API | Java, REST Assured, JUnit 5, Allure | API Test Automation |
 
