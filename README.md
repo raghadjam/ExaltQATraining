@@ -1,5 +1,5 @@
 
-# Exalt QA Training 2025 — Raghad Jamhour 
+# Exalt QA Training 2025
 
 ## Overview
 
