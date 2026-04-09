@@ -1,4 +1,4 @@
-# Assignment 4 — Cypress UI Automation: Civil Registration System
+# Assignment 3 — Cypress UI Automation: Civil Registration System
 
 ## Overview
 
