@@ -1,4 +1,4 @@
-# Assignment 11 — Cypress E2E Testing: Nokia/HMD User Guide Website
+# Assignment 10 — Cypress E2E Testing: Nokia/HMD User Guide Website
 
 ## Overview
 
